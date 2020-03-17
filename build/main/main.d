@@ -1,5 +1,4 @@
-main.o: \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/main.c \
+main.o: /Users/drewandre/esp/a2dp_gatts_coex/main/main.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/newlib.h \
@@ -26,11 +25,12 @@ main.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/unistd.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/hal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core.h \
@@ -95,14 +95,39 @@ main.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/include/esp_bt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/bt_app_core.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/bt_app_av.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_av.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_avrc_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_main.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/semphr.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_pipeline.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
+ /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h \
+ /Users/drewandre/esp/esp-adf/components/esp_peripherals/include/esp_peripherals.h \
+ /Users/drewandre/esp/esp-adf/components/audio_sal/include/audio_error.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/event_groups.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/timers.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/task.h \
+ /Users/drewandre/esp/esp-adf/components/esp_peripherals/include/periph_touch.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h \
+ /Users/drewandre/esp/esp-adf/components/esp_peripherals/include/esp_peripherals.h \
+ /Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board.h \
+ /Users/drewandre/esp/esp-adf/components/audio_hal/include/audio_hal.h \
+ /Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board_def.h \
+ /Users/drewandre/esp/esp-adf/components/audio_board/include/board_pins_config.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_struct.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_reg.h \
@@ -114,13 +139,59 @@ main.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/adc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/adc_channel.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/semphr.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_common.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/lldesc.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/include/soc/spi_periph.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_pins.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_struct.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_master.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_slave.h \
+ /Users/drewandre/esp/esp-adf/components/display_service/include/display_service.h \
+ /Users/drewandre/esp/esp-adf/components/esp_dispatcher/include/periph_service.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/esp_dsp.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_common.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err_codes.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/include/dsps_math.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/add/include/dsps_add.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/sub/include/dsps_sub.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/mul/include/dsps_mul.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/addc/include/dsps_addc.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/fir/include/dsps_fir.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/iir/include/dsps_biquad.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/include/dsps_wind.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_conv.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_corr.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_d_gen.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_h_gen.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_tone_gen.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_snr.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_sfdr.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/fft/include/dsps_fft2r.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/dct/include/dsps_dct.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/matrix/include/dspm_mult.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_view.h \
+ /Users/drewandre/esp/esp-adf/components/audio_stream/include/i2s_stream.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_ble_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatts_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_common_api.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_common_api.h \
+ /Users/drewandre/esp/esp-adf/components/bluetooth_service/include/bluetooth_service.h \
+ /Users/drewandre/esp/esp-adf/components/bluetooth_service/include/bt_keycontrol.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/main/fft_controller.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h:
 
@@ -174,6 +245,8 @@ main.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
 
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h:
+
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
@@ -182,7 +255,7 @@ main.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h:
 
@@ -312,9 +385,9 @@ main.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/bt_app_core.h:
+/Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/bt_app_av.h:
+/Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_av.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h:
 
@@ -327,6 +400,56 @@ main.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/semphr.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_pipeline.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h:
+
+/Users/drewandre/esp/esp-adf/components/esp_peripherals/include/esp_peripherals.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_sal/include/audio_error.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/event_groups.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/timers.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/task.h:
+
+/Users/drewandre/esp/esp-adf/components/esp_peripherals/include/periph_touch.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h:
+
+/Users/drewandre/esp/esp-adf/components/esp_peripherals/include/esp_peripherals.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_hal/include/audio_hal.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board_def.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_board/include/board_pins_config.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h:
 
@@ -350,9 +473,95 @@ main.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/adc_channel.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/semphr.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_common.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/lldesc.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/include/soc/spi_periph.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_pins.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_struct.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_master.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_slave.h:
+
+/Users/drewandre/esp/esp-adf/components/display_service/include/display_service.h:
+
+/Users/drewandre/esp/esp-adf/components/esp_dispatcher/include/periph_service.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/esp_dsp.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_common.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err_codes.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/include/dsps_math.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/add/include/dsps_add.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/sub/include/dsps_sub.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/mul/include/dsps_mul.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/addc/include/dsps_addc.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/fir/include/dsps_fir.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/iir/include/dsps_biquad.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/include/dsps_wind.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_conv.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_corr.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_d_gen.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_h_gen.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_tone_gen.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_snr.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_sfdr.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/fft/include/dsps_fft2r.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/dct/include/dsps_dct.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/matrix/include/dspm_mult.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/support/include/dsps_view.h:
+
+/Users/drewandre/esp/esp-adf/components/audio_stream/include/i2s_stream.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_ble_api.h:
 
@@ -363,4 +572,10 @@ main.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_common_api.h:
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/main/./main.c:
+
+/Users/drewandre/esp/esp-adf/components/bluetooth_service/include/bluetooth_service.h:
+
+/Users/drewandre/esp/esp-adf/components/bluetooth_service/include/bt_keycontrol.h:
+
+/Users/drewandre/esp/a2dp_gatts_coex/main/fft_controller.h:
+/Users/drewandre/esp/a2dp_gatts_coex/main/./main.c:

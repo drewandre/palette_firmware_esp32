@@ -40,7 +40,7 @@ esp_tls.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/vfs/include/sys/ioctl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/select.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/hal.h \
@@ -153,6 +153,7 @@ esp_tls.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aes.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/aes_alt.h \
@@ -243,7 +244,7 @@ esp_tls.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
@@ -468,6 +469,8 @@ esp_tls.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h:
 

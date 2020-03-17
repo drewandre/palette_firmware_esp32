@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/wifi_provisioning/libwifi_provisioning.a:
+In archive /Users/drewandre/esp/a2dp_gatts_coex/build/wifi_provisioning/libwifi_provisioning.a:
 
 handlers.o:     file format elf32-xtensa-le
 
@@ -68,15 +68,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  31 .debug_line   000005dd  00000000  00000000  00001b1e  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 32 .debug_str    00000bfa  00000000  00000000  000020fb  2**0
+ 32 .debug_str    00000bd7  00000000  00000000  000020fb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 33 .comment      0000003b  00000000  00000000  00002cf5  2**0
+ 33 .comment      0000003b  00000000  00000000  00002cd2  2**0
                   CONTENTS, READONLY
- 34 .xtensa.info  00000038  00000000  00000000  00002d30  2**0
+ 34 .xtensa.info  00000038  00000000  00000000  00002d0d  2**0
                   CONTENTS, READONLY
- 35 .xt.lit       00000050  00000000  00000000  00002d68  2**0
+ 35 .xt.lit       00000050  00000000  00000000  00002d45  2**0
                   CONTENTS, RELOC, READONLY
- 36 .xt.prop      000002d0  00000000  00000000  00002db8  2**0
+ 36 .xt.prop      000002d0  00000000  00000000  00002d95  2**0
                   CONTENTS, RELOC, READONLY
 
 manager.o:     file format elf32-xtensa-le
@@ -267,15 +267,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  91 .debug_line   00001f4b  00000000  00000000  0000a947  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 92 .debug_str    000022ed  00000000  00000000  0000c892  2**0
+ 92 .debug_str    000022ca  00000000  00000000  0000c892  2**0
                   CONTENTS, READONLY, DEBUGGING
- 93 .comment      0000003b  00000000  00000000  0000eb7f  2**0
+ 93 .comment      0000003b  00000000  00000000  0000eb5c  2**0
                   CONTENTS, READONLY
- 94 .xtensa.info  00000038  00000000  00000000  0000ebba  2**0
+ 94 .xtensa.info  00000038  00000000  00000000  0000eb97  2**0
                   CONTENTS, READONLY
- 95 .xt.lit       000000e0  00000000  00000000  0000ebf2  2**0
+ 95 .xt.lit       000000e0  00000000  00000000  0000ebcf  2**0
                   CONTENTS, RELOC, READONLY
- 96 .xt.prop      00001758  00000000  00000000  0000ecd2  2**0
+ 96 .xt.prop      00001758  00000000  00000000  0000ecaf  2**0
                   CONTENTS, RELOC, READONLY
 
 scheme_ble.o:     file format elf32-xtensa-le
@@ -346,15 +346,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  31 .debug_line   0000069d  00000000  00000000  00001c08  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 32 .debug_str    0000064b  00000000  00000000  000022a5  2**0
+ 32 .debug_str    00000628  00000000  00000000  000022a5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 33 .comment      0000003b  00000000  00000000  000028f0  2**0
+ 33 .comment      0000003b  00000000  00000000  000028cd  2**0
                   CONTENTS, READONLY
- 34 .xtensa.info  00000038  00000000  00000000  0000292b  2**0
+ 34 .xtensa.info  00000038  00000000  00000000  00002908  2**0
                   CONTENTS, READONLY
- 35 .xt.lit       00000048  00000000  00000000  00002963  2**0
+ 35 .xt.lit       00000048  00000000  00000000  00002940  2**0
                   CONTENTS, RELOC, READONLY
- 36 .xt.prop      000003c0  00000000  00000000  000029ab  2**0
+ 36 .xt.prop      000003c0  00000000  00000000  00002988  2**0
                   CONTENTS, RELOC, READONLY
 
 scheme_console.o:     file format elf32-xtensa-le
@@ -403,15 +403,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  20 .debug_line   000004f0  00000000  00000000  00000be0  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 21 .debug_str    0000042a  00000000  00000000  000010d0  2**0
+ 21 .debug_str    00000407  00000000  00000000  000010d0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 22 .comment      0000003b  00000000  00000000  000014fa  2**0
+ 22 .comment      0000003b  00000000  00000000  000014d7  2**0
                   CONTENTS, READONLY
- 23 .xtensa.info  00000038  00000000  00000000  00001535  2**0
+ 23 .xtensa.info  00000038  00000000  00000000  00001512  2**0
                   CONTENTS, READONLY
- 24 .xt.lit       00000018  00000000  00000000  0000156d  2**0
+ 24 .xt.lit       00000018  00000000  00000000  0000154a  2**0
                   CONTENTS, RELOC, READONLY
- 25 .xt.prop      00000168  00000000  00000000  00001585  2**0
+ 25 .xt.prop      00000168  00000000  00000000  00001562  2**0
                   CONTENTS, RELOC, READONLY
 
 scheme_softap.o:     file format elf32-xtensa-le
@@ -468,15 +468,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  24 .debug_line   000006ec  00000000  00000000  00001ba2  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 25 .debug_str    000007c3  00000000  00000000  0000228e  2**0
+ 25 .debug_str    000007a0  00000000  00000000  0000228e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 26 .comment      0000003b  00000000  00000000  00002a51  2**0
+ 26 .comment      0000003b  00000000  00000000  00002a2e  2**0
                   CONTENTS, READONLY
- 27 .xtensa.info  00000038  00000000  00000000  00002a8c  2**0
+ 27 .xtensa.info  00000038  00000000  00000000  00002a69  2**0
                   CONTENTS, READONLY
- 28 .xt.lit       00000030  00000000  00000000  00002ac4  2**0
+ 28 .xt.lit       00000030  00000000  00000000  00002aa1  2**0
                   CONTENTS, RELOC, READONLY
- 29 .xt.prop      000002ac  00000000  00000000  00002af4  2**0
+ 29 .xt.prop      000002ac  00000000  00000000  00002ad1  2**0
                   CONTENTS, RELOC, READONLY
 
 wifi_config.o:     file format elf32-xtensa-le
@@ -535,15 +535,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  25 .debug_line   000008b7  00000000  00000000  000025d6  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 26 .debug_str    00001391  00000000  00000000  00002e8d  2**0
+ 26 .debug_str    0000136e  00000000  00000000  00002e8d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 27 .comment      0000003b  00000000  00000000  0000421e  2**0
+ 27 .comment      0000003b  00000000  00000000  000041fb  2**0
                   CONTENTS, READONLY
- 28 .xtensa.info  00000038  00000000  00000000  00004259  2**0
+ 28 .xtensa.info  00000038  00000000  00000000  00004236  2**0
                   CONTENTS, READONLY
- 29 .xt.lit       00000038  00000000  00000000  00004291  2**0
+ 29 .xt.lit       00000038  00000000  00000000  0000426e  2**0
                   CONTENTS, RELOC, READONLY
- 30 .xt.prop      0000042c  00000000  00000000  000042c9  2**0
+ 30 .xt.prop      0000042c  00000000  00000000  000042a6  2**0
                   CONTENTS, RELOC, READONLY
 
 wifi_scan.o:     file format elf32-xtensa-le
@@ -602,15 +602,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  25 .debug_line   000008eb  00000000  00000000  000026f7  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 26 .debug_str    0000104a  00000000  00000000  00002fe2  2**0
+ 26 .debug_str    00001027  00000000  00000000  00002fe2  2**0
                   CONTENTS, READONLY, DEBUGGING
- 27 .comment      0000003b  00000000  00000000  0000402c  2**0
+ 27 .comment      0000003b  00000000  00000000  00004009  2**0
                   CONTENTS, READONLY
- 28 .xtensa.info  00000038  00000000  00000000  00004067  2**0
+ 28 .xtensa.info  00000038  00000000  00000000  00004044  2**0
                   CONTENTS, READONLY
- 29 .xt.lit       00000038  00000000  00000000  0000409f  2**0
+ 29 .xt.lit       00000038  00000000  00000000  0000407c  2**0
                   CONTENTS, RELOC, READONLY
- 30 .xt.prop      000003f0  00000000  00000000  000040d7  2**0
+ 30 .xt.prop      000003f0  00000000  00000000  000040b4  2**0
                   CONTENTS, RELOC, READONLY
 
 wifi_config.pb-c.o:     file format elf32-xtensa-le

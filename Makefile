@@ -5,5 +5,6 @@
 
 PROJECT_NAME := bt_ble_coex
 
-include $(IDF_PATH)/make/project.mk
+# include $(IDF_PATH)/make/project.mk
+include $(ADF_PATH)/project.mk
 

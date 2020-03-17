@@ -1,7 +1,7 @@
 pm_trace.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/pm_trace.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/pm_trace.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/gpio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
@@ -45,7 +45,7 @@ pm_trace.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/pm_trace.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/gpio.h:
 

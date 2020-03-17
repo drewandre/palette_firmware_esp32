@@ -19,7 +19,7 @@ esp-mqtt/lib/mqtt_msg.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/lib/include/mqtt_msg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/include/mqtt_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/lib/include/platform.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/lib/include/platform_esp32_idf.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
@@ -173,7 +173,7 @@ esp-mqtt/lib/mqtt_msg.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/include/mqtt_config.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mqtt/esp-mqtt/lib/include/platform.h:
 

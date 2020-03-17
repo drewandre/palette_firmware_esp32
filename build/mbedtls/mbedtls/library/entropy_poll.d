@@ -1,7 +1,7 @@
 mbedtls/library/entropy_poll.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/library/entropy_poll.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/ieeefp.h \
@@ -27,11 +27,12 @@ mbedtls/library/entropy_poll.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy_poll.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h:
 
@@ -82,6 +83,8 @@ mbedtls/library/entropy_poll.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy_poll.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/library/entropy_poll.c:

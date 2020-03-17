@@ -8,7 +8,7 @@ esp32/rtc_clk.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/uart.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/gpio.h \
@@ -59,7 +59,7 @@ esp32/rtc_clk.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
 

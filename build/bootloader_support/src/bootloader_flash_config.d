@@ -1,7 +1,7 @@
 src/bootloader_flash_config.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/src/bootloader_flash_config.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/ieeefp.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -56,7 +56,7 @@ src/bootloader_flash_config.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 

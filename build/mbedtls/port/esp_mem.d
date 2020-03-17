@@ -1,7 +1,7 @@
 port/esp_mem.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/esp_mem.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/esp_heap_caps.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -26,7 +26,7 @@ port/esp_mem.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/esp_heap_caps.h:
 

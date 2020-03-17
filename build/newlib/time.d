@@ -37,7 +37,7 @@ time.o: /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/time.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_intr_alloc.h \
@@ -174,7 +174,7 @@ time.o: /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/time.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 

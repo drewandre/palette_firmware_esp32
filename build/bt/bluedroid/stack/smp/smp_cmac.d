@@ -1,7 +1,7 @@
 bluedroid/stack/smp/smp_cmac.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/smp/smp_cmac.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -107,7 +107,7 @@ bluedroid/stack/smp/smp_cmac.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h:
 

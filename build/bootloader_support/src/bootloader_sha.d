@@ -26,7 +26,7 @@ src/bootloader_sha.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
@@ -38,7 +38,8 @@ src/bootloader_sha.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include_bootloader/bootloader_sha.h:
 
@@ -92,7 +93,7 @@ src/bootloader_sha.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 
@@ -117,4 +118,6 @@ src/bootloader_sha.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/src/bootloader_sha.c:

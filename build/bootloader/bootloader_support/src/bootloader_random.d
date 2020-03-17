@@ -18,7 +18,7 @@ src/bootloader_random.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtruntime.h \
@@ -67,7 +67,7 @@ src/bootloader_random.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
 

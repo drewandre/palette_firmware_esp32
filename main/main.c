@@ -18,10 +18,13 @@
 * of audio data packets.
 ****************************************************************************/
 
+// #include "Arduino.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <math.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "nvs.h"
@@ -37,15 +40,47 @@
 #include "esp_gap_bt_api.h"
 #include "esp_a2dp_api.h"
 #include "esp_avrc_api.h"
-#include "driver/i2s.h"
+
+#include "audio_element.h"
+#include "audio_pipeline.h"
+#include "audio_event_iface.h"
+#include "audio_common.h"
+#include "esp_peripherals.h"
+#include "periph_touch.h"
+#include "board.h"
+#include "esp_dsp.h"
+#include "i2s_stream.h"
 
 #include "esp_gap_ble_api.h"
 #include "esp_gatts_api.h"
 #include "esp_bt_defs.h"
 #include "esp_gatt_common_api.h"
 
+#include "bluetooth_service.h"
+
+#include "fft_controller.h"
+// #include "FastLED.h"
+
+// #define N_SAMPLES 1024
+
+// // Input test array
+// float x1[N_SAMPLES];
+// // Window coefficients
+// float wind[N_SAMPLES];
+// // working complex array
+// float y_cf[N_SAMPLES * 2];
+// // Pointers to result arrays
+// float *y1_cf = &y_cf[0];
+
+#define NUM_LEDS 5
+#define DATA_PIN 13
+// CRGB leds[NUM_LEDS];
+
+#define LED_TAG "FASTLED"
+#define AUDIO_CODEC_TAG "CODEC"
+#define ESP_DSP_TAG "DSP"
 #define BT_BLE_COEX_TAG "BT_BLE_COEX"
-#define BT_DEVICE_NAME "Palette"
+#define BT_DEVICE_NAME "Palette1"
 #define BLE_ADV_NAME "Palette BLE"
 
 #define GATTS_SERVICE_UUID_A 0x00FF
@@ -63,6 +98,113 @@
 #define PROFILE_NUM 2
 #define PROFILE_A_APP_ID 0
 #define PROFILE_B_APP_ID 1
+
+// typedef struct i2s_stream
+// {
+//   audio_stream_type_t type;
+//   i2s_stream_cfg_t config;
+//   bool is_open;
+//   bool use_alc;
+//   void *volume_handle;
+//   int volume;
+//   bool uninstall_drv;
+// } i2s_stream_t;
+
+// static esp_err_t i2s_mono_fix(int bits, uint8_t *sbuff, uint32_t len)
+// {
+//   if (bits == 16)
+//   {
+//     int16_t *temp_buf = (int16_t *)sbuff;
+//     int16_t temp_box;
+//     int k = len >> 1;
+//     for (int i = 0; i < k; i += 2)
+//     {
+//       temp_box = temp_buf[i];
+//       temp_buf[i] = temp_buf[i + 1];
+//       temp_buf[i + 1] = temp_box;
+//     }
+//   }
+//   else if (bits == 32)
+//   {
+//     int32_t *temp_buf = (int32_t *)sbuff;
+//     int32_t temp_box;
+//     int k = len >> 2;
+//     for (int i = 0; i < k; i += 4)
+//     {
+//       temp_box = temp_buf[i];
+//       temp_buf[i] = temp_buf[i + 1];
+//       temp_buf[i + 1] = temp_box;
+//     }
+//   }
+//   else
+//   {
+//     ESP_LOGE(ESP_DSP_TAG, "%s %dbits is not supported", __func__, bits);
+//     return ESP_FAIL;
+//   }
+//   return ESP_OK;
+// }
+
+// #include "fft.h"
+
+// int pcm_wptr = 0;
+// char pcm_fft[N_SAMPLES];
+// int _i2s_read(audio_element_handle_t el, char *buffer, int len, TickType_t ticks_to_wait)
+// {
+//   i2s_stream_t *i2s = (i2s_stream_t *)audio_element_getdata(el);
+//   size_t bytes_read = 0;
+//   i2s_read(i2s->config.i2s_port, buffer, len, &bytes_read, ticks_to_wait);
+//   audio_element_info_t info;
+//   audio_element_getinfo(el, &info);
+//   if (bytes_read > 0)
+//   {
+//     if (info.channels == 1)
+//     {
+//       i2s_mono_fix(info.bits, (uint8_t *)buffer, bytes_read);
+//     }
+//     info.byte_pos += bytes_read;
+//     audio_element_setinfo(el, &info);
+//   }
+//   return bytes_read;
+// }
+
+int pcm_wptr = 0;
+short pcm_fft[N_SAMPLES];
+
+// typedef audio_element_err_t (*stream_func)(audio_element_handle_t self, char *buffer, int len, TickType_t ticks_to_wait, void *context);
+// You can get pcm data in write callback.
+int i2s_input_write_cb(audio_element_handle_t el, char *buf, int len, TickType_t wait_time, void *ctx)
+{
+  ESP_LOGI(ESP_DSP_TAG, "reading!");
+  // ESP_LOG_BUFFER_CHAR(ESP_DSP_TAG, buf, len);
+
+  // use 48KHz, 2ch, 16bits as example
+  // the buf is pcm raw data
+  // short *pcm2 = (short *)buf;
+
+  // // mix stereo as mono and do fft
+  // len = (len >> 2) << 2; // 2*2 align
+  // int wlen = len;
+  // while (wlen > 0)
+  // {
+  //   pcm_fft[pcm_wptr] = (pcm2[0] >> 1) + (pcm2[1] >> 1); // Mix L & R
+  //   pcm2 += 2;
+  //   wlen -= 4;
+  //   pcm_wptr++;
+  //   if (pcm_wptr >= 128)
+  //   {
+  //     // fft_128_s16(pcm_fft, image, real)
+  //     //     pcm_wptr = 0;
+  //   }
+  // }
+  return len;
+}
+
+// int i2s_input_write_cb(audio_element_handle_t el, char *buf, int len, TickType_t wait_time, void *ctx)
+// {
+//   audio_element_handle_t i2s_wr = (audio_element_handle_t)el;
+//   int ret = audio_element_output(i2s_wr, buf, len);
+//   return ret;
+// }
 
 typedef struct
 {
@@ -99,6 +241,8 @@ static esp_ble_adv_params_t adv_params = {
     .adv_int_max = 0x060,
     .adv_type = ADV_TYPE_IND,
     .own_addr_type = BLE_ADDR_TYPE_RANDOM,
+    // .peer_addr = {0, 1, 2, 3, 4, 5},
+    .peer_addr_type = BLE_ADDR_TYPE_RANDOM,
     .channel_map = ADV_CHNL_ALL,
     .adv_filter_policy = ADV_FILTER_ALLOW_SCAN_ANY_CON_ANY,
 };
@@ -283,6 +427,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   switch (event)
   {
   case ESP_GATTS_REG_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d\n", param->reg.status, param->reg.app_id);
     esp_ble_gap_config_local_privacy(true);
     gl_profile_tab[PROFILE_A_APP_ID].service_id.is_primary = true;
@@ -293,6 +438,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     ble_init_adv_data(BLE_ADV_NAME);
     esp_ble_gatts_create_service(gatts_if, &gl_profile_tab[PROFILE_A_APP_ID].service_id, GATTS_NUM_HANDLE_A);
     break;
+  }
   case ESP_GATTS_READ_EVT:
   {
     ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d\n", param->read.conn_id, param->read.trans_id, param->read.handle);
@@ -363,16 +509,22 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   }
   case ESP_GATTS_EXEC_WRITE_EVT:
+  {
+
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_EXEC_WRITE_EVT");
     esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, ESP_GATT_OK, NULL);
     example_exec_write_event_env(&a_prepare_write_env, param);
     break;
+  }
   case ESP_GATTS_MTU_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_MTU_EVT, MTU %d", param->mtu.mtu);
     break;
+  }
   case ESP_GATTS_UNREG_EVT:
     break;
   case ESP_GATTS_CREATE_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d\n", param->create.status, param->create.service_handle);
     gl_profile_tab[PROFILE_A_APP_ID].service_handle = param->create.service_handle;
     gl_profile_tab[PROFILE_A_APP_ID].char_uuid.len = ESP_UUID_LEN_16;
@@ -389,6 +541,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
       ESP_LOGE(BT_BLE_COEX_TAG, "add char failed, error code = 0x%x", add_char_ret);
     }
     break;
+  }
   case ESP_GATTS_ADD_INCL_SRVC_EVT:
     break;
   case ESP_GATTS_ADD_CHAR_EVT:
@@ -407,16 +560,20 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   }
   case ESP_GATTS_ADD_CHAR_DESCR_EVT:
+  {
     gl_profile_tab[PROFILE_A_APP_ID].descr_handle = param->add_char_descr.attr_handle;
     ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d\n",
              param->add_char_descr.status, param->add_char_descr.attr_handle, param->add_char_descr.service_handle);
     break;
+  }
   case ESP_GATTS_DELETE_EVT:
     break;
   case ESP_GATTS_START_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d\n",
              param->start.status, param->start.service_handle);
     break;
+  }
   case ESP_GATTS_STOP_EVT:
     break;
   case ESP_GATTS_CONNECT_EVT:
@@ -426,16 +583,20 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   }
   case ESP_GATTS_DISCONNECT_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_DISCONNECT_EVT");
     esp_ble_gap_start_advertising(&adv_params);
     break;
+  }
   case ESP_GATTS_CONF_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_CONF_EVT, status %d", param->conf.status);
     if (param->conf.status != ESP_GATT_OK)
     {
       esp_log_buffer_hex(BT_BLE_COEX_TAG, param->conf.value, param->conf.len);
     }
     break;
+  }
   case ESP_GATTS_OPEN_EVT:
   case ESP_GATTS_CANCEL_OPEN_EVT:
   case ESP_GATTS_CLOSE_EVT:
@@ -451,6 +612,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   switch (event)
   {
   case ESP_GATTS_REG_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d\n", param->reg.status, param->reg.app_id);
     gl_profile_tab[PROFILE_B_APP_ID].service_id.is_primary = true;
     gl_profile_tab[PROFILE_B_APP_ID].service_id.id.inst_id = 0x00;
@@ -459,6 +621,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
 
     esp_ble_gatts_create_service(gatts_if, &gl_profile_tab[PROFILE_B_APP_ID].service_id, GATTS_NUM_HANDLE_B);
     break;
+  }
   case ESP_GATTS_READ_EVT:
   {
     ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d\n", param->read.conn_id, param->read.trans_id, param->read.handle);
@@ -528,16 +691,21 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   }
   case ESP_GATTS_EXEC_WRITE_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_EXEC_WRITE_EVT");
     esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, ESP_GATT_OK, NULL);
     example_exec_write_event_env(&b_prepare_write_env, param);
     break;
+  }
   case ESP_GATTS_MTU_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_MTU_EVT, MTU %d", param->mtu.mtu);
     break;
+  }
   case ESP_GATTS_UNREG_EVT:
     break;
   case ESP_GATTS_CREATE_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d\n", param->create.status, param->create.service_handle);
     gl_profile_tab[PROFILE_B_APP_ID].service_handle = param->create.service_handle;
     gl_profile_tab[PROFILE_B_APP_ID].char_uuid.len = ESP_UUID_LEN_16;
@@ -554,9 +722,11 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
       ESP_LOGE(BT_BLE_COEX_TAG, "add char failed, error code = 0x%x", add_char_ret);
     }
     break;
+  }
   case ESP_GATTS_ADD_INCL_SRVC_EVT:
     break;
   case ESP_GATTS_ADD_CHAR_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ADD_CHAR_EVT, status %d,  attr_handle %d, service_handle %d\n",
              param->add_char.status, param->add_char.attr_handle, param->add_char.service_handle);
 
@@ -567,33 +737,42 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
                                  ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
                                  NULL, NULL);
     break;
+  }
   case ESP_GATTS_ADD_CHAR_DESCR_EVT:
+  {
     gl_profile_tab[PROFILE_B_APP_ID].descr_handle = param->add_char_descr.attr_handle;
     ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d\n",
              param->add_char_descr.status, param->add_char_descr.attr_handle, param->add_char_descr.service_handle);
     break;
+  }
   case ESP_GATTS_DELETE_EVT:
     break;
   case ESP_GATTS_START_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d\n",
              param->start.status, param->start.service_handle);
     break;
+  }
   case ESP_GATTS_STOP_EVT:
     break;
   case ESP_GATTS_CONNECT_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "CONNECT_EVT, conn_id %d, remote %02x:%02x:%02x:%02x:%02x:%02x:",
              param->connect.conn_id,
              param->connect.remote_bda[0], param->connect.remote_bda[1], param->connect.remote_bda[2],
              param->connect.remote_bda[3], param->connect.remote_bda[4], param->connect.remote_bda[5]);
     gl_profile_tab[PROFILE_B_APP_ID].conn_id = param->connect.conn_id;
     break;
+  }
   case ESP_GATTS_CONF_EVT:
+  {
     ESP_LOGI(BT_BLE_COEX_TAG, "ESP_GATTS_CONF_EVT status %d", param->conf.status);
     if (param->conf.status != ESP_GATT_OK)
     {
       esp_log_buffer_hex(BT_BLE_COEX_TAG, param->conf.value, param->conf.len);
     }
     break;
+  }
   case ESP_GATTS_DISCONNECT_EVT:
   case ESP_GATTS_OPEN_EVT:
   case ESP_GATTS_CANCEL_OPEN_EVT:
@@ -699,87 +878,301 @@ static void bt_av_hdl_stack_evt(uint16_t event, void *p_param)
     break;
   }
   default:
+  {
     ESP_LOGE(BT_BLE_COEX_TAG, "%s unhandled evt %d", __func__, event);
     break;
   }
+  }
 }
 
-void app_main()
+typedef enum
 {
-  esp_err_t ret;
+  IO_TYPE_RB = 1, /* I/O through ringbuffer */
+  IO_TYPE_CB,     /* I/O through callback */
+} io_type_t;
 
-  // Initialize NVS.
-  ret = nvs_flash_init();
-  if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
-  {
-    ESP_ERROR_CHECK(nvs_flash_erase());
-    ret = nvs_flash_init();
-  }
-  ESP_ERROR_CHECK(ret);
+char masterBuffer[4096];
 
-  i2s_config_t i2s_config = {
-#ifdef CONFIG_A2DP_SINK_OUTPUT_INTERNAL_DAC
-      .mode = I2S_MODE_DAC_BUILT_IN,
-#else
-      .mode = I2S_MODE_MASTER | I2S_MODE_TX, // Only TX
-#endif
-      .sample_rate = 44100,
-      .bits_per_sample = 16,
-      .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT, //2-channels
-      .communication_format = I2S_COMM_FORMAT_I2S | I2S_COMM_FORMAT_I2S_MSB,
-      .dma_buf_count = 6,
-      .dma_buf_len = 60,
-      .intr_alloc_flags = 0,     //Default interrupt priority
-      .tx_desc_auto_clear = true //Auto clear tx descriptor on underflow
-  };
+int _fft_process(audio_element_handle_t self, char *in_buffer, int in_len)
+{
+  int r_size = audio_element_input(self, in_buffer, in_len);
+  // memcpy(masterBuffer, in_buffer, r_size);
+  // int w_size = 0;
+  // if (r_size == AEL_IO_TIMEOUT)
+  // {
+  //   i2s_stream_t *i2s = (i2s_stream_t *)audio_element_getdata(self);
+  //   if ((i2s->config.i2s_config.mode & I2S_MODE_DAC_BUILT_IN) != 0)
+  //   {
+  //     memset(in_buffer, 0x80, in_len);
+  //   }
+  //   else
+  //   {
+  //     memset(in_buffer, 0x00, in_len);
+  //   }
+  //   r_size = in_len;
+  // }
+  // if ((r_size > 0))
+  // {
+  //   i2s_stream_t *i2s = (i2s_stream_t *)audio_element_getdata(self);
+  //   if (i2s->use_alc)
+  //   {
+  //     audio_element_info_t i2s_info = {0};
+  //     audio_element_getinfo(self, &i2s_info);
+  //     alc_volume_setup_process(in_buffer, r_size, i2s_info.channels, i2s->volume_handle, i2s->volume);
+  //   }
+  //   audio_element_multi_output(self, in_buffer, r_size, 0);
+  //   // Fix output by I2S only
+  //   audio_element_info_t info;
+  //   audio_element_getinfo(self, &info);
+  //   if (info.channels == 1)
+  //   {
+  //     i2s_mono_fix(info.bits, (uint8_t *)in_buffer, r_size);
+  //   }
+  //   if ((i2s->config.i2s_config.mode & I2S_MODE_DAC_BUILT_IN) != 0)
+  //   {
+  //     i2s_dac_data_scale(info.bits, (uint8_t *)in_buffer, r_size);
+  //   }
+  //   w_size = audio_element_output(self, in_buffer, r_size);
 
-  i2s_driver_install(0, &i2s_config, 0, NULL);
-#ifdef CONFIG_A2DP_SINK_OUTPUT_INTERNAL_DAC
-  i2s_set_pin(0, NULL);
-#else
-  i2s_pin_config_t pin_config = {
-      .bck_io_num = CONFIG_I2S_BCK_PIN,
-      .ws_io_num = CONFIG_I2S_LRCK_PIN,
-      .data_out_num = CONFIG_I2S_DATA_PIN,
-      .data_in_num = -1 //Not used
-  };
-
-  i2s_set_pin(0, &pin_config);
-#endif
-
-  esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-  ret = esp_bt_controller_init(&bt_cfg);
-  if (ret)
-  {
-    ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed\n", __func__);
-    return;
-  }
-
-  ret = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
-  if (ret)
-  {
-    ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed\n", __func__);
-    return;
-  }
-
-  ret = esp_bluedroid_init();
-  if (ret)
-  {
-    ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed\n", __func__);
-    return;
-  }
-  ret = esp_bluedroid_enable();
-  if (ret)
-  {
-    ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed\n", __func__);
-    return;
-  }
-
-  /* create application task */
-  bt_app_task_start_up();
-
-  /* Bluetooth device name, connection mode and profile set up */
-  bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
-  //gatt server init
-  ble_gatts_init();
+  //   audio_element_getinfo(self, &info);
+  //   info.byte_pos += w_size;
+  //   audio_element_setinfo(self, &info);
+  // }
+  // else
+  // {
+  //   esp_err_t ret = i2s_stream_clear_dma_buffer(self);
+  //   if (ret != ESP_OK)
+  //   {
+  //     return ret;
+  //   }
+  //   w_size = r_size;
+  // }
+  return r_size;
 }
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+  void app_main()
+  {
+    // initArduino();
+
+    // pinMode(22, OUTPUT);
+    // digitalWrite(22, HIGH);
+
+    // FastLED.addLeds<WS2812B, DATA_PIN, RGB>(leds, NUM_LEDS);
+
+    // esp_bt_mem_release(ESP_BT_MODE_BTDM);
+
+    audio_pipeline_handle_t pipeline;
+    audio_element_handle_t bt_stream_reader, i2s_stream_writer;
+
+    esp_err_t ret;
+
+    // init_fft();
+
+    esp_err_t err = nvs_flash_init();
+    if (err == ESP_ERR_NVS_NO_FREE_PAGES)
+    {
+      // NVS partition was truncated and needs to be erased
+      // Retry nvs_flash_init
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      err = nvs_flash_init();
+    }
+
+    // // Initialize NVS.
+    // ret = nvs_flash_init();
+    // if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND)
+    // {
+    //   ESP_ERROR_CHECK(nvs_flash_erase());
+    //   ret = nvs_flash_init();
+    // }
+    // ESP_ERROR_CHECK(ret);
+
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
+    // bluetooth_service_cfg_t bt_cfg = {
+    //     .device_name = BT_DEVICE_NAME,
+    //     // .remote_name = BT_DEVICE_NAME,
+    //     .mode = BLUETOOTH_A2DP_SINK,
+    // };
+    // bluetooth_service_start(&bt_cfg);
+
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
+    audio_board_handle_t board_handle = audio_board_init();
+    audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
+    audio_hal_set_volume(board_handle->audio_hal, 100);
+
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 3 ] Create audio pipeline for playback");
+    audio_pipeline_cfg_t pipeline_cfg = DEFAULT_AUDIO_PIPELINE_CONFIG();
+    pipeline = audio_pipeline_init(&pipeline_cfg);
+
+    ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
+    i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
+    i2s_cfg.type = AUDIO_STREAM_WRITER;
+    i2s_stream_writer = i2s_stream_init(&i2s_cfg);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[3.2] Get Bluetooth stream");
+    // bt_stream_reader = bluetooth_service_create_stream();
+
+    // audio_element_cfg_t fft_reader_cfg = DEFAULT_AUDIO_ELEMENT_CONFIG();
+    // fft_reader_cfg.process = _fft_process;
+    // fft_reader = audio_element_init(&fft_reader_cfg);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[3.2] Register all elements to audio pipeline");
+    // audio_pipeline_register(pipeline, bt_stream_reader, "bt");
+    // audio_pipeline_register(pipeline, fft_reader, "fft");
+    // audio_pipeline_register(pipeline, i2s_stream_writer, "i2s");
+
+    //     ESP_LOGI(AUDIO_CODEC_TAG, "[3.3] Link it together [Bluetooth]-->bt_stream_reader-->fft->i2s_stream_writer-->[codec_chip]");
+
+    // #if (CONFIG_ESP_LYRATD_MSC_V2_1_BOARD || CONFIG_ESP_LYRATD_MSC_V2_2_BOARD)
+    //     rsp_filter_cfg_t rsp_cfg = DEFAULT_RESAMPLE_FILTER_CONFIG();
+    //     rsp_cfg.src_rate = 44100;
+    //     rsp_cfg.src_ch = 2;
+    //     rsp_cfg.dest_rate = 48000;
+    //     rsp_cfg.dest_ch = 2;
+    //     audio_element_handle_t filter = rsp_filter_init(&rsp_cfg);
+    //     audio_pipeline_register(pipeline, filter, "filter");
+    //     i2s_stream_set_clk(i2s_stream_writer, 48000, 16, 2);
+    //     audio_pipeline_link(pipeline, (const char *[]){"bt", "filter", "i2s"}, 3);
+    // #else
+    //   // audio_pipeline_link(pipeline, (const char *[]){"bt", "fft", "i2s"}, 3);
+    //   audio_pipeline_link(pipeline, (const char *[]){"bt", "i2s"}, 3);
+    // #endif
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 4 ] Initialize peripherals");
+    // esp_periph_config_t periph_cfg = DEFAULT_ESP_PERIPH_SET_CONFIG();
+    // esp_periph_set_handle_t set = esp_periph_set_init(&periph_cfg);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[4.1] Initialize Touch peripheral");
+    // audio_board_key_init(set);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[4.2] Create Bluetooth peripheral");
+    // esp_periph_handle_t bt_periph = bluetooth_service_create_periph();
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[4.2] Start all peripherals");
+    // esp_periph_start(set, bt_periph);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 5 ] Set up  event listener");
+    // audio_event_iface_cfg_t evt_cfg = AUDIO_EVENT_IFACE_DEFAULT_CFG();
+    // audio_event_iface_handle_t evt = audio_event_iface_init(&evt_cfg);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[5.1] Listening event from all elements of pipeline");
+    // audio_pipeline_set_listener(pipeline, evt);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[5.2] Listening event from peripherals");
+    // audio_event_iface_set_listener(esp_periph_set_get_event_iface(set), evt);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 6 ] Start audio_pipeline");
+    // audio_pipeline_run(pipeline);
+
+    ret = audio_element_set_write_cb(i2s_stream_writer, i2s_input_write_cb, NULL);
+    if (ret == ESP_FAIL)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s audio_element_set_write_cb failed\n", __func__);
+      return;
+    }
+
+    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
+    ret = esp_bt_controller_init(&bt_cfg);
+    if (ret)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed\n", __func__);
+      return;
+    }
+
+    ret = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
+    if (ret)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed\n", __func__);
+      return;
+    }
+
+    ret = esp_bluedroid_init();
+    if (ret)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed\n", __func__);
+      return;
+    }
+    ret = esp_bluedroid_enable();
+    if (ret)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed\n", __func__);
+      return;
+    }
+
+    /* create application task */
+    bt_app_task_start_up();
+
+    /* Bluetooth device name, connection mode and profile set up */
+    bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
+
+    //gatt server init
+    ble_gatts_init();
+
+    while (1)
+    {
+      vTaskDelay(10);
+      char *ptr = audio_element_getdata(i2s_stream_writer);
+      for (size_t i = 0; i < 40; i++)
+      {
+        ESP_LOGI(FFT_TAG, "%c", ptr[i]);
+      }
+      // ESP_LOGI(AUDIO_CODEC_TAG, "Size of master buffer: %u", masterBuffer[500]);
+
+      // static int i = 0;
+      // fill_solid(leds, NUM_LEDS, CRGB::Red);
+
+      // EVERY_N_MILLISECONDS(100)
+      // {
+      //   i++;
+      // FastLED.show();
+      // ESP_LOGI(LED_TAG, "LED Show");
+      // _i2s_read(bt_stream_reader, pcm_fft, N_SAMPLES, portMAX_DELAY);
+      // for (int i = 0; i < 40; i++)
+      // {
+      //   ESP_LOGI(ESP_DSP_TAG, "%c", pcm_fft[i]);
+      // }
+
+      // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
+      // ESP_LOGI(ESP_DSP_TAG, "FFT for %i complex points take %i cycles", N_SAMPLES, end_b - start_b);
+      // int32_t samples[N_SAMPLES];
+      // size_t bytes_read = 0;
+      // i2s_read(I2S_NUM_0, (int32_t *)samples, N_SAMPLES, &bytes_read, portMAX_DELAY);
+
+      // dsps_view(y1_cf, N_SAMPLES / 2, 64, 10, -60, 40, '|');
+      // }
+    }
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 8 ] Stop audio_pipeline");
+    audio_pipeline_terminate(pipeline);
+
+    audio_pipeline_unregister(pipeline, bt_stream_reader);
+    // audio_pipeline_unregister(pipeline, fft_reader);
+    audio_pipeline_unregister(pipeline, i2s_stream_writer);
+
+    /* Terminate the pipeline before removing the listener */
+    audio_pipeline_remove_listener(pipeline);
+
+    /* Stop all peripherals before removing the listener */
+    // esp_periph_set_stop_all(set);
+    // audio_event_iface_remove_listener(esp_periph_set_get_event_iface(set), evt);
+
+    /* Make sure audio_pipeline_remove_listener & audio_event_iface_remove_listener are called before destroying event_iface */
+    // audio_event_iface_destroy(evt);
+
+    /* Release all resources */
+#if (CONFIG_ESP_LYRATD_MSC_V2_1_BOARD || CONFIG_ESP_LYRATD_MSC_V2_2_BOARD)
+    audio_pipeline_unregister(pipeline, filter);
+    audio_element_deinit(filter);
+#endif
+    audio_pipeline_deinit(pipeline);
+    audio_element_deinit(bt_stream_reader);
+    // audio_element_deinit(fft_reader);
+    audio_element_deinit(i2s_stream_writer);
+    // esp_periph_set_destroy(set);
+    bluetooth_service_destroy();
+  }
+#ifdef __cplusplus
+}
+#endif

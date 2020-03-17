@@ -26,7 +26,7 @@ port.o: /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/port.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/corebits.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/system.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_context.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtruntime-frames.h \
@@ -145,7 +145,7 @@ port.o: /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/port.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h:
 

@@ -14,7 +14,7 @@ dport_panic_highint_hdl.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_context.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtruntime-frames.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_panic.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h
@@ -47,7 +47,7 @@ dport_panic_highint_hdl.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_panic.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h:
 

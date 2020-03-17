@@ -26,7 +26,7 @@ esp_event.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
@@ -184,7 +184,7 @@ esp_event.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h:
 

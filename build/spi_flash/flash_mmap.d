@@ -17,7 +17,7 @@ flash_mmap.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/alloca.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
@@ -136,7 +136,7 @@ flash_mmap.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 

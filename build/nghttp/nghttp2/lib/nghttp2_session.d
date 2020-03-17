@@ -43,7 +43,7 @@ nghttp2/lib/nghttp2_session.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/nghttp2/lib/nghttp2_pq.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/nghttp2/lib/nghttp2_callbacks.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/nghttp2/lib/nghttp2_helper.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/nghttp2/lib/nghttp2_net.h \
@@ -138,7 +138,7 @@ nghttp2/lib/nghttp2_session.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 

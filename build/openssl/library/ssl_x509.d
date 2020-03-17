@@ -10,7 +10,7 @@ library/ssl_x509.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/internal/ssl_methods.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/internal/ssl_dbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_opt.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_port.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
@@ -67,7 +67,7 @@ library/ssl_x509.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_opt.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_port.h:
 

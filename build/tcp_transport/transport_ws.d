@@ -26,7 +26,7 @@ transport_ws.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
@@ -48,7 +48,8 @@ transport_ws.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 
@@ -102,7 +103,7 @@ transport_ws.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h:
 
@@ -147,4 +148,6 @@ transport_ws.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/tcp_transport/./transport_ws.c:

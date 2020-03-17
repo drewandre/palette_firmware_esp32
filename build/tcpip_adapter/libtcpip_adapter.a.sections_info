@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/tcpip_adapter/libtcpip_adapter.a:
+In archive /Users/drewandre/esp/a2dp_gatts_coex/build/tcpip_adapter/libtcpip_adapter.a:
 
 tcpip_adapter_lwip.o:     file format elf32-xtensa-le
 
@@ -274,13 +274,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 134 .debug_line   00001948  00000000  00000000  00007263  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-135 .debug_str    000024a7  00000000  00000000  00008bab  2**0
+135 .debug_str    00002484  00000000  00000000  00008bab  2**0
                   CONTENTS, READONLY, DEBUGGING
-136 .comment      0000003b  00000000  00000000  0000b052  2**0
+136 .comment      0000003b  00000000  00000000  0000b02f  2**0
                   CONTENTS, READONLY
-137 .xtensa.info  00000038  00000000  00000000  0000b08d  2**0
+137 .xtensa.info  00000038  00000000  00000000  0000b06a  2**0
                   CONTENTS, READONLY
-138 .xt.lit       000001b8  00000000  00000000  0000b0c5  2**0
+138 .xt.lit       000001b8  00000000  00000000  0000b0a2  2**0
                   CONTENTS, RELOC, READONLY
-139 .xt.prop      00001968  00000000  00000000  0000b27d  2**0
+139 .xt.prop      00001968  00000000  00000000  0000b25a  2**0
                   CONTENTS, RELOC, READONLY

@@ -3,7 +3,7 @@ asio/asio/src/asio.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/src.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/detail/config.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_asio_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/error.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/error_code.hpp \
@@ -118,8 +118,6 @@ asio/asio/src/asio.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/../../../lwip/src/include/lwip/inet.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/net/if.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_exception.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/execution_context.ipp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/execution_context.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/detail/noncopyable.hpp \
@@ -329,7 +327,7 @@ asio/asio/src/asio.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_asio_config.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp:
 
@@ -558,10 +556,6 @@ asio/asio/src/asio.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/net/if.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_exception.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/execution_context.ipp:
 

@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/esp-tls/libesp-tls.a:
+In archive /Users/drewandre/esp/a2dp_gatts_coex/build/esp-tls/libesp-tls.a:
 
 esp_tls.o:     file format elf32-xtensa-le
 
@@ -64,65 +64,65 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
  29 .text.tls_read 00000052  00000000  00000000  00000b40  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 30 .text.tcp_write 00000019  00000000  00000000  00000b94  2**2
+ 30 .text.tcp_write 00000018  00000000  00000000  00000b94  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 31 .text.tcp_read 00000019  00000000  00000000  00000bb0  2**2
+ 31 .text.tcp_read 00000018  00000000  00000000  00000bac  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 32 .text.resolve_host_name 0000006a  00000000  00000000  00000bcc  2**2
+ 32 .text.resolve_host_name 0000006a  00000000  00000000  00000bc4  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 33 .text.esp_tcp_connect 00000152  00000000  00000000  00000c38  2**2
+ 33 .text.esp_tcp_connect 00000152  00000000  00000000  00000c30  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 34 .text.create_ssl_handle 00000336  00000000  00000000  00000d8c  2**2
+ 34 .text.create_ssl_handle 00000336  00000000  00000000  00000d84  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 35 .text.verify_certificate 00000082  00000000  00000000  000010c4  2**2
+ 35 .text.verify_certificate 00000082  00000000  00000000  000010bc  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 36 .text.esp_tls_low_level_conn 00000238  00000000  00000000  00001148  2**2
+ 36 .text.esp_tls_low_level_conn 00000220  00000000  00000000  00001140  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 37 .text.get_port 00000050  00000000  00000000  00001380  2**2
+ 37 .text.get_port 00000050  00000000  00000000  00001360  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 38 .text.esp_tls_init_global_ca_store 0000004b  00000000  00000000  000013d0  2**2
+ 38 .text.esp_tls_init_global_ca_store 0000004b  00000000  00000000  000013b0  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 39 .text.esp_tls_set_global_ca_store 000000a5  00000000  00000000  0000141c  2**2
+ 39 .text.esp_tls_set_global_ca_store 000000a5  00000000  00000000  000013fc  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 40 .text.esp_tls_get_global_ca_store 0000000a  00000000  00000000  000014c4  2**2
+ 40 .text.esp_tls_get_global_ca_store 0000000a  00000000  00000000  000014a4  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 41 .text.esp_tls_free_global_ca_store 0000001a  00000000  00000000  000014d0  2**2
+ 41 .text.esp_tls_free_global_ca_store 0000001a  00000000  00000000  000014b0  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 42 .text.esp_tls_conn_delete 00000026  00000000  00000000  000014ec  2**2
+ 42 .text.esp_tls_conn_delete 00000024  00000000  00000000  000014cc  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 43 .text.esp_tls_conn_new 00000056  00000000  00000000  00001514  2**2
+ 43 .text.esp_tls_conn_new 00000056  00000000  00000000  000014f0  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 44 .text.esp_tls_conn_new_async 00000018  00000000  00000000  0000156c  2**2
+ 44 .text.esp_tls_conn_new_async 00000018  00000000  00000000  00001548  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 45 .text.esp_tls_conn_http_new 00000048  00000000  00000000  00001584  2**2
+ 45 .text.esp_tls_conn_http_new 00000048  00000000  00000000  00001560  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 46 .text.esp_tls_get_bytes_avail 0000002e  00000000  00000000  000015cc  2**2
+ 46 .text.esp_tls_get_bytes_avail 0000002e  00000000  00000000  000015a8  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 47 .text.esp_tls_conn_http_new_async 0000004a  00000000  00000000  000015fc  2**2
+ 47 .text.esp_tls_conn_http_new_async 0000004a  00000000  00000000  000015d8  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 48 .bss.global_cacert 00000004  00000000  00000000  00001648  2**2
+ 48 .bss.global_cacert 00000004  00000000  00000000  00001624  2**2
                   ALLOC
- 49 .debug_frame  00000220  00000000  00000000  00001648  2**2
+ 49 .debug_frame  00000220  00000000  00000000  00001624  2**2
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 50 .debug_info   00003472  00000000  00000000  00001868  2**0
+ 50 .debug_info   00003620  00000000  00000000  00001844  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 51 .debug_abbrev 0000048f  00000000  00000000  00004cda  2**0
+ 51 .debug_abbrev 000004ad  00000000  00000000  00004e64  2**0
                   CONTENTS, READONLY, DEBUGGING
- 52 .debug_loc    00000b84  00000000  00000000  00005169  2**0
+ 52 .debug_loc    00000b82  00000000  00000000  00005311  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 53 .debug_aranges 000000c8  00000000  00000000  00005ced  2**0
+ 53 .debug_aranges 000000c8  00000000  00000000  00005e93  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 54 .debug_ranges 000000d0  00000000  00000000  00005db5  2**0
+ 54 .debug_ranges 000000d0  00000000  00000000  00005f5b  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 55 .debug_line   00000efe  00000000  00000000  00005e85  2**0
+ 55 .debug_line   00000f02  00000000  00000000  0000602b  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 56 .debug_str    000019b2  00000000  00000000  00006d83  2**0
+ 56 .debug_str    00001af9  00000000  00000000  00006f2d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 57 .comment      0000003b  00000000  00000000  00008735  2**0
+ 57 .comment      0000003b  00000000  00000000  00008a26  2**0
                   CONTENTS, READONLY
- 58 .xtensa.info  00000038  00000000  00000000  00008770  2**0
+ 58 .xtensa.info  00000038  00000000  00000000  00008a61  2**0
                   CONTENTS, READONLY
- 59 .xt.lit       000000b0  00000000  00000000  000087a8  2**0
+ 59 .xt.lit       000000b0  00000000  00000000  00008a99  2**0
                   CONTENTS, RELOC, READONLY
- 60 .xt.prop      000009b4  00000000  00000000  00008858  2**0
+ 60 .xt.prop      000009b4  00000000  00000000  00008b49  2**0
                   CONTENTS, RELOC, READONLY

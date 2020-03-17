@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/esp_https_ota/libesp_https_ota.a:
+In archive /Users/drewandre/esp/a2dp_gatts_coex/build/esp_https_ota/libesp_https_ota.a:
 
 esp_https_ota.o:     file format elf32-xtensa-le
 
@@ -66,13 +66,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  30 .debug_line   000009b8  00000000  00000000  00002dd8  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 31 .debug_str    00000fd7  00000000  00000000  00003790  2**0
+ 31 .debug_str    00000fb4  00000000  00000000  00003790  2**0
                   CONTENTS, READONLY, DEBUGGING
- 32 .comment      0000003b  00000000  00000000  00004767  2**0
+ 32 .comment      0000003b  00000000  00000000  00004744  2**0
                   CONTENTS, READONLY
- 33 .xtensa.info  00000038  00000000  00000000  000047a2  2**0
+ 33 .xtensa.info  00000038  00000000  00000000  0000477f  2**0
                   CONTENTS, READONLY
- 34 .xt.lit       00000048  00000000  00000000  000047da  2**0
+ 34 .xt.lit       00000048  00000000  00000000  000047b7  2**0
                   CONTENTS, RELOC, READONLY
- 35 .xt.prop      0000060c  00000000  00000000  00004822  2**0
+ 35 .xt.prop      0000060c  00000000  00000000  000047ff  2**0
                   CONTENTS, RELOC, READONLY

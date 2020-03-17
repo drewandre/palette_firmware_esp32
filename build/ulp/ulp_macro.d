@@ -24,7 +24,7 @@ ulp_macro.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/alloca.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
@@ -88,7 +88,7 @@ ulp_macro.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h:
 

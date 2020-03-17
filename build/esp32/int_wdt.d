@@ -1,6 +1,6 @@
 int_wdt.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/int_wdt.c \
- /Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h \
@@ -92,7 +92,7 @@ int_wdt.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_int_wdt.h
 
-/Users/drewandre/esp/esp-adf/esp-idf/examples/bluetooth/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
