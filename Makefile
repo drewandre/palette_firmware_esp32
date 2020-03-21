@@ -3,7 +3,7 @@
 # project subdirectory.
 #
 
-PROJECT_NAME := bt_ble_coex
+PROJECT_NAME := palette_firmware
 
 # include $(IDF_PATH)/make/project.mk
 include $(ADF_PATH)/project.mk

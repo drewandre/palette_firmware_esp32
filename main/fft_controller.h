@@ -12,15 +12,11 @@ extern "C"
 #define FFT_TAG "FFT"
 #define N_SAMPLES 1024
 
-  /**
- * @brief init fft
- */
   void init_fft();
+  void deinit_fft();
 
-  /**
- * @brief calculate fft
- */
-  void calculate_fft(int16_t *data, uint32_t len);
+  void calculate_fft(/* int16_t *data, uint32_t len */);
+  void copy_a2dp_buffer_for_fft(const uint8_t *data, uint32_t len);
 
 #endif /* __FFT_CONTROLLER_H__*/
 

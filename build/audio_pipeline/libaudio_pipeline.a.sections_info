@@ -248,17 +248,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 121 .debug_ranges 00000288  00000000  00000000  00007eb4  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-122 .debug_line   00001a09  00000000  00000000  0000813c  2**0
+122 .debug_line   000019eb  00000000  00000000  0000813c  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-123 .debug_str    000016e3  00000000  00000000  00009b45  2**0
+123 .debug_str    000016e3  00000000  00000000  00009b27  2**0
                   CONTENTS, READONLY, DEBUGGING
-124 .comment      0000003b  00000000  00000000  0000b228  2**0
+124 .comment      0000003b  00000000  00000000  0000b20a  2**0
                   CONTENTS, READONLY
-125 .xtensa.info  00000038  00000000  00000000  0000b263  2**0
+125 .xtensa.info  00000038  00000000  00000000  0000b245  2**0
                   CONTENTS, READONLY
-126 .xt.lit       00000138  00000000  00000000  0000b29b  2**0
+126 .xt.lit       00000138  00000000  00000000  0000b27d  2**0
                   CONTENTS, RELOC, READONLY
-127 .xt.prop      00001a4c  00000000  00000000  0000b3d3  2**0
+127 .xt.prop      00001a4c  00000000  00000000  0000b3b5  2**0
                   CONTENTS, RELOC, READONLY
 
 audio_event_iface.o:     file format elf32-xtensa-le

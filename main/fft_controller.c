@@ -13,70 +13,67 @@ extern "C"
 #include "esp_dsp.h"
 #include "fft_controller.h"
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#define BUF_SIZE 1024
+#define USE_WINDOW false
 
-  // Input test array
-  static float x1[N_SAMPLES];
-  // Window coefficients
-  static float wind[N_SAMPLES];
-  // working complex array
-  static float y_cf[N_SAMPLES * 2];
-  // Pointers to result arrays
+  static uint8_t fft_buffer[BUF_SIZE];
+
+  static bool fft_running = false;
+  // static float x1[BUF_SIZE];
+  static float y_cf[BUF_SIZE * 2];
   static float *y1_cf = &y_cf[0];
+
+  void deinit_fft()
+  {
+  }
 
   void init_fft()
   {
-    esp_err_t ret = dsps_fft2r_init_sc16(NULL, CONFIG_DSP_MAX_FFT_SIZE);
-    if (ret != ESP_OK)
+    esp_err_t err = dsps_fft2r_init_fc32(NULL, BUF_SIZE);
+    if (err != ESP_OK)
     {
-      ESP_LOGE(FFT_TAG, "Not possible to initialize FFT. Error = %i", ret);
+      ESP_LOGE(FFT_TAG, "Not possible to initialize FFT. Error = %i", err);
       return;
     }
-
-    // Generate hann window
-    dsps_wind_hann_f32(wind, N_SAMPLES);
-
-    // // Generate input signal for x1 A=1 , F=0.1
-    // dsps_tone_gen_f32(x1, N_SAMPLES, 1.0, 0.16, 0);
-
-    // // // Convert two input vectors to one complex vector
-    // for (int i = 0; i < N_SAMPLES; i++)
-    // {
-    //   y_cf[i * 2 + 0] = x1[i] * wind[i];
-    // }
-
-    // // // FFT
-    // // unsigned int start_b = xthal_get_ccount();
-    // dsps_fft2r_fc32(y_cf, N_SAMPLES);
-    // // unsigned int end_b = xthal_get_ccount();
-    // // // Bit reverse
-    // dsps_bit_rev_fc32(y_cf, N_SAMPLES);
-    // // // Convert one complex vector to two complex vectors
-    // dsps_cplx2reC_fc32(y_cf, N_SAMPLES);
-
-    // for (int i = 0; i < N_SAMPLES / 2; i++)
-    // {
-    //   y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N_SAMPLES);
-    // }
-
-    // dsps_view(y1_cf, N_SAMPLES / 2, 64, 10, -60, 40, '|');
+    // dsps_tone_gen_f32(x1, BUF_SIZE, 1.0, 0.16, 0);
   }
 
-  /* calculate fft */
-  void calculate_fft(int16_t *data, uint32_t len)
+  void calculate_fft()
   {
-    // dsps_fft2r_fc32(y_cf, N_SAMPLES);
-    dsps_fft2r_sc16(data, N_SAMPLES);
-    dsps_bit_rev_fc32(data, N_SAMPLES);
-    dsps_cplx2reC_fc32(data, N_SAMPLES);
-
-    for (int i = 0; i < N_SAMPLES / 2; i++)
+    fft_running = true;
+    for (int i = 0; i < BUF_SIZE; i++)
     {
-      data[i] = 10 * log10f((data[i * 2 + 0] * data[i * 2 + 0] + data[i * 2 + 1] * data[i * 2 + 1]) / N_SAMPLES);
+      // float f1 = fft_buffer[i] / 255;
+      // ESP_LOGI(FFT_TAG, "%f", f1);
+#if USE_WINDOW
+      y_cf[i * 2 + 0] = f1 * wind[i];
+      y_cf[i * 2 + 1] = x1[i] * wind[i];
+#else
+    y_cf[i * 2 + 0] = fft_buffer[i] / 255;
+    y_cf[i * 2 + 1] = 0;
+#endif
     }
 
-    dsps_view(data, N_SAMPLES / 2, 64, 10, -60, 40, '|');
+    dsps_fft2r_fc32(y_cf, BUF_SIZE);
+    dsps_bit_rev_fc32(y_cf, BUF_SIZE);
+    dsps_cplx2reC_fc32(y_cf, BUF_SIZE);
+
+    for (int i = 0; i < BUF_SIZE / 2; i++)
+    {
+      y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / BUF_SIZE);
+    }
+
+    ESP_LOGW(FFT_TAG, "Signal y1_cf");
+    // dsps_view(y1_cf, BUF_SIZE / 2, 128, 30, -60, 60, '|');
+    fft_running = false;
+  }
+
+  void copy_a2dp_buffer_for_fft(const uint8_t *data, uint32_t len)
+  {
+    if (!fft_running)
+    {
+      memcpy(fft_buffer, data, BUF_SIZE);
+    }
   }
 
 #ifdef __cplusplus

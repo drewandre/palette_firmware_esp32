@@ -1,7 +1,8 @@
-/Users/drewandre/esp/a2dp_gatts_coex/build/FastLED-idf/libFastLED-idf.a.sections_info
+/Users/drewandre/esp/a2dp_gatts_coex/build/FastLED/libFastLED.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/adf_utils/libadf_utils.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/app_trace/libapp_trace.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/app_update/libapp_update.a.sections_info
+ /Users/drewandre/esp/a2dp_gatts_coex/build/arduino/libarduino.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/asio/libasio.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/audio_board/libaudio_board.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/audio_hal/libaudio_hal.a.sections_info
@@ -39,7 +40,6 @@
  /Users/drewandre/esp/a2dp_gatts_coex/build/ethernet/libethernet.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/expat/libexpat.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/fatfs/libfatfs.a.sections_info
- /Users/drewandre/esp/a2dp_gatts_coex/build/fft/libfft.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/freemodbus/libfreemodbus.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/freertos/libfreertos.a.sections_info
  /Users/drewandre/esp/a2dp_gatts_coex/build/heap/libheap.a.sections_info

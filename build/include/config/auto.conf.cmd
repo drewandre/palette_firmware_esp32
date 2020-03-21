@@ -1,5 +1,4 @@
 deps_config := \
-	/Users/drewandre/esp/a2dp_gatts_coex/components/FastLED-idf/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/app_trace/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/aws_iot/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/bt/Kconfig \
@@ -35,6 +34,7 @@ deps_config := \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/wear_levelling/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/wifi_provisioning/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/app_update/Kconfig.projbuild \
+	/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/components/audio_board/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/bootloader/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/components/esp-adf-libs/Kconfig.projbuild \

@@ -1,0 +1,18 @@
+libraries/AzureIoT/src/az_iot/c-utility/src//usha.o: \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/src/usha.c \
+ /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/sha.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h
+
+/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/sha.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
+/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/src//usha.c:

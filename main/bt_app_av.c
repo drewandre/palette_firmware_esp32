@@ -64,15 +64,7 @@ extern "C"
   {
     size_t bytes_written;
     i2s_write(0, data, len, &bytes_written, portMAX_DELAY);
-    if (++m_pkt_cnt % 100 == 0)
-    {
-      // for (int i = 0; i < len; i++)
-      // {
-      //   ESP_LOGI(BT_AV_TAG, "%u", data[i]);
-      // }
-      // calculate_fft(data, len);
-      // ESP_LOGI(BT_AV_TAG, "Audio packet bytes_written: %u, len: %u", bytes_written, len);
-    }
+    copy_a2dp_buffer_for_fft(data, len);
   }
 
   void bt_app_alloc_meta_buffer(esp_avrc_ct_cb_param_t *param)
