@@ -259,14 +259,21 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_common_api.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi.h \
+ /Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFi.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Print.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/IPv6Address.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiType.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiSTA.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiGeneric.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_loop.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event_base.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_legacy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_private/esp_wifi_types_private.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_interface.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event_base.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_legacy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/ip_addr.h \
@@ -289,18 +296,25 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/ip6_addr.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/def.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/dhcpserver/dhcpserver.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_private/esp_wifi_private.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_crypto_types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_os_adapter.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_loop.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/app_update/include/esp_ota_ops.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_image_format.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_flash_partitions.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_flash_data_types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_http_client/include/esp_http_client.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/port/include/http_parser.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_https_ota/include/esp_https_ota.h \
- /Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiAP.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiScan.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiClient.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Client.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiServer.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Server.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiUdp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Udp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiClient.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/WebServer.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/HTTP_Method.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/Uri.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/detail/RequestHandler.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/ESPmDNS/src/ESPmDNS.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mdns/include/mdns.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/Update/src/Update.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/MD5Builder.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/md5_hash.h
 
 /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Arduino.h:
 
@@ -822,7 +836,27 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_common_api.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi.h:
+/Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFi.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Print.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/IPv6Address.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiType.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiSTA.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiGeneric.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_loop.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event_base.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_legacy.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_types.h:
 
@@ -831,12 +865,6 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/queue.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_interface.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/include/esp_event_base.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_legacy.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h:
 
@@ -882,27 +910,41 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/dhcpserver/dhcpserver.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_private/esp_wifi_private.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiAP.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_crypto_types.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiScan.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_wifi_os_adapter.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiClient.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_event_loop.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Client.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/app_update/include/esp_ota_ops.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiServer.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_image_format.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Server.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_flash_partitions.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiUdp.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_flash_data_types.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Udp.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_http_client/include/esp_http_client.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/port/include/http_parser.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WiFi/src/WiFiClient.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_https_ota/include/esp_https_ota.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/WebServer.h:
 
-/Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/HTTP_Method.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/Uri.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/WebServer/src/detail/RequestHandler.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/ESPmDNS/src/ESPmDNS.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/mdns/include/mdns.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/Update/src/Update.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/MD5Builder.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/md5_hash.h:
 /Users/drewandre/esp/palette_firmware_esp32/main/./main.cpp:

@@ -3,7 +3,8 @@ set(COMPONENT_SRCS "main.cpp" "fft_controller.c" "bt_app_av.c"
                   )
 set(COMPONENT_ADD_INCLUDEDIRS ".")
 
-# Embed the server root certificate into the final binary
-set(COMPONENT_EMBED_TXTFILES ${IDF_PROJECT_PATH}/server_certs/ca_cert.pem)
+set(COMPONENT_EMBED_TXTFILES
+        "certs/cacert.pem"
+        "certs/prvtkey.pem")
 
 register_component()

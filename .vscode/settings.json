@@ -37,6 +37,7 @@
     "fft_controller.h": "c",
     "math.h": "c",
     "stdbool.h": "c",
-    "esp_dsp.h": "c"
+    "esp_dsp.h": "c",
+    "__functional_03": "cpp"
   }
 }

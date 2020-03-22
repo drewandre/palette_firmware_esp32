@@ -54,49 +54,91 @@
 #include "esp_bt_defs.h"
 #include "esp_gatt_common_api.h"
 
-#include "esp_wifi.h"
-#include "esp_event_loop.h"
-#include "esp_ota_ops.h"
-#include "esp_http_client.h"
-#include "esp_https_ota.h"
-
-#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
-#include "esp_vfs_dev.h"
-#include "driver/uart.h"
-#endif
-
 #include "fft_controller.h"
 
-/* FreeRTOS event group to signal when we are connected & ready to make a request */
-static EventGroupHandle_t wifi_event_group;
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <WebServer.h>
+#include <ESPmDNS.h>
+#include <Update.h>
 
-/* The event group allows multiple bits for each event,
-   but we only care about one event - are we connected
-   to the AP with an IP? */
-const int CONNECTED_BIT = BIT0;
+const char *host = "esp32";
+const char *ssid = "HATFIELD";
+const char *password = "lakehouse";
 
-extern const uint8_t server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
-extern const uint8_t server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
+WebServer server(80);
 
-#define OTA_URL_SIZE 256
+/* Style */
+String style =
+    "<style>#file-input,input{width:100%;height:44px;border-radius:4px;margin:10px auto;font-size:15px}"
+    "input{background:#f1f1f1;border:0;padding:0 15px}body{background:#3498db;font-family:sans-serif;font-size:14px;color:#777}"
+    "#file-input{padding:0;border:1px solid #ddd;line-height:44px;text-align:left;display:block;cursor:pointer}"
+    "#bar,#prgbar{background-color:#f1f1f1;border-radius:10px}#bar{background-color:#3498db;width:0%;height:10px}"
+    "form{background:#fff;max-width:258px;margin:75px auto;padding:30px;border-radius:5px;text-align:center}"
+    ".btn{background:#3498db;color:#fff;cursor:pointer}</style>";
 
-#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
-static esp_err_t example_configure_stdin_stdout(void)
-{
-  // Initialize VFS & UART so we can use std::cout/cin
-  setvbuf(stdin, NULL, _IONBF, 0);
-  setvbuf(stdout, NULL, _IONBF, 0);
-  /* Install UART driver for interrupt-driven reads and writes */
-  ESP_ERROR_CHECK(uart_driver_install((uart_port_t)CONFIG_CONSOLE_UART_NUM,
-                                      256, 0, 0, NULL, 0));
-  /* Tell VFS to use UART driver */
-  esp_vfs_dev_uart_use_driver(CONFIG_CONSOLE_UART_NUM);
-  esp_vfs_dev_uart_set_rx_line_endings(ESP_LINE_ENDINGS_CR);
-  /* Move the caret to the beginning of the next line on '\n' */
-  esp_vfs_dev_uart_set_tx_line_endings(ESP_LINE_ENDINGS_CRLF);
-  return ESP_OK;
-}
-#endif
+/* Login page */
+String loginIndex =
+    "<form name=loginForm>"
+    "<h1>ESP32 Login</h1>"
+    "<input name=userid placeholder='User ID'> "
+    "<input name=pwd placeholder=Password type=Password> "
+    "<input type=submit onclick=check(this.form) class=btn value=Login></form>"
+    "<script>"
+    "function check(form) {"
+    "if(form.userid.value=='admin' && form.pwd.value=='admin')"
+    "{window.open('/serverIndex')}"
+    "else"
+    "{alert('Error Password or Username')}"
+    "}"
+    "</script>" +
+    style;
+
+/* Server Index Page */
+String serverIndex =
+    "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
+    "<form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>"
+    "<input type='file' name='update' id='file' onchange='sub(this)' style=display:none>"
+    "<label id='file-input' for='file'>   Choose file...</label>"
+    "<input type='submit' class=btn value='Update'>"
+    "<br><br>"
+    "<div id='prg'></div>"
+    "<br><div id='prgbar'><div id='bar'></div></div><br></form>"
+    "<script>"
+    "function sub(obj){"
+    "var fileName = obj.value.split('\\\\');"
+    "document.getElementById('file-input').innerHTML = '   '+ fileName[fileName.length-1];"
+    "};"
+    "$('form').submit(function(e){"
+    "e.preventDefault();"
+    "var form = $('#upload_form')[0];"
+    "var data = new FormData(form);"
+    "$.ajax({"
+    "url: '/update',"
+    "type: 'POST',"
+    "data: data,"
+    "contentType: false,"
+    "processData:false,"
+    "xhr: function() {"
+    "var xhr = new window.XMLHttpRequest();"
+    "xhr.upload.addEventListener('progress', function(evt) {"
+    "if (evt.lengthComputable) {"
+    "var per = evt.loaded / evt.total;"
+    "$('#prg').html('progress: ' + Math.round(per*100) + '%');"
+    "$('#bar').css('width',Math.round(per*100) + '%');"
+    "}"
+    "}, false);"
+    "return xhr;"
+    "},"
+    "success:function(d, s) {"
+    "console.log('success!') "
+    "},"
+    "error: function (a, b, c) {"
+    "}"
+    "});"
+    "});"
+    "</script>" +
+    style;
 
 CRGBPalette16 currentPalette = HeatColors_p;
 TBlendType currentBlending;
@@ -858,172 +900,74 @@ void testCylonSpeed(void *pvParameters)
   }
 };
 
-esp_err_t _http_event_handler(esp_http_client_event_t *evt)
+void init_leds()
 {
-  switch (evt->event_id)
-  {
-  case HTTP_EVENT_ERROR:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ERROR");
-    break;
-  case HTTP_EVENT_ON_CONNECTED:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_CONNECTED");
-    break;
-  case HTTP_EVENT_HEADER_SENT:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_HEADER_SENT");
-    break;
-  case HTTP_EVENT_ON_HEADER:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_HEADER, key=%s, value=%s", evt->header_key, evt->header_value);
-    break;
-  case HTTP_EVENT_ON_DATA:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
-    break;
-  case HTTP_EVENT_ON_FINISH:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_FINISH");
-    break;
-  case HTTP_EVENT_DISCONNECTED:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_DISCONNECTED");
-    break;
-  }
-  return ESP_OK;
+  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
 }
 
-static esp_err_t event_handler(void *ctx, system_event_t *event)
+void init_ota_server()
 {
-  switch (event->event_id)
+  // Connect to WiFi network
+  WiFi.begin(ssid, password);
+
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED)
   {
-  case SYSTEM_EVENT_STA_START:
-    esp_wifi_connect();
-    break;
-  case SYSTEM_EVENT_STA_GOT_IP:
-    xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
-    break;
-  case SYSTEM_EVENT_STA_DISCONNECTED:
-    /* This is a workaround as ESP32 WiFi libs don't currently
-           auto-reassociate. */
-    esp_wifi_connect();
-    xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
-    break;
-  default:
-    break;
+    delay(500);
+    ESP_LOGI(OTA_TAG, ".");
   }
-  return ESP_OK;
-}
+  // ESP_LOGI(OTA_TAG, "Connected to %t", ssid);
+  // ESP_LOGI(OTA_TAG, "IP address %c", WiFi.localIP());
 
-static void initialise_wifi(void)
-{
-  tcpip_adapter_init();
-  wifi_event_group = xEventGroupCreate();
-  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
-  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
-  wifi_config_t wifi_config = {
-      .sta = {
-          {.ssid = CONFIG_WIFI_SSID},
-          {.password = CONFIG_WIFI_PASSWORD},
-      },
-  };
-  ESP_LOGI(OTA_TAG, "Setting WiFi configuration SSID %s", wifi_config.sta.ssid);
-  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-  ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
-  ESP_ERROR_CHECK(esp_wifi_start());
-}
-
-void simple_ota_example_task(void *pvParameter)
-{
-  /* Wait for the callback to set the CONNECTED_BIT in the
-       event group.
-    */
-  xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT,
-                      false, true, portMAX_DELAY);
-  ESP_LOGI(OTA_TAG, "Starting OTA example");
-  ESP_LOGI(OTA_TAG, "Connected to WiFi network! Attempting to connect to server...");
-
-  esp_http_client_config_t config = {
-      .url = CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL,
-      .host = "192.168.0.3",
-      .port = 8070,
-      .username = "",
-      .password = "",
-      .auth_type = HTTP_AUTH_TYPE_NONE,
-      .path = "/hello-world.bin",
-      .query = "",
-      .cert_pem = (char *)server_cert_pem_start,
-      .client_cert_pem = NULL,
-      .client_key_pem = NULL,
-      .method = HTTP_METHOD_GET,
-      .timeout_ms = 1000000,
-      .disable_auto_redirect = true,
-      .max_redirection_count = 0,
-      .event_handler = _http_event_handler,
-      .transport_type = HTTP_TRANSPORT_UNKNOWN,
-      .buffer_size = 1000,
-      .user_data = NULL,
-      .is_async = false,
-      .use_global_ca_store = false,
-      .skip_cert_common_name_check = true,
-  };
-
-  // typedef struct
-  // {
-  //   const char *url;                            /*!< HTTP URL, the information on the URL is most important, it overrides the other fields below, if any */
-  //   const char *host;                           /*!< Domain or IP as string */
-  //   int port;                                   /*!< Port to connect, default depend on esp_http_client_transport_t (80 or 443) */
-  //   const char *username;                       /*!< Using for Http authentication */
-  //   const char *password;                       /*!< Using for Http authentication */
-  //   esp_http_client_auth_type_t auth_type;      /*!< Http authentication type, see `esp_http_client_auth_type_t` */
-  //   const char *path;                           /*!< HTTP Path, if not set, default is `/` */
-  //   const char *query;                          /*!< HTTP query */
-  //   const char *cert_pem;                       /*!< SSL server certification, PEM format as string, if the client requires to verify server */
-  //   const char *client_cert_pem;                /*!< SSL client certification, PEM format as string, if the server requires to verify client */
-  //   const char *client_key_pem;                 /*!< SSL client key, PEM format as string, if the server requires to verify client */
-  //   esp_http_client_method_t method;            /*!< HTTP Method */
-  //   int timeout_ms;                             /*!< Network timeout in milliseconds */
-  //   bool disable_auto_redirect;                 /*!< Disable HTTP automatic redirects */
-  //   int max_redirection_count;                  /*!< Max redirection number, using default value if zero*/
-  //   http_event_handle_cb event_handler;         /*!< HTTP Event Handle */
-  //   esp_http_client_transport_t transport_type; /*!< HTTP transport type, see `esp_http_client_transport_t` */
-  //   int buffer_size;                            /*!< HTTP buffer size (both send and receive) */
-  //   void *user_data;                            /*!< HTTP user_data context */
-  //   bool is_async;                              /*!< Set asynchronous mode, only supported with HTTPS for now */
-  //   bool use_global_ca_store;                   /*!< Use a global ca_store for all the connections in which this bool is set. */
-  //   bool skip_cert_common_name_check;           /*!< Skip any validation of server certificate CN field */
-  // } esp_http_client_config_t;
-
-#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
-  char url_buf[OTA_URL_SIZE];
-  if (strcmp(config.url, "FROM_STDIN") == 0)
-  {
-    example_configure_stdin_stdout();
-    fgets(url_buf, OTA_URL_SIZE, stdin);
-    int len = strlen(url_buf);
-    url_buf[len - 1] = '\0';
-    config.url = url_buf;
+  /* use mdns for host name resolution */
+  if (!MDNS.begin(host))
+  { // http://esp32.local
+    ESP_LOGI(OTA_TAG, "Error setting up MDNS responder!");
+    while (1)
+    {
+      delay(1000);
+    }
   }
-  else
-  {
-    ESP_LOGE(OTA_TAG, "Configuration mismatch: wrong firmware upgrade image url");
-    abort();
-  }
-#endif
+  ESP_LOGI(OTA_TAG, "mDNS responder started");
 
-#ifdef CONFIG_EXAMPLE_SKIP_COMMON_NAME_CHECK
-  config.skip_cert_common_name_check = true;
-#endif
-
-  esp_err_t err = esp_https_ota(&config);
-  if (err == ESP_OK)
-  {
-    esp_restart();
-  }
-  else
-  {
-    ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
-  }
-  while (1)
-  {
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
+  /*return index page which is stored in serverIndex */
+  server.on("/", HTTP_GET, []() {
+    server.sendHeader("Connection", "close");
+    server.send(200, "text/html", loginIndex);
+  });
+  server.on("/serverIndex", HTTP_GET, []() {
+    server.sendHeader("Connection", "close");
+    server.send(200, "text/html", serverIndex);
+  });
+  /*handling uploading firmware file */
+  server.on(
+      "/update", HTTP_POST, []() {
+    server.sendHeader("Connection", "close");
+    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
+    ESP.restart(); }, []() {
+    HTTPUpload& upload = server.upload();
+    if (upload.status == UPLOAD_FILE_START) {
+      // ESP_LOGI(OTA_TAG, "Update: %s", upload.filename.c_str());
+      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { //start with max available size
+        // Update.printError(Serial);
+        ESP_LOGE(OTA_TAG, "error 948");
+      }
+    } else if (upload.status == UPLOAD_FILE_WRITE) {
+      /* flashing firmware to ESP*/
+      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
+        // Update.printError(Serial);
+        ESP_LOGE(OTA_TAG, "error 954");
+      }
+    } else if (upload.status == UPLOAD_FILE_END) {
+      if (Update.end(true)) { //true to set the size to the current progress
+        ESP_LOGE(OTA_TAG, "Update Success: %u\nRebooting...", upload.totalSize);
+      } else {
+        // Update.printError(Serial);
+        ESP_LOGE(OTA_TAG, "error 961");
+      }
+    } });
+  server.begin();
 }
 
 #ifdef __cplusplus
@@ -1044,11 +988,9 @@ extern "C"
     pinMode(22, OUTPUT);
     digitalWrite(22, HIGH);
 
-    FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-    FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
-
+    // init_leds();
     init_fft();
-    initialise_wifi();
+    init_ota_server();
 
 #if CONFIG_SPIRAM_SUPPORT
     psramInit();
@@ -1103,11 +1045,11 @@ extern "C"
     //gatt server init
     ble_gatts_init();
 
-    xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
-    xTaskCreate(&simple_ota_example_task, "ota_example_task", 8192, NULL, 5, NULL);
+    // xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
 
     while (1)
     {
+      server.handleClient();
       vTaskDelay(10);
       // main application loop
     }
