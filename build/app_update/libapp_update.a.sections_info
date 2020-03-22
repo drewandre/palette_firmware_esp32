@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/app_update/libapp_update.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/app_update/libapp_update.a:
 
 esp_app_desc.o:     file format elf32-xtensa-le
 
@@ -34,15 +34,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  14 .debug_line   0000029c  00000000  00000000  00000737  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 15 .debug_str    00000279  00000000  00000000  000009d3  2**0
+ 15 .debug_str    00000280  00000000  00000000  000009d3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .comment      0000003b  00000000  00000000  00000c4c  2**0
+ 16 .comment      0000003b  00000000  00000000  00000c53  2**0
                   CONTENTS, READONLY
- 17 .xtensa.info  00000038  00000000  00000000  00000c87  2**0
+ 17 .xtensa.info  00000038  00000000  00000000  00000c8e  2**0
                   CONTENTS, READONLY
- 18 .xt.lit       00000010  00000000  00000000  00000cbf  2**0
+ 18 .xt.lit       00000010  00000000  00000000  00000cc6  2**0
                   CONTENTS, RELOC, READONLY
- 19 .xt.prop      000000cc  00000000  00000000  00000ccf  2**0
+ 19 .xt.prop      000000cc  00000000  00000000  00000cd6  2**0
                   CONTENTS, RELOC, READONLY
 
 esp_ota_ops.o:     file format elf32-xtensa-le
@@ -181,13 +181,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  65 .debug_line   00000f77  00000000  00000000  00004787  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 66 .debug_str    00001199  00000000  00000000  000056fe  2**0
+ 66 .debug_str    000011a0  00000000  00000000  000056fe  2**0
                   CONTENTS, READONLY, DEBUGGING
- 67 .comment      0000003b  00000000  00000000  00006897  2**0
+ 67 .comment      0000003b  00000000  00000000  0000689e  2**0
                   CONTENTS, READONLY
- 68 .xtensa.info  00000038  00000000  00000000  000068d2  2**0
+ 68 .xtensa.info  00000038  00000000  00000000  000068d9  2**0
                   CONTENTS, READONLY
- 69 .xt.lit       000000b8  00000000  00000000  0000690a  2**0
+ 69 .xt.lit       000000b8  00000000  00000000  00006911  2**0
                   CONTENTS, RELOC, READONLY
- 70 .xt.prop      00000e1c  00000000  00000000  000069c2  2**0
+ 70 .xt.prop      00000e1c  00000000  00000000  000069c9  2**0
                   CONTENTS, RELOC, READONLY

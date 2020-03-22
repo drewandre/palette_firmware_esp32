@@ -1,6 +1,6 @@
 modules/windows/hann/float/dsps_wind_hann_f32.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/float/dsps_wind_hann_f32.c \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/float/dsps_wind_hann_f32.c \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/reent.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -15,7 +15,7 @@ modules/windows/hann/float/dsps_wind_hann_f32.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h:
 
@@ -42,4 +42,4 @@ modules/windows/hann/float/dsps_wind_hann_f32.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/hann/float/dsps_wind_hann_f32.c:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/float/dsps_wind_hann_f32.c:

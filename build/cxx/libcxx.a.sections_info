@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/cxx/libcxx.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/cxx/libcxx.a:
 
 cxx_exception_stubs.o:     file format elf32-xtensa-le
 
@@ -18,11 +18,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
   6 .debug_line   00000347  00000000  00000000  000013a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    00000a44  00000000  00000000  000016ef  2**0
+  7 .debug_str    00000a4b  00000000  00000000  000016ef  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .comment      0000003b  00000000  00000000  00002133  2**0
+  8 .comment      0000003b  00000000  00000000  0000213a  2**0
                   CONTENTS, READONLY
-  9 .xtensa.info  00000038  00000000  00000000  0000216e  2**0
+  9 .xtensa.info  00000038  00000000  00000000  00002175  2**0
                   CONTENTS, READONLY
 
 cxx_guards.o:     file format elf32-xtensa-le
@@ -97,13 +97,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  33 .debug_line   00000a51  00000000  00000000  00004092  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 34 .debug_str    00002792  00000000  00000000  00004ae3  2**0
+ 34 .debug_str    00002799  00000000  00000000  00004ae3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 35 .comment      0000003b  00000000  00000000  00007275  2**0
+ 35 .comment      0000003b  00000000  00000000  0000727c  2**0
                   CONTENTS, READONLY
- 36 .xtensa.info  00000038  00000000  00000000  000072b0  2**0
+ 36 .xtensa.info  00000038  00000000  00000000  000072b7  2**0
                   CONTENTS, READONLY
- 37 .xt.lit       00000030  00000000  00000000  000072e8  2**0
+ 37 .xt.lit       00000030  00000000  00000000  000072ef  2**0
                   CONTENTS, RELOC, READONLY
- 38 .xt.prop      00000288  00000000  00000000  00007318  2**0
+ 38 .xt.prop      00000288  00000000  00000000  0000731f  2**0
                   CONTENTS, RELOC, READONLY

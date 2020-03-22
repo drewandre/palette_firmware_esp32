@@ -1,6 +1,6 @@
 spiram_psram.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/spiram_psram.c \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/newlib.h \
@@ -81,7 +81,7 @@ spiram_psram.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_image_format.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_flash_partitions.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
 

@@ -1,4 +1,5 @@
-bt_app_core.o: /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.c \
+bt_app_core.o: \
+ /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h \
@@ -27,7 +28,7 @@ bt_app_core.o: /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtensa-versions.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core-matmap.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
@@ -85,7 +86,7 @@ bt_app_core.o: /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/list.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h \
- /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.h
+ /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
@@ -143,7 +144,7 @@ bt_app_core.o: /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h:
 
@@ -259,5 +260,5 @@ bt_app_core.o: /Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/main/bt_app_core.h:
-/Users/drewandre/esp/a2dp_gatts_coex/main/./bt_app_core.c:
+/Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h:
+/Users/drewandre/esp/palette_firmware_esp32/main/./bt_app_core.c:

@@ -3,7 +3,7 @@ proto-c/session.pb-c.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/protocomm/proto-c/session.pb-c.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/protobuf-c/protobuf-c/protobuf-c/protobuf-c.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/ieeefp.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -34,7 +34,7 @@ proto-c/session.pb-c.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 

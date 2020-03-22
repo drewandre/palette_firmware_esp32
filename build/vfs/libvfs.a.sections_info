@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/vfs/libvfs.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/vfs/libvfs.a:
 
 vfs.o:     file format elf32-xtensa-le
 
@@ -230,15 +230,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 112 .debug_line   00001efa  00000000  00000000  00009ce2  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-113 .debug_str    0000106f  00000000  00000000  0000bbdc  2**0
+113 .debug_str    00001076  00000000  00000000  0000bbdc  2**0
                   CONTENTS, READONLY, DEBUGGING
-114 .comment      0000003b  00000000  00000000  0000cc4b  2**0
+114 .comment      0000003b  00000000  00000000  0000cc52  2**0
                   CONTENTS, READONLY
-115 .xtensa.info  00000038  00000000  00000000  0000cc86  2**0
+115 .xtensa.info  00000038  00000000  00000000  0000cc8d  2**0
                   CONTENTS, READONLY
-116 .xt.lit       00000180  00000000  00000000  0000ccbe  2**0
+116 .xt.lit       00000180  00000000  00000000  0000ccc5  2**0
                   CONTENTS, RELOC, READONLY
-117 .xt.prop      00001ff8  00000000  00000000  0000ce3e  2**0
+117 .xt.prop      00001ff8  00000000  00000000  0000ce45  2**0
                   CONTENTS, RELOC, READONLY
 
 vfs_uart.o:     file format elf32-xtensa-le
@@ -425,13 +425,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  89 .debug_line   00001302  00000000  00000000  000066e3  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 90 .debug_str    000014f3  00000000  00000000  000079e5  2**0
+ 90 .debug_str    000014fa  00000000  00000000  000079e5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 91 .comment      0000003b  00000000  00000000  00008ed8  2**0
+ 91 .comment      0000003b  00000000  00000000  00008edf  2**0
                   CONTENTS, READONLY
- 92 .xtensa.info  00000038  00000000  00000000  00008f13  2**0
+ 92 .xtensa.info  00000038  00000000  00000000  00008f1a  2**0
                   CONTENTS, READONLY
- 93 .xt.lit       000000d0  00000000  00000000  00008f4b  2**0
+ 93 .xt.lit       000000d0  00000000  00000000  00008f52  2**0
                   CONTENTS, RELOC, READONLY
- 94 .xt.prop      000015c0  00000000  00000000  0000901b  2**0
+ 94 .xt.prop      000015c0  00000000  00000000  00009022  2**0
                   CONTENTS, RELOC, READONLY

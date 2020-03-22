@@ -25,7 +25,7 @@ lib/http_utils.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp_http_client/lib/include/http_utils.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/time.h \
@@ -81,7 +81,7 @@ lib/http_utils.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 

@@ -23,7 +23,7 @@ speech_command_recognition/mn_process_commands.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/components/esp-sr/speech_command_recognition/include/mn_process_commands.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
@@ -72,7 +72,7 @@ speech_command_recognition/mn_process_commands.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/components/esp-sr/speech_command_recognition/include/mn_process_commands.h:
 /Users/drewandre/esp/esp-adf/components/esp-sr/speech_command_recognition/mn_process_commands.c:

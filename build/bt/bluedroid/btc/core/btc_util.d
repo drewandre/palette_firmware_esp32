@@ -30,7 +30,7 @@ bluedroid/btc/core/btc_util.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
@@ -171,7 +171,7 @@ bluedroid/btc/core/btc_util.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
 

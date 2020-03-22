@@ -1,5 +1,5 @@
 cores/esp32/WMath.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/WMath.cpp \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/WMath.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/ieeefp.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -26,7 +26,7 @@ cores/esp32/WMath.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_sleep.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/gpio.h \
@@ -111,7 +111,7 @@ cores/esp32/WMath.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 
@@ -174,4 +174,4 @@ cores/esp32/WMath.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core-matmap.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/WMath.cpp:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/WMath.cpp:

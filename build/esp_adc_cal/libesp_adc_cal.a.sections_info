@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/esp_adc_cal/libesp_adc_cal.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/esp_adc_cal/libesp_adc_cal.a:
 
 esp_adc_cal.o:     file format elf32-xtensa-le
 
@@ -118,13 +118,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  56 .debug_line   000006e0  00000000  00000000  0000260f  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 57 .debug_str    000008fd  00000000  00000000  00002cef  2**0
+ 57 .debug_str    00000904  00000000  00000000  00002cef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 58 .comment      0000003b  00000000  00000000  000035ec  2**0
+ 58 .comment      0000003b  00000000  00000000  000035f3  2**0
                   CONTENTS, READONLY
- 59 .xtensa.info  00000038  00000000  00000000  00003627  2**0
+ 59 .xtensa.info  00000038  00000000  00000000  0000362e  2**0
                   CONTENTS, READONLY
- 60 .xt.lit       00000078  00000000  00000000  0000365f  2**0
+ 60 .xt.lit       00000078  00000000  00000000  00003666  2**0
                   CONTENTS, RELOC, READONLY
- 61 .xt.prop      000006b4  00000000  00000000  000036d7  2**0
+ 61 .xt.prop      000006b4  00000000  00000000  000036de  2**0
                   CONTENTS, RELOC, READONLY

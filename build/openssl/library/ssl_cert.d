@@ -11,7 +11,7 @@ library/ssl_cert.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/internal/ssl_stack.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/internal/ssl_dbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_opt.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_port.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
@@ -67,7 +67,7 @@ library/ssl_cert.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_opt.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/openssl/include/platform/ssl_port.h:
 

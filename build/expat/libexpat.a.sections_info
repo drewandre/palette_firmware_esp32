@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/expat/libexpat.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/expat/libexpat.a:
 
 xmlparse.o:     file format elf32-xtensa-le
 
@@ -550,15 +550,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 272 .debug_line   00006c5c  00000000  00000000  0001c4e7  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-273 .debug_str    000033f6  00000000  00000000  00023143  2**0
+273 .debug_str    000033fd  00000000  00000000  00023143  2**0
                   CONTENTS, READONLY, DEBUGGING
-274 .comment      0000003b  00000000  00000000  00026539  2**0
+274 .comment      0000003b  00000000  00000000  00026540  2**0
                   CONTENTS, READONLY
-275 .xtensa.info  00000038  00000000  00000000  00026574  2**0
+275 .xtensa.info  00000038  00000000  00000000  0002657b  2**0
                   CONTENTS, READONLY
-276 .xt.lit       00000280  00000000  00000000  000265ac  2**0
+276 .xt.lit       00000280  00000000  00000000  000265b3  2**0
                   CONTENTS, RELOC, READONLY
-277 .xt.prop      00007ac4  00000000  00000000  0002682c  2**0
+277 .xt.prop      00007ac4  00000000  00000000  00026833  2**0
                   CONTENTS, RELOC, READONLY
 
 xmlrole.o:     file format elf32-xtensa-le

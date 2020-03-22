@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/pthread/libpthread.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/pthread/libpthread.a:
 
 pthread.o:     file format elf32-xtensa-le
 
@@ -188,15 +188,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  91 .debug_line   00001005  00000000  00000000  00004812  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 92 .debug_str    00000c02  00000000  00000000  00005817  2**0
+ 92 .debug_str    00000c09  00000000  00000000  00005817  2**0
                   CONTENTS, READONLY, DEBUGGING
- 93 .comment      0000003b  00000000  00000000  00006419  2**0
+ 93 .comment      0000003b  00000000  00000000  00006420  2**0
                   CONTENTS, READONLY
- 94 .xtensa.info  00000038  00000000  00000000  00006454  2**0
+ 94 .xtensa.info  00000038  00000000  00000000  0000645b  2**0
                   CONTENTS, READONLY
- 95 .xt.lit       000000e8  00000000  00000000  0000648c  2**0
+ 95 .xt.lit       000000e8  00000000  00000000  00006493  2**0
                   CONTENTS, RELOC, READONLY
- 96 .xt.prop      00000f90  00000000  00000000  00006574  2**0
+ 96 .xt.prop      00000f90  00000000  00000000  0000657b  2**0
                   CONTENTS, RELOC, READONLY
 
 pthread_cond_var.o:     file format elf32-xtensa-le
@@ -249,15 +249,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  22 .debug_line   00000511  00000000  00000000  00001109  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 23 .debug_str    00000513  00000000  00000000  0000161a  2**0
+ 23 .debug_str    0000051a  00000000  00000000  0000161a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 24 .comment      0000003b  00000000  00000000  00001b2d  2**0
+ 24 .comment      0000003b  00000000  00000000  00001b34  2**0
                   CONTENTS, READONLY
- 25 .xtensa.info  00000038  00000000  00000000  00001b68  2**0
+ 25 .xtensa.info  00000038  00000000  00000000  00001b6f  2**0
                   CONTENTS, READONLY
- 26 .xt.lit       00000030  00000000  00000000  00001ba0  2**0
+ 26 .xt.lit       00000030  00000000  00000000  00001ba7  2**0
                   CONTENTS, RELOC, READONLY
- 27 .xt.prop      00000324  00000000  00000000  00001bd0  2**0
+ 27 .xt.prop      00000324  00000000  00000000  00001bd7  2**0
                   CONTENTS, RELOC, READONLY
 
 pthread_local_storage.o:     file format elf32-xtensa-le
@@ -322,13 +322,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  28 .debug_line   000004f4  00000000  00000000  0000122c  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 29 .debug_str    00000420  00000000  00000000  00001720  2**0
+ 29 .debug_str    00000427  00000000  00000000  00001720  2**0
                   CONTENTS, READONLY, DEBUGGING
- 30 .comment      0000003b  00000000  00000000  00001b40  2**0
+ 30 .comment      0000003b  00000000  00000000  00001b47  2**0
                   CONTENTS, READONLY
- 31 .xtensa.info  00000038  00000000  00000000  00001b7b  2**0
+ 31 .xtensa.info  00000038  00000000  00000000  00001b82  2**0
                   CONTENTS, READONLY
- 32 .xt.lit       00000038  00000000  00000000  00001bb3  2**0
+ 32 .xt.lit       00000038  00000000  00000000  00001bba  2**0
                   CONTENTS, RELOC, READONLY
- 33 .xt.prop      0000036c  00000000  00000000  00001beb  2**0
+ 33 .xt.prop      0000036c  00000000  00000000  00001bf2  2**0
                   CONTENTS, RELOC, READONLY

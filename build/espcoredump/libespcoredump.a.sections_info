@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/espcoredump/libespcoredump.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/espcoredump/libespcoredump.a:
 
 core_dump_common.o:     file format elf32-xtensa-le
 
@@ -34,15 +34,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  14 .debug_line   0000045e  00000000  00000000  00000bde  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 15 .debug_str    000007b6  00000000  00000000  0000103c  2**0
+ 15 .debug_str    000007bd  00000000  00000000  0000103c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .comment      0000003b  00000000  00000000  000017f2  2**0
+ 16 .comment      0000003b  00000000  00000000  000017f9  2**0
                   CONTENTS, READONLY
- 17 .xtensa.info  00000038  00000000  00000000  0000182d  2**0
+ 17 .xtensa.info  00000038  00000000  00000000  00001834  2**0
                   CONTENTS, READONLY
- 18 .xt.lit       00000008  00000000  00000000  00001865  2**0
+ 18 .xt.lit       00000008  00000000  00000000  0000186c  2**0
                   CONTENTS, RELOC, READONLY
- 19 .xt.prop      000000f0  00000000  00000000  0000186d  2**0
+ 19 .xt.prop      000000f0  00000000  00000000  00001874  2**0
                   CONTENTS, RELOC, READONLY
 
 core_dump_flash.o:     file format elf32-xtensa-le
@@ -63,11 +63,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
   6 .debug_line   00000072  00000000  00000000  00000131  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    00000190  00000000  00000000  000001a3  2**0
+  7 .debug_str    00000197  00000000  00000000  000001a3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .comment      0000003b  00000000  00000000  00000333  2**0
+  8 .comment      0000003b  00000000  00000000  0000033a  2**0
                   CONTENTS, READONLY
-  9 .xtensa.info  00000038  00000000  00000000  0000036e  2**0
+  9 .xtensa.info  00000038  00000000  00000000  00000375  2**0
                   CONTENTS, READONLY
 
 core_dump_port.o:     file format elf32-xtensa-le
@@ -88,11 +88,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
   6 .debug_line   00000071  00000000  00000000  00000131  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000018f  00000000  00000000  000001a2  2**0
+  7 .debug_str    00000196  00000000  00000000  000001a2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .comment      0000003b  00000000  00000000  00000331  2**0
+  8 .comment      0000003b  00000000  00000000  00000338  2**0
                   CONTENTS, READONLY
-  9 .xtensa.info  00000038  00000000  00000000  0000036c  2**0
+  9 .xtensa.info  00000038  00000000  00000000  00000373  2**0
                   CONTENTS, READONLY
 
 core_dump_uart.o:     file format elf32-xtensa-le
@@ -113,9 +113,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
   6 .debug_line   00000071  00000000  00000000  00000131  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000018f  00000000  00000000  000001a2  2**0
+  7 .debug_str    00000196  00000000  00000000  000001a2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .comment      0000003b  00000000  00000000  00000331  2**0
+  8 .comment      0000003b  00000000  00000000  00000338  2**0
                   CONTENTS, READONLY
-  9 .xtensa.info  00000038  00000000  00000000  0000036c  2**0
+  9 .xtensa.info  00000038  00000000  00000000  00000373  2**0
                   CONTENTS, READONLY

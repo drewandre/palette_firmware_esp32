@@ -4,7 +4,7 @@ deps_config := \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/bt/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/driver/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/efuse/Kconfig \
-	/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/Kconfig \
+	/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp_adc_cal/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/Kconfig \
@@ -34,13 +34,13 @@ deps_config := \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/wear_levelling/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/wifi_provisioning/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/app_update/Kconfig.projbuild \
-	/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/Kconfig.projbuild \
+	/Users/drewandre/esp/palette_firmware_esp32/components/arduino/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/components/audio_board/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/bootloader/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/components/esp-adf-libs/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/components/esp-sr/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esptool_py/Kconfig.projbuild \
-	/Users/drewandre/esp/a2dp_gatts_coex/main/Kconfig.projbuild \
+	/Users/drewandre/esp/palette_firmware_esp32/main/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/partition_table/Kconfig.projbuild \
 	/Users/drewandre/esp/esp-adf/esp-idf/Kconfig
 

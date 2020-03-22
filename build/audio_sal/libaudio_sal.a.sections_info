@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/audio_sal/libaudio_sal.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/audio_sal/libaudio_sal.a:
 
 audio_mem.o:     file format elf32-xtensa-le
 
@@ -54,15 +54,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  24 .debug_line   00000300  00000000  00000000  00000926  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 25 .debug_str    000002d8  00000000  00000000  00000c26  2**0
+ 25 .debug_str    000002df  00000000  00000000  00000c26  2**0
                   CONTENTS, READONLY, DEBUGGING
- 26 .comment      0000003b  00000000  00000000  00000efe  2**0
+ 26 .comment      0000003b  00000000  00000000  00000f05  2**0
                   CONTENTS, READONLY
- 27 .xtensa.info  00000038  00000000  00000000  00000f39  2**0
+ 27 .xtensa.info  00000038  00000000  00000000  00000f40  2**0
                   CONTENTS, READONLY
- 28 .xt.lit       00000038  00000000  00000000  00000f71  2**0
+ 28 .xt.lit       00000038  00000000  00000000  00000f78  2**0
                   CONTENTS, RELOC, READONLY
- 29 .xt.prop      00000168  00000000  00000000  00000fa9  2**0
+ 29 .xt.prop      00000168  00000000  00000000  00000fb0  2**0
                   CONTENTS, RELOC, READONLY
 
 audio_sys.o:     file format elf32-xtensa-le
@@ -97,15 +97,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  13 .debug_line   000001f3  00000000  00000000  0000037d  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 14 .debug_str    00000223  00000000  00000000  00000570  2**0
+ 14 .debug_str    0000022a  00000000  00000000  00000570  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      0000003b  00000000  00000000  00000793  2**0
+ 15 .comment      0000003b  00000000  00000000  0000079a  2**0
                   CONTENTS, READONLY
- 16 .xtensa.info  00000038  00000000  00000000  000007ce  2**0
+ 16 .xtensa.info  00000038  00000000  00000000  000007d5  2**0
                   CONTENTS, READONLY
- 17 .xt.lit       00000010  00000000  00000000  00000806  2**0
+ 17 .xt.lit       00000010  00000000  00000000  0000080d  2**0
                   CONTENTS, RELOC, READONLY
- 18 .xt.prop      0000006c  00000000  00000000  00000816  2**0
+ 18 .xt.prop      0000006c  00000000  00000000  0000081d  2**0
                   CONTENTS, RELOC, READONLY
 
 audio_url.o:     file format elf32-xtensa-le
@@ -148,13 +148,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  17 .debug_line   000003b0  00000000  00000000  00000a8f  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 18 .debug_str    00000267  00000000  00000000  00000e3f  2**0
+ 18 .debug_str    0000026e  00000000  00000000  00000e3f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000003b  00000000  00000000  000010a6  2**0
+ 19 .comment      0000003b  00000000  00000000  000010ad  2**0
                   CONTENTS, READONLY
- 20 .xtensa.info  00000038  00000000  00000000  000010e1  2**0
+ 20 .xtensa.info  00000038  00000000  00000000  000010e8  2**0
                   CONTENTS, READONLY
- 21 .xt.lit       00000010  00000000  00000000  00001119  2**0
+ 21 .xt.lit       00000010  00000000  00000000  00001120  2**0
                   CONTENTS, RELOC, READONLY
- 22 .xt.prop      0000015c  00000000  00000000  00001129  2**0
+ 22 .xt.prop      0000015c  00000000  00000000  00001130  2**0
                   CONTENTS, RELOC, READONLY

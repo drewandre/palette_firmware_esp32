@@ -33,7 +33,7 @@ bluedroid/bta/jv/bta_jv_act.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/multi_heap.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/osi/include/osi/osi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/bta/include/bta/utl.h \
@@ -197,7 +197,7 @@ bluedroid/bta/jv/bta_jv_act.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/multi_heap.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/osi/include/osi/osi.h:
 

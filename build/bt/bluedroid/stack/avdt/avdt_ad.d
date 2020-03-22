@@ -1,7 +1,7 @@
 bluedroid/stack/avdt/avdt_ad.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/avdt/avdt_ad.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/newlib.h \
@@ -57,7 +57,7 @@ bluedroid/stack/avdt/avdt_ad.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h:
 

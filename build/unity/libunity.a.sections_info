@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/unity/libunity.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/unity/libunity.a:
 
 unity.o:     file format elf32-xtensa-le
 
@@ -268,15 +268,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 131 .debug_line   000014a6  00000000  00000000  00007557  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-132 .debug_str    00000d47  00000000  00000000  000089fd  2**0
+132 .debug_str    00000d4e  00000000  00000000  000089fd  2**0
                   CONTENTS, READONLY, DEBUGGING
-133 .comment      0000003b  00000000  00000000  00009744  2**0
+133 .comment      0000003b  00000000  00000000  0000974b  2**0
                   CONTENTS, READONLY
-134 .xtensa.info  00000038  00000000  00000000  0000977f  2**0
+134 .xtensa.info  00000038  00000000  00000000  00009786  2**0
                   CONTENTS, READONLY
-135 .xt.lit       00000140  00000000  00000000  000097b7  2**0
+135 .xt.lit       00000140  00000000  00000000  000097be  2**0
                   CONTENTS, RELOC, READONLY
-136 .xt.prop      00001770  00000000  00000000  000098f7  2**0
+136 .xt.prop      00001770  00000000  00000000  000098fe  2**0
                   CONTENTS, RELOC, READONLY
 
 unity_port_esp32.o:     file format elf32-xtensa-le
@@ -331,15 +331,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  23 .debug_line   0000034c  00000000  00000000  00000859  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 24 .debug_str    0000030b  00000000  00000000  00000ba5  2**0
+ 24 .debug_str    00000312  00000000  00000000  00000ba5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 25 .comment      0000003b  00000000  00000000  00000eb0  2**0
+ 25 .comment      0000003b  00000000  00000000  00000eb7  2**0
                   CONTENTS, READONLY
- 26 .xtensa.info  00000038  00000000  00000000  00000eeb  2**0
+ 26 .xtensa.info  00000038  00000000  00000000  00000ef2  2**0
                   CONTENTS, READONLY
- 27 .xt.lit       00000030  00000000  00000000  00000f23  2**0
+ 27 .xt.lit       00000030  00000000  00000000  00000f2a  2**0
                   CONTENTS, RELOC, READONLY
- 28 .xt.prop      0000018c  00000000  00000000  00000f53  2**0
+ 28 .xt.prop      0000018c  00000000  00000000  00000f5a  2**0
                   CONTENTS, RELOC, READONLY
 
 unity_runner.o:     file format elf32-xtensa-le
@@ -422,13 +422,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  37 .debug_line   000007ea  00000000  00000000  00001ccb  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 38 .debug_str    0000058f  00000000  00000000  000024b5  2**0
+ 38 .debug_str    00000596  00000000  00000000  000024b5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 39 .comment      0000003b  00000000  00000000  00002a44  2**0
+ 39 .comment      0000003b  00000000  00000000  00002a4b  2**0
                   CONTENTS, READONLY
- 40 .xtensa.info  00000038  00000000  00000000  00002a7f  2**0
+ 40 .xtensa.info  00000038  00000000  00000000  00002a86  2**0
                   CONTENTS, READONLY
- 41 .xt.lit       00000068  00000000  00000000  00002ab7  2**0
+ 41 .xt.lit       00000068  00000000  00000000  00002abe  2**0
                   CONTENTS, RELOC, READONLY
- 42 .xt.prop      000004d4  00000000  00000000  00002b1f  2**0
+ 42 .xt.prop      000004d4  00000000  00000000  00002b26  2**0
                   CONTENTS, RELOC, READONLY

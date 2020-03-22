@@ -10,7 +10,7 @@ src/ff.o: /Users/drewandre/esp/esp-adf/esp-idf/components/fatfs/src/ff.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/syslimits.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/endian.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/param.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/reent.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -113,7 +113,7 @@ src/ff.o: /Users/drewandre/esp/esp-adf/esp-idf/components/fatfs/src/ff.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/param.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
 

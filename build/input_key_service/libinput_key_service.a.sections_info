@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/input_key_service/libinput_key_service.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/input_key_service/libinput_key_service.a:
 
 input_key_service.o:     file format elf32-xtensa-le
 
@@ -76,13 +76,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  35 .debug_line   000007d6  00000000  00000000  00002124  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 36 .debug_str    000009c7  00000000  00000000  000028fa  2**0
+ 36 .debug_str    000009ce  00000000  00000000  000028fa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 37 .comment      0000003b  00000000  00000000  000032c1  2**0
+ 37 .comment      0000003b  00000000  00000000  000032c8  2**0
                   CONTENTS, READONLY
- 38 .xtensa.info  00000038  00000000  00000000  000032fc  2**0
+ 38 .xtensa.info  00000038  00000000  00000000  00003303  2**0
                   CONTENTS, READONLY
- 39 .xt.lit       00000040  00000000  00000000  00003334  2**0
+ 39 .xt.lit       00000040  00000000  00000000  0000333b  2**0
                   CONTENTS, RELOC, READONLY
- 40 .xt.prop      00000450  00000000  00000000  00003374  2**0
+ 40 .xt.prop      00000450  00000000  00000000  0000337b  2**0
                   CONTENTS, RELOC, READONLY

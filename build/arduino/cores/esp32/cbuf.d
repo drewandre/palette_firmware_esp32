@@ -1,6 +1,6 @@
 cores/esp32/cbuf.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/cbuf.cpp \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/cbuf.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.cpp \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h \
@@ -19,7 +19,7 @@ cores/esp32/cbuf.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/cbuf.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
@@ -54,4 +54,4 @@ cores/esp32/cbuf.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/cbuf.cpp:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/cbuf.cpp:

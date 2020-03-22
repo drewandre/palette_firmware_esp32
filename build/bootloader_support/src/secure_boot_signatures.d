@@ -1,6 +1,6 @@
 src/secure_boot_signatures.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/src/secure_boot_signatures.c \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -47,7 +47,7 @@ src/secure_boot_signatures.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/endian.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/param.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h:
 

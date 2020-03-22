@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/display_service/libdisplay_service.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/display_service/libdisplay_service.a:
 
 display_service.o:     file format elf32-xtensa-le
 
@@ -44,15 +44,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  19 .debug_line   000003bb  00000000  00000000  00000b86  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 20 .debug_str    00000451  00000000  00000000  00000f41  2**0
+ 20 .debug_str    00000458  00000000  00000000  00000f41  2**0
                   CONTENTS, READONLY, DEBUGGING
- 21 .comment      0000003b  00000000  00000000  00001392  2**0
+ 21 .comment      0000003b  00000000  00000000  00001399  2**0
                   CONTENTS, READONLY
- 22 .xtensa.info  00000038  00000000  00000000  000013cd  2**0
+ 22 .xtensa.info  00000038  00000000  00000000  000013d4  2**0
                   CONTENTS, READONLY
- 23 .xt.lit       00000018  00000000  00000000  00001405  2**0
+ 23 .xt.lit       00000018  00000000  00000000  0000140c  2**0
                   CONTENTS, RELOC, READONLY
- 24 .xt.prop      00000114  00000000  00000000  0000141d  2**0
+ 24 .xt.prop      00000114  00000000  00000000  00001424  2**0
                   CONTENTS, RELOC, READONLY
 
 led_indicator.o:     file format elf32-xtensa-le
@@ -101,15 +101,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  20 .debug_line   00000483  00000000  00000000  00000fda  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 21 .debug_str    00000a6a  00000000  00000000  0000145d  2**0
+ 21 .debug_str    00000a71  00000000  00000000  0000145d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 22 .comment      0000003b  00000000  00000000  00001ec7  2**0
+ 22 .comment      0000003b  00000000  00000000  00001ece  2**0
                   CONTENTS, READONLY
- 23 .xtensa.info  00000038  00000000  00000000  00001f02  2**0
+ 23 .xtensa.info  00000038  00000000  00000000  00001f09  2**0
                   CONTENTS, READONLY
- 24 .xt.lit       00000018  00000000  00000000  00001f3a  2**0
+ 24 .xt.lit       00000018  00000000  00000000  00001f41  2**0
                   CONTENTS, RELOC, READONLY
- 25 .xt.prop      00000198  00000000  00000000  00001f52  2**0
+ 25 .xt.prop      00000198  00000000  00000000  00001f59  2**0
                   CONTENTS, RELOC, READONLY
 
 led_bar_is31x.o:     file format elf32-xtensa-le
@@ -154,13 +154,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  18 .debug_line   000004f7  00000000  00000000  0000182a  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 19 .debug_str    0000083d  00000000  00000000  00001d21  2**0
+ 19 .debug_str    00000844  00000000  00000000  00001d21  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .comment      0000003b  00000000  00000000  0000255e  2**0
+ 20 .comment      0000003b  00000000  00000000  00002565  2**0
                   CONTENTS, READONLY
- 21 .xtensa.info  00000038  00000000  00000000  00002599  2**0
+ 21 .xtensa.info  00000038  00000000  00000000  000025a0  2**0
                   CONTENTS, READONLY
- 22 .xt.lit       00000018  00000000  00000000  000025d1  2**0
+ 22 .xt.lit       00000018  00000000  00000000  000025d8  2**0
                   CONTENTS, RELOC, READONLY
- 23 .xt.prop      00000288  00000000  00000000  000025e9  2**0
+ 23 .xt.prop      00000288  00000000  00000000  000025f0  2**0
                   CONTENTS, RELOC, READONLY

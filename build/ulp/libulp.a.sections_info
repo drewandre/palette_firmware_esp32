@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/ulp/libulp.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/ulp/libulp.a:
 
 ulp.o:     file format elf32-xtensa-le
 
@@ -40,15 +40,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  17 .debug_line   000003fc  00000000  00000000  00000f1f  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 18 .debug_str    000003ce  00000000  00000000  0000131b  2**0
+ 18 .debug_str    000003d5  00000000  00000000  0000131b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000003b  00000000  00000000  000016e9  2**0
+ 19 .comment      0000003b  00000000  00000000  000016f0  2**0
                   CONTENTS, READONLY
- 20 .xtensa.info  00000038  00000000  00000000  00001724  2**0
+ 20 .xtensa.info  00000038  00000000  00000000  0000172b  2**0
                   CONTENTS, READONLY
- 21 .xt.lit       00000018  00000000  00000000  0000175c  2**0
+ 21 .xt.lit       00000018  00000000  00000000  00001763  2**0
                   CONTENTS, RELOC, READONLY
- 22 .xt.prop      00000150  00000000  00000000  00001774  2**0
+ 22 .xt.prop      00000150  00000000  00000000  0000177b  2**0
                   CONTENTS, RELOC, READONLY
 
 ulp_macro.o:     file format elf32-xtensa-le
@@ -91,13 +91,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  17 .debug_line   00000585  00000000  00000000  00001de7  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 18 .debug_str    00000471  00000000  00000000  0000236c  2**0
+ 18 .debug_str    00000478  00000000  00000000  0000236c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000003b  00000000  00000000  000027dd  2**0
+ 19 .comment      0000003b  00000000  00000000  000027e4  2**0
                   CONTENTS, READONLY
- 20 .xtensa.info  00000038  00000000  00000000  00002818  2**0
+ 20 .xtensa.info  00000038  00000000  00000000  0000281f  2**0
                   CONTENTS, READONLY
- 21 .xt.lit       00000010  00000000  00000000  00002850  2**0
+ 21 .xt.lit       00000010  00000000  00000000  00002857  2**0
                   CONTENTS, RELOC, READONLY
- 22 .xt.prop      000002dc  00000000  00000000  00002860  2**0
+ 22 .xt.prop      000002dc  00000000  00000000  00002867  2**0
                   CONTENTS, RELOC, READONLY

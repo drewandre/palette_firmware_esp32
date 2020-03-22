@@ -1,6 +1,6 @@
 stack_check.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/stack_check.c \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_system.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -59,7 +59,7 @@ stack_check.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core-matmap.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_system.h:
 

@@ -21,7 +21,7 @@ bluedroid/stack/l2cap/l2c_api.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
@@ -96,7 +96,7 @@ bluedroid/stack/l2cap/l2c_api.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h:
 

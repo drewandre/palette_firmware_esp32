@@ -1,6 +1,6 @@
 modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.c \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.c \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/reent.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -15,7 +15,7 @@ modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h:
 
@@ -42,4 +42,4 @@ modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.c:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/float/dsps_wind_blackman_nuttall_f32.c:

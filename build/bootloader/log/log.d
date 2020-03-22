@@ -1,6 +1,6 @@
 log.o: /Users/drewandre/esp/esp-adf/esp-idf/components/log/log.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/hal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
@@ -12,7 +12,7 @@ log.o: /Users/drewandre/esp/esp-adf/esp-idf/components/log/log.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/hal.h:
 

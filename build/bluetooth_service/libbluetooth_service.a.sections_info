@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/bluetooth_service/libbluetooth_service.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/bluetooth_service/libbluetooth_service.a:
 
 a2dp_stream.o:     file format elf32-xtensa-le
 
@@ -132,15 +132,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  63 .debug_line   000009b2  00000000  00000000  00003580  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 64 .debug_str    00001622  00000000  00000000  00003f32  2**0
+ 64 .debug_str    00001629  00000000  00000000  00003f32  2**0
                   CONTENTS, READONLY, DEBUGGING
- 65 .comment      0000003b  00000000  00000000  00005554  2**0
+ 65 .comment      0000003b  00000000  00000000  0000555b  2**0
                   CONTENTS, READONLY
- 66 .xtensa.info  00000038  00000000  00000000  0000558f  2**0
+ 66 .xtensa.info  00000038  00000000  00000000  00005596  2**0
                   CONTENTS, READONLY
- 67 .xt.lit       000000a8  00000000  00000000  000055c7  2**0
+ 67 .xt.lit       000000a8  00000000  00000000  000055ce  2**0
                   CONTENTS, RELOC, READONLY
- 68 .xt.prop      000007b0  00000000  00000000  0000566f  2**0
+ 68 .xt.prop      000007b0  00000000  00000000  00005676  2**0
                   CONTENTS, RELOC, READONLY
 
 bluetooth_service.o:     file format elf32-xtensa-le
@@ -303,15 +303,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  77 .debug_line   00000ff7  00000000  00000000  00005e3c  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 78 .debug_str    0000256a  00000000  00000000  00006e33  2**0
+ 78 .debug_str    00002571  00000000  00000000  00006e33  2**0
                   CONTENTS, READONLY, DEBUGGING
- 79 .comment      0000003b  00000000  00000000  0000939d  2**0
+ 79 .comment      0000003b  00000000  00000000  000093a4  2**0
                   CONTENTS, READONLY
- 80 .xtensa.info  00000038  00000000  00000000  000093d8  2**0
+ 80 .xtensa.info  00000038  00000000  00000000  000093df  2**0
                   CONTENTS, READONLY
- 81 .xt.lit       000000d8  00000000  00000000  00009410  2**0
+ 81 .xt.lit       000000d8  00000000  00000000  00009417  2**0
                   CONTENTS, RELOC, READONLY
- 82 .xt.prop      00000ca8  00000000  00000000  000094e8  2**0
+ 82 .xt.prop      00000ca8  00000000  00000000  000094ef  2**0
                   CONTENTS, RELOC, READONLY
 
 bt_keycontrol.o:     file format elf32-xtensa-le
@@ -378,15 +378,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  29 .debug_line   0000055a  00000000  00000000  000014f0  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 30 .debug_str    00000516  00000000  00000000  00001a4a  2**0
+ 30 .debug_str    0000051d  00000000  00000000  00001a4a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 31 .comment      0000003b  00000000  00000000  00001f60  2**0
+ 31 .comment      0000003b  00000000  00000000  00001f67  2**0
                   CONTENTS, READONLY
- 32 .xtensa.info  00000038  00000000  00000000  00001f9b  2**0
+ 32 .xtensa.info  00000038  00000000  00000000  00001fa2  2**0
                   CONTENTS, READONLY
- 33 .xt.lit       00000038  00000000  00000000  00001fd3  2**0
+ 33 .xt.lit       00000038  00000000  00000000  00001fda  2**0
                   CONTENTS, RELOC, READONLY
- 34 .xt.prop      00000354  00000000  00000000  0000200b  2**0
+ 34 .xt.prop      00000354  00000000  00000000  00002012  2**0
                   CONTENTS, RELOC, READONLY
 
 hfp_stream.o:     file format elf32-xtensa-le
@@ -489,13 +489,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  47 .debug_line   000007c0  00000000  00000000  00003341  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 48 .debug_str    00001a47  00000000  00000000  00003b01  2**0
+ 48 .debug_str    00001a4e  00000000  00000000  00003b01  2**0
                   CONTENTS, READONLY, DEBUGGING
- 49 .comment      0000003b  00000000  00000000  00005548  2**0
+ 49 .comment      0000003b  00000000  00000000  0000554f  2**0
                   CONTENTS, READONLY
- 50 .xtensa.info  00000038  00000000  00000000  00005583  2**0
+ 50 .xtensa.info  00000038  00000000  00000000  0000558a  2**0
                   CONTENTS, READONLY
- 51 .xt.lit       00000038  00000000  00000000  000055bb  2**0
+ 51 .xt.lit       00000038  00000000  00000000  000055c2  2**0
                   CONTENTS, RELOC, READONLY
- 52 .xt.prop      000005dc  00000000  00000000  000055f3  2**0
+ 52 .xt.prop      000005dc  00000000  00000000  000055fa  2**0
                   CONTENTS, RELOC, READONLY

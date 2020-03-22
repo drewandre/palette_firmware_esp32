@@ -30,7 +30,7 @@ bluedroid/btc/profile/std/gatt/btc_gatt_util.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/bta/include/bta/bta_gatt_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/bta/include/bta/bta_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/dyn_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
@@ -172,7 +172,7 @@ bluedroid/btc/profile/std/gatt/btc_gatt_util.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/stack/include/stack/dyn_mem.h:
 

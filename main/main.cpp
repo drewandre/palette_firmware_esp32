@@ -54,7 +54,49 @@
 #include "esp_bt_defs.h"
 #include "esp_gatt_common_api.h"
 
+#include "esp_wifi.h"
+#include "esp_event_loop.h"
+#include "esp_ota_ops.h"
+#include "esp_http_client.h"
+#include "esp_https_ota.h"
+
+#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
+#include "esp_vfs_dev.h"
+#include "driver/uart.h"
+#endif
+
 #include "fft_controller.h"
+
+/* FreeRTOS event group to signal when we are connected & ready to make a request */
+static EventGroupHandle_t wifi_event_group;
+
+/* The event group allows multiple bits for each event,
+   but we only care about one event - are we connected
+   to the AP with an IP? */
+const int CONNECTED_BIT = BIT0;
+
+extern const uint8_t server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
+extern const uint8_t server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
+
+#define OTA_URL_SIZE 256
+
+#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
+static esp_err_t example_configure_stdin_stdout(void)
+{
+  // Initialize VFS & UART so we can use std::cout/cin
+  setvbuf(stdin, NULL, _IONBF, 0);
+  setvbuf(stdout, NULL, _IONBF, 0);
+  /* Install UART driver for interrupt-driven reads and writes */
+  ESP_ERROR_CHECK(uart_driver_install((uart_port_t)CONFIG_CONSOLE_UART_NUM,
+                                      256, 0, 0, NULL, 0));
+  /* Tell VFS to use UART driver */
+  esp_vfs_dev_uart_use_driver(CONFIG_CONSOLE_UART_NUM);
+  esp_vfs_dev_uart_set_rx_line_endings(ESP_LINE_ENDINGS_CR);
+  /* Move the caret to the beginning of the next line on '\n' */
+  esp_vfs_dev_uart_set_tx_line_endings(ESP_LINE_ENDINGS_CRLF);
+  return ESP_OK;
+}
+#endif
 
 CRGBPalette16 currentPalette = HeatColors_p;
 TBlendType currentBlending;
@@ -93,6 +135,7 @@ GPIO_NUM_21 - PA enable output
 #define DATA_PIN GPIO_NUM_12
 CRGB leds[NUM_LEDS];
 
+#define OTA_TAG "OTA"
 #define ESP_DSP_TAG "DSP"
 #define LED_TAG "FASTLED"
 #define AUDIO_CODEC_TAG "CODEC"
@@ -227,21 +270,21 @@ static void gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap_cb_param
     // advertising start complete event to indicate advertising start successfully or failed
     if (param->adv_start_cmpl.status != ESP_BT_STATUS_SUCCESS)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "Advertising start failed\n");
+      ESP_LOGE(BT_BLE_COEX_TAG, "Advertising start failed");
     }
     else
     {
-      ESP_LOGI(BT_BLE_COEX_TAG, "Start adv successfully\n");
+      ESP_LOGI(BT_BLE_COEX_TAG, "Start adv successfully");
     }
     break;
   case ESP_GAP_BLE_ADV_STOP_COMPLETE_EVT:
     if (param->adv_stop_cmpl.status != ESP_BT_STATUS_SUCCESS)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "Advertising stop failed\n");
+      ESP_LOGE(BT_BLE_COEX_TAG, "Advertising stop failed");
     }
     else
     {
-      ESP_LOGI(BT_BLE_COEX_TAG, "Stop adv successfully\n");
+      ESP_LOGI(BT_BLE_COEX_TAG, "Stop adv successfully");
     }
     break;
   case ESP_GAP_BLE_UPDATE_CONN_PARAMS_EVT:
@@ -271,7 +314,7 @@ void example_write_event_env(esp_gatt_if_t gatts_if, prepare_type_env_t *prepare
         prepare_write_env->prepare_len = 0;
         if (prepare_write_env->prepare_buf == NULL)
         {
-          ESP_LOGE(BT_BLE_COEX_TAG, "Gatt_server prep no mem\n");
+          ESP_LOGE(BT_BLE_COEX_TAG, "Gatt_server prep no mem");
           status = ESP_GATT_NO_RESOURCES;
         }
       }
@@ -296,7 +339,7 @@ void example_write_event_env(esp_gatt_if_t gatts_if, prepare_type_env_t *prepare
       esp_err_t response_err = esp_ble_gatts_send_response(gatts_if, param->write.conn_id, param->write.trans_id, status, gatt_rsp);
       if (response_err != ESP_OK)
       {
-        ESP_LOGE(BT_BLE_COEX_TAG, "Send response error\n");
+        ESP_LOGE(BT_BLE_COEX_TAG, "Send response error");
       }
       free(gatt_rsp);
       if (status != ESP_GATT_OK)
@@ -339,7 +382,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   {
   case ESP_GATTS_REG_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d\n", param->reg.status, param->reg.app_id);
+    ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d", param->reg.status, param->reg.app_id);
     esp_ble_gap_config_local_privacy(true);
     gl_profile_tab[PROFILE_A_APP_ID].service_id.is_primary = true;
     gl_profile_tab[PROFILE_A_APP_ID].service_id.id.inst_id = 0x00;
@@ -352,7 +395,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   }
   case ESP_GATTS_READ_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d\n", param->read.conn_id, param->read.trans_id, param->read.handle);
+    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d", param->read.conn_id, param->read.trans_id, param->read.handle);
     esp_gatt_rsp_t rsp;
     memset(&rsp, 0, sizeof(esp_gatt_rsp_t));
     rsp.attr_value.handle = param->read.handle;
@@ -436,7 +479,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_CREATE_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d\n", param->create.status, param->create.service_handle);
+    ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d", param->create.status, param->create.service_handle);
     gl_profile_tab[PROFILE_A_APP_ID].service_handle = param->create.service_handle;
     gl_profile_tab[PROFILE_A_APP_ID].char_uuid.len = ESP_UUID_LEN_16;
     gl_profile_tab[PROFILE_A_APP_ID].char_uuid.uuid.uuid16 = GATTS_CHAR_UUID_A;
@@ -457,7 +500,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_ADD_CHAR_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_CHAR_EVT, status %d,  attr_handle %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_CHAR_EVT, status %d,  attr_handle %d, service_handle %d",
              param->add_char.status, param->add_char.attr_handle, param->add_char.service_handle);
     gl_profile_tab[PROFILE_A_APP_ID].char_handle = param->add_char.attr_handle;
     gl_profile_tab[PROFILE_A_APP_ID].descr_uuid.len = ESP_UUID_LEN_16;
@@ -473,7 +516,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   case ESP_GATTS_ADD_CHAR_DESCR_EVT:
   {
     gl_profile_tab[PROFILE_A_APP_ID].descr_handle = param->add_char_descr.attr_handle;
-    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d",
              param->add_char_descr.status, param->add_char_descr.attr_handle, param->add_char_descr.service_handle);
     break;
   }
@@ -481,7 +524,7 @@ static void gatts_profile_a_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_START_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d",
              param->start.status, param->start.service_handle);
     break;
   }
@@ -524,7 +567,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   {
   case ESP_GATTS_REG_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d\n", param->reg.status, param->reg.app_id);
+    ESP_LOGI(BT_BLE_COEX_TAG, "REGISTER_APP_EVT, status %d, app_id %d", param->reg.status, param->reg.app_id);
     gl_profile_tab[PROFILE_B_APP_ID].service_id.is_primary = true;
     gl_profile_tab[PROFILE_B_APP_ID].service_id.id.inst_id = 0x00;
     gl_profile_tab[PROFILE_B_APP_ID].service_id.id.uuid.len = ESP_UUID_LEN_16;
@@ -535,7 +578,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   }
   case ESP_GATTS_READ_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d\n", param->read.conn_id, param->read.trans_id, param->read.handle);
+    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_READ_EVT, conn_id %d, trans_id %d, handle %d", param->read.conn_id, param->read.trans_id, param->read.handle);
     esp_gatt_rsp_t rsp;
     memset(&rsp, 0, sizeof(esp_gatt_rsp_t));
     rsp.attr_value.handle = param->read.handle;
@@ -550,7 +593,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   }
   case ESP_GATTS_WRITE_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_WRITE_EVT, conn_id %d, trans_id %d, handle %d\n", param->write.conn_id, param->write.trans_id, param->write.handle);
+    ESP_LOGI(BT_BLE_COEX_TAG, "GATT_WRITE_EVT, conn_id %d, trans_id %d, handle %d", param->write.conn_id, param->write.trans_id, param->write.handle);
     if (!param->write.is_prep)
     {
       ESP_LOGI(BT_BLE_COEX_TAG, "GATT_WRITE_EVT, value len %d, value :", param->write.len);
@@ -617,7 +660,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_CREATE_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d\n", param->create.status, param->create.service_handle);
+    ESP_LOGI(BT_BLE_COEX_TAG, "CREATE_SERVICE_EVT, status %d,  service_handle %d", param->create.status, param->create.service_handle);
     gl_profile_tab[PROFILE_B_APP_ID].service_handle = param->create.service_handle;
     gl_profile_tab[PROFILE_B_APP_ID].char_uuid.len = ESP_UUID_LEN_16;
     gl_profile_tab[PROFILE_B_APP_ID].char_uuid.uuid.uuid16 = GATTS_CHAR_UUID_B;
@@ -638,7 +681,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_ADD_CHAR_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_CHAR_EVT, status %d,  attr_handle %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_CHAR_EVT, status %d,  attr_handle %d, service_handle %d",
              param->add_char.status, param->add_char.attr_handle, param->add_char.service_handle);
 
     gl_profile_tab[PROFILE_B_APP_ID].char_handle = param->add_char.attr_handle;
@@ -652,7 +695,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
   case ESP_GATTS_ADD_CHAR_DESCR_EVT:
   {
     gl_profile_tab[PROFILE_B_APP_ID].descr_handle = param->add_char_descr.attr_handle;
-    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "ADD_DESCR_EVT, status %d, attr_handle %d, service_handle %d",
              param->add_char_descr.status, param->add_char_descr.attr_handle, param->add_char_descr.service_handle);
     break;
   }
@@ -660,7 +703,7 @@ static void gatts_profile_b_event_handler(esp_gatts_cb_event_t event, esp_gatt_i
     break;
   case ESP_GATTS_START_EVT:
   {
-    ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d\n",
+    ESP_LOGI(BT_BLE_COEX_TAG, "SERVICE_START_EVT, status %d, service_handle %d",
              param->start.status, param->start.service_handle);
     break;
   }
@@ -706,7 +749,7 @@ static void gatts_event_handler(esp_gatts_cb_event_t event, esp_gatt_if_t gatts_
     }
     else
     {
-      ESP_LOGI(BT_BLE_COEX_TAG, "Reg app failed, app_id %04x, status %d\n",
+      ESP_LOGI(BT_BLE_COEX_TAG, "Reg app failed, app_id %04x, status %d",
                param->reg.app_id,
                param->reg.status);
       return;
@@ -815,20 +858,180 @@ void testCylonSpeed(void *pvParameters)
   }
 };
 
+esp_err_t _http_event_handler(esp_http_client_event_t *evt)
+{
+  switch (evt->event_id)
+  {
+  case HTTP_EVENT_ERROR:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ERROR");
+    break;
+  case HTTP_EVENT_ON_CONNECTED:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_CONNECTED");
+    break;
+  case HTTP_EVENT_HEADER_SENT:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_HEADER_SENT");
+    break;
+  case HTTP_EVENT_ON_HEADER:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_HEADER, key=%s, value=%s", evt->header_key, evt->header_value);
+    break;
+  case HTTP_EVENT_ON_DATA:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
+    break;
+  case HTTP_EVENT_ON_FINISH:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_FINISH");
+    break;
+  case HTTP_EVENT_DISCONNECTED:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_DISCONNECTED");
+    break;
+  }
+  return ESP_OK;
+}
+
+static esp_err_t event_handler(void *ctx, system_event_t *event)
+{
+  switch (event->event_id)
+  {
+  case SYSTEM_EVENT_STA_START:
+    esp_wifi_connect();
+    break;
+  case SYSTEM_EVENT_STA_GOT_IP:
+    xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
+    break;
+  case SYSTEM_EVENT_STA_DISCONNECTED:
+    /* This is a workaround as ESP32 WiFi libs don't currently
+           auto-reassociate. */
+    esp_wifi_connect();
+    xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
+    break;
+  default:
+    break;
+  }
+  return ESP_OK;
+}
+
+static void initialise_wifi(void)
+{
+  tcpip_adapter_init();
+  wifi_event_group = xEventGroupCreate();
+  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
+  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+  wifi_config_t wifi_config = {
+      .sta = {
+          {.ssid = CONFIG_WIFI_SSID},
+          {.password = CONFIG_WIFI_PASSWORD},
+      },
+  };
+  ESP_LOGI(OTA_TAG, "Setting WiFi configuration SSID %s", wifi_config.sta.ssid);
+  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+  ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
+  ESP_ERROR_CHECK(esp_wifi_start());
+}
+
+void simple_ota_example_task(void *pvParameter)
+{
+  /* Wait for the callback to set the CONNECTED_BIT in the
+       event group.
+    */
+  xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT,
+                      false, true, portMAX_DELAY);
+  ESP_LOGI(OTA_TAG, "Starting OTA example");
+  ESP_LOGI(OTA_TAG, "Connected to WiFi network! Attempting to connect to server...");
+
+  esp_http_client_config_t config = {
+      .url = CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL,
+      .host = "192.168.0.3",
+      .port = 8070,
+      .username = "",
+      .password = "",
+      .auth_type = HTTP_AUTH_TYPE_NONE,
+      .path = "/hello-world.bin",
+      .query = "",
+      .cert_pem = (char *)server_cert_pem_start,
+      .client_cert_pem = NULL,
+      .client_key_pem = NULL,
+      .method = HTTP_METHOD_GET,
+      .timeout_ms = 1000000,
+      .disable_auto_redirect = true,
+      .max_redirection_count = 0,
+      .event_handler = _http_event_handler,
+      .transport_type = HTTP_TRANSPORT_UNKNOWN,
+      .buffer_size = 1000,
+      .user_data = NULL,
+      .is_async = false,
+      .use_global_ca_store = false,
+      .skip_cert_common_name_check = true,
+  };
+
+  // typedef struct
+  // {
+  //   const char *url;                            /*!< HTTP URL, the information on the URL is most important, it overrides the other fields below, if any */
+  //   const char *host;                           /*!< Domain or IP as string */
+  //   int port;                                   /*!< Port to connect, default depend on esp_http_client_transport_t (80 or 443) */
+  //   const char *username;                       /*!< Using for Http authentication */
+  //   const char *password;                       /*!< Using for Http authentication */
+  //   esp_http_client_auth_type_t auth_type;      /*!< Http authentication type, see `esp_http_client_auth_type_t` */
+  //   const char *path;                           /*!< HTTP Path, if not set, default is `/` */
+  //   const char *query;                          /*!< HTTP query */
+  //   const char *cert_pem;                       /*!< SSL server certification, PEM format as string, if the client requires to verify server */
+  //   const char *client_cert_pem;                /*!< SSL client certification, PEM format as string, if the server requires to verify client */
+  //   const char *client_key_pem;                 /*!< SSL client key, PEM format as string, if the server requires to verify client */
+  //   esp_http_client_method_t method;            /*!< HTTP Method */
+  //   int timeout_ms;                             /*!< Network timeout in milliseconds */
+  //   bool disable_auto_redirect;                 /*!< Disable HTTP automatic redirects */
+  //   int max_redirection_count;                  /*!< Max redirection number, using default value if zero*/
+  //   http_event_handle_cb event_handler;         /*!< HTTP Event Handle */
+  //   esp_http_client_transport_t transport_type; /*!< HTTP transport type, see `esp_http_client_transport_t` */
+  //   int buffer_size;                            /*!< HTTP buffer size (both send and receive) */
+  //   void *user_data;                            /*!< HTTP user_data context */
+  //   bool is_async;                              /*!< Set asynchronous mode, only supported with HTTPS for now */
+  //   bool use_global_ca_store;                   /*!< Use a global ca_store for all the connections in which this bool is set. */
+  //   bool skip_cert_common_name_check;           /*!< Skip any validation of server certificate CN field */
+  // } esp_http_client_config_t;
+
+#ifdef CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL_FROM_STDIN
+  char url_buf[OTA_URL_SIZE];
+  if (strcmp(config.url, "FROM_STDIN") == 0)
+  {
+    example_configure_stdin_stdout();
+    fgets(url_buf, OTA_URL_SIZE, stdin);
+    int len = strlen(url_buf);
+    url_buf[len - 1] = '\0';
+    config.url = url_buf;
+  }
+  else
+  {
+    ESP_LOGE(OTA_TAG, "Configuration mismatch: wrong firmware upgrade image url");
+    abort();
+  }
+#endif
+
+#ifdef CONFIG_EXAMPLE_SKIP_COMMON_NAME_CHECK
+  config.skip_cert_common_name_check = true;
+#endif
+
+  esp_err_t err = esp_https_ota(&config);
+  if (err == ESP_OK)
+  {
+    esp_restart();
+  }
+  else
+  {
+    ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
+  }
+  while (1)
+  {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
   void app_main()
   {
-    pinMode(22, OUTPUT);
-    digitalWrite(22, HIGH);
-
-    FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-    FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
-
-    init_fft();
-
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES)
     {
@@ -837,6 +1040,15 @@ extern "C"
       ESP_ERROR_CHECK(nvs_flash_erase());
       err = nvs_flash_init();
     }
+
+    pinMode(22, OUTPUT);
+    digitalWrite(22, HIGH);
+
+    FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
+    FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
+
+    init_fft();
+    initialise_wifi();
 
 #if CONFIG_SPIRAM_SUPPORT
     psramInit();
@@ -858,27 +1070,27 @@ extern "C"
     err = esp_bt_controller_init(&bt_cfg);
     if (err)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed\n", __func__);
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
       return;
     }
 
     err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
     if (err)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed\n", __func__);
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
       return;
     }
 
     err = esp_bluedroid_init();
     if (err)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed\n", __func__);
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
       return;
     }
     err = esp_bluedroid_enable();
     if (err)
     {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed\n", __func__);
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
       return;
     }
 
@@ -892,9 +1104,11 @@ extern "C"
     ble_gatts_init();
 
     xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
+    xTaskCreate(&simple_ota_example_task, "ota_example_task", 8192, NULL, 5, NULL);
 
     while (1)
     {
+      vTaskDelay(10);
       // main application loop
     }
 

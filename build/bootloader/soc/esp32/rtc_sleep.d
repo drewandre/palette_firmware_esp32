@@ -8,7 +8,7 @@ esp32/rtc_sleep.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtruntime.h \
@@ -44,7 +44,7 @@ esp32/rtc_sleep.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_attr.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
 

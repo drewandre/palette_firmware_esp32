@@ -26,7 +26,7 @@ poll.o: /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/poll.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/reent.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/hal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core.h \
@@ -150,7 +150,7 @@ poll.o: /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/poll.c \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h:
 

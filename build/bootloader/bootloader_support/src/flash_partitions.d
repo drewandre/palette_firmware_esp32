@@ -3,7 +3,7 @@ src/flash_partitions.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include/esp_flash_partitions.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_flash_data_types.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
@@ -21,7 +21,7 @@ src/flash_partitions.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_flash_data_types.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/bootloader/../include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/../include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
 

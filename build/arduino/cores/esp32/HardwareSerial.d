@@ -1,5 +1,5 @@
 cores/esp32/HardwareSerial.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/HardwareSerial.cpp \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/ieeefp.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
@@ -26,17 +26,17 @@ cores/esp32/HardwareSerial.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/inttypes.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/variants/esp32/pins_arduino.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/HardwareSerial.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Stream.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Print.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/WString.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Stream.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Print.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/WString.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/ctype.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/pgmspace.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Printable.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/pgmspace.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Printable.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_system.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
@@ -71,18 +71,18 @@ cores/esp32/HardwareSerial.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/xtensa-versions.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/xtensa/config/core-matmap.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-log.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-matrix.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-uart.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-gpio.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-touch.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-dac.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-adc.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-spi.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-i2c.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-matrix.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-uart.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-gpio.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-touch.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-dac.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-adc.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-spi.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-i2c.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_config.h \
@@ -106,13 +106,13 @@ cores/esp32/HardwareSerial.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/task.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/list.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-ledc.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-rmt.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-sigmadelta.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-timer.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-bt.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-psram.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-cpu.h
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-ledc.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-rmt.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-sigmadelta.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-timer.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-bt.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-psram.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-cpu.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 
@@ -166,27 +166,27 @@ cores/esp32/HardwareSerial.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/variants/esp32/pins_arduino.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/HardwareSerial.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Stream.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Stream.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Print.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Print.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/WString.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/WString.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/ctype.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/pgmspace.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/pgmspace.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/Printable.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Printable.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/math.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_system.h:
 
@@ -256,7 +256,7 @@ cores/esp32/HardwareSerial.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-log.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-log.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
 
@@ -264,21 +264,21 @@ cores/esp32/HardwareSerial.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-matrix.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-matrix.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-uart.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-uart.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-gpio.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-gpio.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-touch.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-touch.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-dac.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-dac.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-adc.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-adc.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-spi.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-spi.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-i2c.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-i2c.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
 
@@ -326,17 +326,17 @@ cores/esp32/HardwareSerial.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/list.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-ledc.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-ledc.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-rmt.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-rmt.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-sigmadelta.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-sigmadelta.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-timer.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-timer.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-bt.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-bt.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-psram.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-psram.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/esp32-hal-cpu.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/arduino/cores/esp32/HardwareSerial.cpp:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal-cpu.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.cpp:

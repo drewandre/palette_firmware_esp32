@@ -1,6 +1,6 @@
 termios.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/termios.c \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/termios.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -20,7 +20,7 @@ termios.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/errno.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/reent.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/termios.h:
 

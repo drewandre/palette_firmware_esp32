@@ -23,7 +23,7 @@ bluedroid/stack/sdp/sdp_utils.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/multi_heap.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
@@ -96,7 +96,7 @@ bluedroid/stack/sdp/sdp_utils.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/heap/include/multi_heap.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/common/include/common/bt_defs.h:
 

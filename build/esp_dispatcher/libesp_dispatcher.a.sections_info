@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/esp_dispatcher/libesp_dispatcher.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/esp_dispatcher/libesp_dispatcher.a:
 
 audio_service.o:     file format elf32-xtensa-le
 
@@ -84,15 +84,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  39 .debug_line   00000578  00000000  00000000  00001a18  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 40 .debug_str    000004ce  00000000  00000000  00001f90  2**0
+ 40 .debug_str    000004d5  00000000  00000000  00001f90  2**0
                   CONTENTS, READONLY, DEBUGGING
- 41 .comment      0000003b  00000000  00000000  0000245e  2**0
+ 41 .comment      0000003b  00000000  00000000  00002465  2**0
                   CONTENTS, READONLY
- 42 .xtensa.info  00000038  00000000  00000000  00002499  2**0
+ 42 .xtensa.info  00000038  00000000  00000000  000024a0  2**0
                   CONTENTS, READONLY
- 43 .xt.lit       00000048  00000000  00000000  000024d1  2**0
+ 43 .xt.lit       00000048  00000000  00000000  000024d8  2**0
                   CONTENTS, RELOC, READONLY
- 44 .xt.prop      000003cc  00000000  00000000  00002519  2**0
+ 44 .xt.prop      000003cc  00000000  00000000  00002520  2**0
                   CONTENTS, RELOC, READONLY
 
 esp_dispatcher.o:     file format elf32-xtensa-le
@@ -157,15 +157,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  28 .debug_line   0000071b  00000000  00000000  000021fb  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 29 .debug_str    00000612  00000000  00000000  00002916  2**0
+ 29 .debug_str    00000619  00000000  00000000  00002916  2**0
                   CONTENTS, READONLY, DEBUGGING
- 30 .comment      0000003b  00000000  00000000  00002f28  2**0
+ 30 .comment      0000003b  00000000  00000000  00002f2f  2**0
                   CONTENTS, READONLY
- 31 .xtensa.info  00000038  00000000  00000000  00002f63  2**0
+ 31 .xtensa.info  00000038  00000000  00000000  00002f6a  2**0
                   CONTENTS, READONLY
- 32 .xt.lit       00000028  00000000  00000000  00002f9b  2**0
+ 32 .xt.lit       00000028  00000000  00000000  00002fa2  2**0
                   CONTENTS, RELOC, READONLY
- 33 .xt.prop      000003d8  00000000  00000000  00002fc3  2**0
+ 33 .xt.prop      000003d8  00000000  00000000  00002fca  2**0
                   CONTENTS, RELOC, READONLY
 
 periph_service.o:     file format elf32-xtensa-le
@@ -246,13 +246,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  36 .debug_line   00000541  00000000  00000000  00001854  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 37 .debug_str    000004e0  00000000  00000000  00001d95  2**0
+ 37 .debug_str    000004e7  00000000  00000000  00001d95  2**0
                   CONTENTS, READONLY, DEBUGGING
- 38 .comment      0000003b  00000000  00000000  00002275  2**0
+ 38 .comment      0000003b  00000000  00000000  0000227c  2**0
                   CONTENTS, READONLY
- 39 .xtensa.info  00000038  00000000  00000000  000022b0  2**0
+ 39 .xtensa.info  00000038  00000000  00000000  000022b7  2**0
                   CONTENTS, READONLY
- 40 .xt.lit       00000040  00000000  00000000  000022e8  2**0
+ 40 .xt.lit       00000040  00000000  00000000  000022ef  2**0
                   CONTENTS, RELOC, READONLY
- 41 .xt.prop      0000036c  00000000  00000000  00002328  2**0
+ 41 .xt.prop      0000036c  00000000  00000000  0000232f  2**0
                   CONTENTS, RELOC, READONLY

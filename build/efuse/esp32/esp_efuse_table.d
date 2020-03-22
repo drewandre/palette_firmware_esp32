@@ -1,6 +1,6 @@
 esp32/esp_efuse_table.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/efuse/esp32/esp_efuse_table.c \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/efuse/include/esp_efuse.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -35,7 +35,7 @@ esp32/esp_efuse_table.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/efuse/esp32/include/esp_efuse_table.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/efuse/include/esp_efuse.h:
 

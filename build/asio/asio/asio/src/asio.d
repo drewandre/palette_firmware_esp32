@@ -3,7 +3,7 @@ asio/asio/src/asio.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/src.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/detail/config.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_asio_config.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/error.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/error_code.hpp \
@@ -327,7 +327,7 @@ asio/asio/src/asio.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_asio_config.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp:
 

@@ -1,7 +1,7 @@
 modules/conv/float/dsps_conv_f32_ansi.o: \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/float/dsps_conv_f32_ansi.c \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_conv.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/float/dsps_conv_f32_ansi.c \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/features.h \
@@ -24,21 +24,21 @@ modules/conv/float/dsps_conv_f32_ansi.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
- /Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/alloca.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
- /Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err_codes.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/soc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/include/dsps_conv.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
@@ -84,7 +84,7 @@ modules/conv/float/dsps_conv_f32_ansi.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/build/include/sdkconfig.h:
+/Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 
@@ -94,7 +94,7 @@ modules/conv/float/dsps_conv_f32_ansi.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h:
 
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/common/include/dsp_err_codes.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
 
@@ -105,4 +105,4 @@ modules/conv/float/dsps_conv_f32_ansi.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h:
-/Users/drewandre/esp/a2dp_gatts_coex/components/esp-dsp/modules/conv/float/dsps_conv_f32_ansi.c:
+/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/float/dsps_conv_f32_ansi.c:

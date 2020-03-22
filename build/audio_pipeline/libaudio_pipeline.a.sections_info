@@ -1,4 +1,4 @@
-In archive /Users/drewandre/esp/a2dp_gatts_coex/build/audio_pipeline/libaudio_pipeline.a:
+In archive /Users/drewandre/esp/palette_firmware_esp32/build/audio_pipeline/libaudio_pipeline.a:
 
 audio_element.o:     file format elf32-xtensa-le
 
@@ -250,15 +250,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
 122 .debug_line   000019eb  00000000  00000000  0000813c  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
-123 .debug_str    000016e3  00000000  00000000  00009b27  2**0
+123 .debug_str    000016ea  00000000  00000000  00009b27  2**0
                   CONTENTS, READONLY, DEBUGGING
-124 .comment      0000003b  00000000  00000000  0000b20a  2**0
+124 .comment      0000003b  00000000  00000000  0000b211  2**0
                   CONTENTS, READONLY
-125 .xtensa.info  00000038  00000000  00000000  0000b245  2**0
+125 .xtensa.info  00000038  00000000  00000000  0000b24c  2**0
                   CONTENTS, READONLY
-126 .xt.lit       00000138  00000000  00000000  0000b27d  2**0
+126 .xt.lit       00000138  00000000  00000000  0000b284  2**0
                   CONTENTS, RELOC, READONLY
-127 .xt.prop      00001a4c  00000000  00000000  0000b3b5  2**0
+127 .xt.prop      00001a4c  00000000  00000000  0000b3bc  2**0
                   CONTENTS, RELOC, READONLY
 
 audio_event_iface.o:     file format elf32-xtensa-le
@@ -355,15 +355,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  44 .debug_line   000008e6  00000000  00000000  00002320  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 45 .debug_str    00000779  00000000  00000000  00002c06  2**0
+ 45 .debug_str    00000780  00000000  00000000  00002c06  2**0
                   CONTENTS, READONLY, DEBUGGING
- 46 .comment      0000003b  00000000  00000000  0000337f  2**0
+ 46 .comment      0000003b  00000000  00000000  00003386  2**0
                   CONTENTS, READONLY
- 47 .xtensa.info  00000038  00000000  00000000  000033ba  2**0
+ 47 .xtensa.info  00000038  00000000  00000000  000033c1  2**0
                   CONTENTS, READONLY
- 48 .xt.lit       00000070  00000000  00000000  000033f2  2**0
+ 48 .xt.lit       00000070  00000000  00000000  000033f9  2**0
                   CONTENTS, RELOC, READONLY
- 49 .xt.prop      00000828  00000000  00000000  00003462  2**0
+ 49 .xt.prop      00000828  00000000  00000000  00003469  2**0
                   CONTENTS, RELOC, READONLY
 
 audio_pipeline.o:     file format elf32-xtensa-le
@@ -566,15 +566,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  97 .debug_line   00001932  00000000  00000000  000069ae  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 98 .debug_str    00000f10  00000000  00000000  000082e0  2**0
+ 98 .debug_str    00000f17  00000000  00000000  000082e0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 99 .comment      0000003b  00000000  00000000  000091f0  2**0
+ 99 .comment      0000003b  00000000  00000000  000091f7  2**0
                   CONTENTS, READONLY
-100 .xtensa.info  00000038  00000000  00000000  0000922b  2**0
+100 .xtensa.info  00000038  00000000  00000000  00009232  2**0
                   CONTENTS, READONLY
-101 .xt.lit       00000110  00000000  00000000  00009263  2**0
+101 .xt.lit       00000110  00000000  00000000  0000926a  2**0
                   CONTENTS, RELOC, READONLY
-102 .xt.prop      000014e8  00000000  00000000  00009373  2**0
+102 .xt.prop      000014e8  00000000  00000000  0000937a  2**0
                   CONTENTS, RELOC, READONLY
 
 ringbuf.o:     file format elf32-xtensa-le
@@ -657,13 +657,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  37 .debug_line   00000853  00000000  00000000  00001cce  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 38 .debug_str    00000502  00000000  00000000  00002521  2**0
+ 38 .debug_str    00000509  00000000  00000000  00002521  2**0
                   CONTENTS, READONLY, DEBUGGING
- 39 .comment      0000003b  00000000  00000000  00002a23  2**0
+ 39 .comment      0000003b  00000000  00000000  00002a2a  2**0
                   CONTENTS, READONLY
- 40 .xtensa.info  00000038  00000000  00000000  00002a5e  2**0
+ 40 .xtensa.info  00000038  00000000  00000000  00002a65  2**0
                   CONTENTS, READONLY
- 41 .xt.lit       00000050  00000000  00000000  00002a96  2**0
+ 41 .xt.lit       00000050  00000000  00000000  00002a9d  2**0
                   CONTENTS, RELOC, READONLY
- 42 .xt.prop      000006fc  00000000  00000000  00002ae6  2**0
+ 42 .xt.prop      000006fc  00000000  00000000  00002aed  2**0
                   CONTENTS, RELOC, READONLY
