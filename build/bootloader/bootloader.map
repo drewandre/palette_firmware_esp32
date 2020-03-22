@@ -1005,7 +1005,7 @@ END GROUP
  *(.gnu.version)
                 0x000000004007af25                _loader_text_end = ABSOLUTE (.)
 
-.iram.text      0x0000000040080400     0x1a4d
+.iram.text      0x0000000040080400     0x1a31
                 0x0000000040080400                . = ALIGN (0x10)
  *(.entry.text)
  *(.init.literal)
@@ -1095,7 +1095,7 @@ END GROUP
                                           0x4 (size before relaxing)
  .literal.rtc_clk_bbpll_configure
                 0x0000000040080628        0xc /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                         0x38 (size before relaxing)
+                                         0x3c (size before relaxing)
  .literal.rtc_clk_xtal_freq_get
                 0x0000000040080634        0x8 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
  .literal.rtc_clk_cpu_freq_mhz_to_config
@@ -1248,114 +1248,114 @@ END GROUP
                 0x00000000400812b4       0x10 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
                 0x00000000400812b4                rtc_clk_fast_freq_get
  .text.rtc_clk_bbpll_configure
-                0x00000000400812c4      0x1b1 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                        0x1b5 (size before relaxing)
+                0x00000000400812c4      0x1a1 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                                        0x1a5 (size before relaxing)
                 0x00000000400812c4                rtc_clk_bbpll_configure
- *fill*         0x0000000040081475        0x3 
+ *fill*         0x0000000040081465        0x3 
  .text.rtc_clk_xtal_freq_get
-                0x0000000040081478       0x35 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x0000000040081478                rtc_get_xtal
-                0x0000000040081478                rtc_clk_xtal_freq_get
- *fill*         0x00000000400814ad        0x3 
+                0x0000000040081468       0x35 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040081468                rtc_get_xtal
+                0x0000000040081468                rtc_clk_xtal_freq_get
+ *fill*         0x000000004008149d        0x3 
  .text.rtc_clk_cpu_freq_mhz_to_config
-                0x00000000400814b0       0x61 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x00000000400814b0                rtc_clk_cpu_freq_mhz_to_config
- *fill*         0x0000000040081511        0x3 
+                0x00000000400814a0       0x61 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400814a0                rtc_clk_cpu_freq_mhz_to_config
+ *fill*         0x0000000040081501        0x3 
  .text.rtc_clk_cpu_freq_get_config
-                0x0000000040081514       0xa9 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040081504       0xa9 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0xb5 (size before relaxing)
-                0x0000000040081514                rtc_clk_cpu_freq_get_config
- *fill*         0x00000000400815bd        0x3 
+                0x0000000040081504                rtc_clk_cpu_freq_get_config
+ *fill*         0x00000000400815ad        0x3 
  .text.rtc_clk_xtal_freq_update
-                0x00000000400815c0       0x2c /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x00000000400815c0                rtc_clk_xtal_freq_update
+                0x00000000400815b0       0x2c /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400815b0                rtc_clk_xtal_freq_update
  .text.rtc_clk_apb_freq_update
-                0x00000000400815ec       0x19 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x00000000400815ec                rtc_clk_apb_freq_update
- *fill*         0x0000000040081605        0x3 
+                0x00000000400815dc       0x19 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400815dc                rtc_clk_apb_freq_update
+ *fill*         0x00000000400815f5        0x3 
  .text.rtc_clk_cpu_freq_to_xtal
-                0x0000000040081608       0x97 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400815f8       0x97 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x9b (size before relaxing)
-                0x0000000040081608                rtc_clk_cpu_freq_to_xtal
- *fill*         0x000000004008169f        0x1 
+                0x00000000400815f8                rtc_clk_cpu_freq_to_xtal
+ *fill*         0x000000004008168f        0x1 
  .text.rtc_clk_cpu_freq_to_pll_mhz
-                0x00000000400816a0       0xa8 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                         0xb0 (size before relaxing)
+                0x0000000040081690       0x9c /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                                         0xa4 (size before relaxing)
  .text.rtc_clk_cpu_freq_to_8m
-                0x0000000040081748       0x58 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004008172c       0x58 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x5c (size before relaxing)
  .text.rtc_clk_cpu_freq_set_config
-                0x00000000400817a0       0x5b /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040081784       0x5b /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x76 (size before relaxing)
-                0x00000000400817a0                rtc_clk_cpu_freq_set_config
- *fill*         0x00000000400817fb        0x1 
+                0x0000000040081784                rtc_clk_cpu_freq_set_config
+ *fill*         0x00000000400817df        0x1 
  .text.rtc_clk_apb_freq_get
-                0x00000000400817fc       0x27 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x00000000400817fc                rtc_clk_apb_freq_get
- *fill*         0x0000000040081823        0x1 
+                0x00000000400817e0       0x27 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400817e0                rtc_clk_apb_freq_get
+ *fill*         0x0000000040081807        0x1 
  .text.rtc_clk_xtal_freq_estimate
-                0x0000000040081824       0xa6 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
+                0x0000000040081808       0xa6 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
                                          0xb2 (size before relaxing)
- *fill*         0x00000000400818ca        0x2 
+ *fill*         0x00000000400818ae        0x2 
  .text.rtc_clk_init
-                0x00000000400818cc      0x1da /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
+                0x00000000400818b0      0x1da /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
                                         0x20a (size before relaxing)
-                0x00000000400818cc                rtc_clk_init
- *fill*         0x0000000040081aa6        0x2 
+                0x00000000400818b0                rtc_clk_init
+ *fill*         0x0000000040081a8a        0x2 
  .text.rtc_vddsdio_get_config
-                0x0000000040081aa8      0x104 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
-                0x0000000040081aa8                rtc_vddsdio_get_config
+                0x0000000040081a8c      0x104 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x0000000040081a8c                rtc_vddsdio_get_config
  .text.rtc_vddsdio_set_config
-                0x0000000040081bac       0x46 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
-                0x0000000040081bac                rtc_vddsdio_set_config
- *fill*         0x0000000040081bf2        0x2 
+                0x0000000040081b90       0x46 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x0000000040081b90                rtc_vddsdio_set_config
+ *fill*         0x0000000040081bd6        0x2 
  .text.rtc_clk_cal_internal
-                0x0000000040081bf4      0x1c0 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x0000000040081bd8      0x1c0 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
                                         0x1cc (size before relaxing)
  .text.rtc_clk_cal_ratio
-                0x0000000040081db4       0x20 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x0000000040081d98       0x20 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
                                          0x24 (size before relaxing)
-                0x0000000040081db4                rtc_clk_cal_ratio
+                0x0000000040081d98                rtc_clk_cal_ratio
  .text.rtc_clk_wait_for_slow_cycle
-                0x0000000040081dd4       0x79 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
-                0x0000000040081dd4                rtc_clk_wait_for_slow_cycle
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
- *fill*         0x0000000040081e4d        0x0 
+                0x0000000040081db8       0x79 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x0000000040081db8                rtc_clk_wait_for_slow_cycle
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
+ *fill*         0x0000000040081e31        0x0 
  *(.iram .iram.*)
  *(.fini.literal)
  *(.fini)
  *(.gnu.version)
-                0x0000000040081e4d                _text_end = ABSOLUTE (.)
-                0x0000000040081e4d                _etext = .
+                0x0000000040081e31                _text_end = ABSOLUTE (.)
+                0x0000000040081e31                _etext = .
 
 .dram0.bss      0x000000003fff0000       0x18
                 0x000000003fff0000                . = ALIGN (0x8)
@@ -3296,7 +3296,7 @@ OUTPUT(/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader.e
  .debug_abbrev  0x0000000000002ae9       0x60 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
  .debug_abbrev  0x0000000000002b49      0x15f /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
-.debug_loc      0x0000000000000000     0x629c
+.debug_loc      0x0000000000000000     0x62a9
  .debug_loc     0x0000000000000000       0x84 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/main/libmain.a(bootloader_start.o)
  .debug_loc     0x0000000000000084      0x607 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
  .debug_loc     0x000000000000068b       0x62 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
@@ -3312,13 +3312,13 @@ OUTPUT(/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader.e
  .debug_loc     0x000000000000349c      0x4ad /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/log/liblog.a(log.o)
  .debug_loc     0x0000000000003949      0xa20 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
  .debug_loc     0x0000000000004369       0x13 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(cpu_util.o)
- .debug_loc     0x000000000000437c      0xbf0 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
- .debug_loc     0x0000000000004f6c      0x1d6 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
- .debug_loc     0x0000000000005142      0x245 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
- .debug_loc     0x0000000000005387      0x227 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
- .debug_loc     0x00000000000055ae      0x2e5 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_wdt.o)
- .debug_loc     0x0000000000005893       0x21 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
- .debug_loc     0x00000000000058b4      0x9e8 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+ .debug_loc     0x000000000000437c      0xbfd /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ .debug_loc     0x0000000000004f79      0x1d6 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
+ .debug_loc     0x000000000000514f      0x245 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
+ .debug_loc     0x0000000000005394      0x227 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
+ .debug_loc     0x00000000000055bb      0x2e5 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_wdt.o)
+ .debug_loc     0x00000000000058a0       0x21 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .debug_loc     0x00000000000058c1      0x9e8 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
 .debug_aranges  0x0000000000000000      0x7d8
  .debug_aranges
@@ -3391,7 +3391,7 @@ OUTPUT(/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader.e
  .debug_ranges  0x0000000000000758       0x68 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_wdt.o)
  .debug_ranges  0x00000000000007c0       0x60 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
-.debug_line     0x0000000000000000     0x88da
+.debug_line     0x0000000000000000     0x88e0
  .debug_line    0x0000000000000000      0x3be /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/main/libmain.a(bootloader_start.o)
  .debug_line    0x00000000000003be      0x9ac /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
  .debug_line    0x0000000000000d6a      0x472 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
@@ -3408,13 +3408,13 @@ OUTPUT(/Users/drewandre/esp/palette_firmware_esp32/build/bootloader/bootloader.e
  .debug_line    0x000000000000572c      0xb5a /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
  .debug_line    0x0000000000006286      0x22a /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(cpu_util.o)
  .debug_line    0x00000000000064b0      0x17c /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(gpio_periph.o)
- .debug_line    0x000000000000662c      0xe11 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
- .debug_line    0x000000000000743d      0x45f /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
- .debug_line    0x000000000000789c      0x458 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
- .debug_line    0x0000000000007cf4      0x4c2 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
- .debug_line    0x00000000000081b6      0x4ff /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_wdt.o)
- .debug_line    0x00000000000086b5       0x90 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
- .debug_line    0x0000000000008745      0x195 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+ .debug_line    0x000000000000662c      0xe17 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ .debug_line    0x0000000000007443      0x45f /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_clk_init.o)
+ .debug_line    0x00000000000078a2      0x458 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_init.o)
+ .debug_line    0x0000000000007cfa      0x4c2 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_time.o)
+ .debug_line    0x00000000000081bc      0x4ff /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/soc/libsoc.a(rtc_wdt.o)
+ .debug_line    0x00000000000086bb       0x90 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .debug_line    0x000000000000874b      0x195 /Users/drewandre/.espressif/tools/xtensa-esp32-elf/1.22.0-80-g6c4433a-5.2.0/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
 .debug_str      0x0000000000000000     0x4fd9
  .debug_str     0x0000000000000000      0x419 /Users/drewandre/esp/palette_firmware_esp32/build/bootloader/main/libmain.a(bootloader_start.o)

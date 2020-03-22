@@ -19,7 +19,7 @@
 ****************************************************************************/
 
 #include "Arduino.h"
-#include "FastLED.h"
+// #include "FastLED.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -140,11 +140,11 @@ String serverIndex =
     "</script>" +
     style;
 
-CRGBPalette16 currentPalette = HeatColors_p;
-TBlendType currentBlending;
+// CRGBPalette16 currentPalette = HeatColors_p;
+// TBlendType currentBlending;
 
-extern CRGBPalette16 myRedWhiteBluePalette;
-extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
+// extern CRGBPalette16 myRedWhiteBluePalette;
+// extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
 
 /*
 Final dipswitch configuration
@@ -173,9 +173,9 @@ GPIO_NUM_12 - aux insert detection
 GPIO_NUM_21 - PA enable output
 */
 
-#define NUM_LEDS 800
-#define DATA_PIN GPIO_NUM_12
-CRGB leds[NUM_LEDS];
+// #define NUM_LEDS 800
+// #define DATA_PIN GPIO_NUM_12
+// CRGB leds[NUM_LEDS];
 
 #define OTA_TAG "OTA"
 #define ESP_DSP_TAG "DSP"
@@ -883,27 +883,26 @@ static void bt_av_hdl_stack_evt(uint16_t event, void *p_param)
 }
 
 int iHue = 255 / 100;
-void testCylonSpeed(void *pvParameters)
-{
-  while (1)
-  {
-    fadeToBlackBy(leds, NUM_LEDS, 7);
-    static int i = 0;
-    if (i > NUM_LEDS - 1)
-    {
-      i = 0;
-    }
-    i++;
-    leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
+void testCylonSpeed(void *pvParameters){
+    // while (1)
+    // {
+    //   fadeToBlackBy(leds, NUM_LEDS, 7);
+    //   static int i = 0;
+    //   if (i > NUM_LEDS - 1)
+    //   {
+    //     i = 0;
+    //   }
+    //   i++;
+    //   leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
 
-    FastLED.show();
-  }
+    //   FastLED.show();
+    // }
 };
 
 void init_leds()
 {
-  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-  FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
+  // FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
+  // FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
 }
 
 void init_ota_server()
@@ -917,7 +916,7 @@ void init_ota_server()
     delay(500);
     ESP_LOGI(OTA_TAG, ".");
   }
-  // ESP_LOGI(OTA_TAG, "Connected to %t", ssid);
+  ESP_LOGI(OTA_TAG, "Connected!");
   // ESP_LOGI(OTA_TAG, "IP address %c", WiFi.localIP());
 
   /* use mdns for host name resolution */
@@ -948,7 +947,7 @@ void init_ota_server()
     ESP.restart(); }, []() {
     HTTPUpload& upload = server.upload();
     if (upload.status == UPLOAD_FILE_START) {
-      // ESP_LOGI(OTA_TAG, "Update: %s", upload.filename.c_str());
+      ESP_LOGI(OTA_TAG, "Update: %s", upload.filename.c_str());
       if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { //start with max available size
         // Update.printError(Serial);
         ESP_LOGE(OTA_TAG, "error 948");
@@ -985,8 +984,8 @@ extern "C"
       err = nvs_flash_init();
     }
 
-    pinMode(22, OUTPUT);
-    digitalWrite(22, HIGH);
+    // pinMode(22, OUTPUT);
+    // digitalWrite(22, HIGH);
 
     // init_leds();
     init_fft();
@@ -1050,7 +1049,7 @@ extern "C"
     while (1)
     {
       server.handleClient();
-      vTaskDelay(10);
+      // vTaskDelay(10);
       // main application loop
     }
 

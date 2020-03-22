@@ -128,52 +128,6 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.h \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Esp.h \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/cpp_compat.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_config.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/led_sysdefs.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/led_sysdefs_esp32.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_delay.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/bitswap.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/controller.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixeltypes.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/math8.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/random8.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/trig8.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/color.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastpin.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_types.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/dmx.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastled_esp32.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastpin_esp32.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/clockless_rmt_esp32.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/rmt.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_struct.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_progmem.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/hsv2rgb.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorutils.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixelset.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorpalettes.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/noise.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/power_mgt.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_bitbang.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/chipsets.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs_flash.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h \
@@ -192,6 +146,7 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
@@ -202,9 +157,16 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board_def.h \
  /Users/drewandre/esp/esp-adf/components/audio_board/include/board_pins_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_struct.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/adc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/adc_channel.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_common.h \
@@ -574,98 +536,6 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h:
 
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/cpp_compat.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_config.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/led_sysdefs.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/led_sysdefs_esp32.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_delay.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/bitswap.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/controller.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixeltypes.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/math8.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/random8.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/trig8.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/color.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastpin.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_types.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/dmx.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastled_esp32.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastpin_esp32.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/clockless_rmt_esp32.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/rmt.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_struct.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_progmem.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/hsv2rgb.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorutils.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixelset.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorpalettes.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/noise.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/power_mgt.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_bitbang.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/chipsets.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs_flash.h:
@@ -702,6 +572,8 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h:
 
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
+
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h:
 
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h:
@@ -722,11 +594,25 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h:
 
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h:
+
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_struct.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/adc.h:
 
