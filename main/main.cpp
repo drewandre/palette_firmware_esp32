@@ -972,7 +972,7 @@ extern "C"
     // //gatt server init
     // ble_gatts_init();
 
-    // init_leds();
+    init_leds();
     // init_fft();
 
     int loopCnt = 0;
