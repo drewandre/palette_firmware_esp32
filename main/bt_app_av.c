@@ -64,7 +64,7 @@ extern "C"
   {
     size_t bytes_written;
     i2s_write(0, data, len, &bytes_written, portMAX_DELAY);
-    copy_a2dp_buffer_for_fft(data, len);
+    // copy_a2dp_buffer_for_fft(data, len);
   }
 
   void bt_app_alloc_meta_buffer(esp_avrc_ct_cb_param_t *param)

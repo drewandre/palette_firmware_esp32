@@ -50,8 +50,7 @@ mbedtls/library/rsa.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/time.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/time.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h:
 
@@ -154,6 +153,4 @@ mbedtls/library/rsa.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/library/rsa.c:

@@ -58,7 +58,12 @@ asio/asio/src/asio.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/debug.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/arch.h \
@@ -118,6 +123,8 @@ asio/asio/src/asio.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/../../../lwip/src/include/lwip/inet.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/net/if.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_exception.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/execution_context.ipp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/execution_context.hpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/detail/noncopyable.hpp \
@@ -437,7 +444,17 @@ asio/asio/src/asio.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h:
 
@@ -556,6 +573,10 @@ asio/asio/src/asio.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/net/if.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/port/include/esp_exception.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log_internal.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/asio/asio/asio/include/asio/impl/execution_context.ipp:
 

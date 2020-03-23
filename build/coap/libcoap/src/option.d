@@ -80,7 +80,12 @@ libcoap/src/option.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/xtensa_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/debug.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/arch.h \
@@ -122,8 +127,6 @@ libcoap/src/option.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/inet.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/errno.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/option.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/bits.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/pdu.h \
@@ -131,7 +134,9 @@ libcoap/src/option.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/hashkey.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/str.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/encode.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/debug.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/port/include/coap_config.h:
@@ -294,7 +299,17 @@ libcoap/src/option.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/touch_channel.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h:
 
@@ -378,10 +393,6 @@ libcoap/src/option.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/errno.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/option.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/bits.h:
@@ -396,7 +407,11 @@ libcoap/src/option.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/encode.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/include/coap/debug.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/coap/libcoap/src/option.c:

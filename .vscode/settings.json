@@ -38,6 +38,7 @@
     "math.h": "c",
     "stdbool.h": "c",
     "esp_dsp.h": "c",
-    "__functional_03": "cpp"
+    "__functional_03": "cpp",
+    "cstdlib": "cpp"
   }
 }

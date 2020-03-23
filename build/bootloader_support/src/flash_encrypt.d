@@ -1,6 +1,9 @@
 src/flash_encrypt.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/src/flash_encrypt.c \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/newlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/config.h \
@@ -13,15 +16,17 @@ src/flash_encrypt.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_err.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
  /Users/drewandre/esp/palette_firmware_esp32/build/include/sdkconfig.h \
@@ -65,7 +70,13 @@ src/flash_encrypt.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/spi_flash.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/spi_reg.h
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h:
 
@@ -91,11 +102,11 @@ src/flash_encrypt.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h:
 
@@ -107,7 +118,11 @@ src/flash_encrypt.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h:
 

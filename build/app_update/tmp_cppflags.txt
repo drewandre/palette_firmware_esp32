@@ -1,1 +1,1 @@
-b57ed02-dirty palette_firmware v3.3.1-dirty
+d689a38-dirty palette_firmware v3.3.1-dirty

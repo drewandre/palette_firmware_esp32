@@ -24,7 +24,6 @@ mbedtls/library/sha1.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_util.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
@@ -86,8 +85,6 @@ mbedtls/library/sha1.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_util.h:
 

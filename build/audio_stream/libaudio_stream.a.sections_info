@@ -266,9 +266,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
  42 .text.http_stream_restart 00000015  00000000  00000000  00001a08  2**2
                   CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
- 43 .rodata.__FUNCTION__$6814 0000000b  00000000  00000000  00001a20  2**2
+ 43 .rodata.__FUNCTION__$6843 0000000b  00000000  00000000  00001a20  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
- 44 .rodata.__FUNCTION__$6865 00000011  00000000  00000000  00001a2c  2**2
+ 44 .rodata.__FUNCTION__$6894 00000011  00000000  00000000  00001a2c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
  45 .debug_frame  000001f0  00000000  00000000  00001a40  2**2
                   CONTENTS, RELOC, READONLY, DEBUGGING
@@ -282,17 +282,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, RELOC, READONLY, DEBUGGING
  50 .debug_ranges 000000a8  00000000  00000000  00005914  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 51 .debug_line   000011c6  00000000  00000000  000059bc  2**0
+ 51 .debug_line   000011b9  00000000  00000000  000059bc  2**0
                   CONTENTS, RELOC, READONLY, DEBUGGING
- 52 .debug_str    00001232  00000000  00000000  00006b82  2**0
+ 52 .debug_str    00001232  00000000  00000000  00006b75  2**0
                   CONTENTS, READONLY, DEBUGGING
- 53 .comment      0000003b  00000000  00000000  00007db4  2**0
+ 53 .comment      0000003b  00000000  00000000  00007da7  2**0
                   CONTENTS, READONLY
- 54 .xtensa.info  00000038  00000000  00000000  00007def  2**0
+ 54 .xtensa.info  00000038  00000000  00000000  00007de2  2**0
                   CONTENTS, READONLY
- 55 .xt.lit       00000098  00000000  00000000  00007e27  2**0
+ 55 .xt.lit       00000098  00000000  00000000  00007e1a  2**0
                   CONTENTS, RELOC, READONLY
- 56 .xt.prop      00000dbc  00000000  00000000  00007ebf  2**0
+ 56 .xt.prop      00000dbc  00000000  00000000  00007eb2  2**0
                   CONTENTS, RELOC, READONLY
 
 i2s_stream.o:     file format elf32-xtensa-le

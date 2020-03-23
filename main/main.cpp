@@ -1,25 +1,5 @@
-/*
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
-
-/****************************************************************************
-* The demo shows BLE and classic Bluetooth coexistence. You can use BLE GATT server and classic bluetooth A2DP together.
-* The BLE GATT server part of the demo creates a GATT service and then starts advertising, waiting to be connected by a GATT client.
-* After the program is started, a GATT client can discover the device named "ESP_COEX_BLE_DEMO". Once the connection is established,
-* GATT client can read or write data to the device. It can also receive notification or indication data.
-* Attention: If you test the demo with iPhone, BLE GATT server adv name will change to "ESP_COEX_A2DP_DEMO" after you connect it.
-* The classic bluetooth A2DP part of the demo implements Advanced Audio Distribution Profile to receive an audio stream.
-* After the program is started, other bluetooth devices such as smart phones can discover the device named "ESP_COEX_A2DP_DEMO".
-* Once the connection is established, audio data can be transmitted. This will be visible in the application log including a count
-* of audio data packets.
-****************************************************************************/
-
-#include "Arduino.h"
-// #include "FastLED.h"
+#include <Arduino.h>
+#include "FastLED.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,6 +13,13 @@
 #include "esp_system.h"
 #include "esp_log.h"
 
+#include "audio_element.h"
+#include "audio_event_iface.h"
+#include "audio_common.h"
+#include "board.h"
+// #include "esp_dsp.h"
+#include "i2s_stream.h"
+
 #include "esp_bt.h"
 #include "bt_app_core.h"
 #include "bt_app_av.h"
@@ -41,13 +28,6 @@
 #include "esp_gap_bt_api.h"
 #include "esp_a2dp_api.h"
 #include "esp_avrc_api.h"
-
-#include "audio_element.h"
-#include "audio_event_iface.h"
-#include "audio_common.h"
-#include "board.h"
-#include "esp_dsp.h"
-#include "i2s_stream.h"
 
 #include "esp_gap_ble_api.h"
 #include "esp_gatts_api.h"
@@ -68,52 +48,19 @@ const char *password = "lakehouse";
 
 WebServer server(80);
 
-/* Style */
-String style =
-    "<style>#file-input,input{width:100%;height:44px;border-radius:4px;margin:10px auto;font-size:15px}"
-    "input{background:#f1f1f1;border:0;padding:0 15px}body{background:#3498db;font-family:sans-serif;font-size:14px;color:#777}"
-    "#file-input{padding:0;border:1px solid #ddd;line-height:44px;text-align:left;display:block;cursor:pointer}"
-    "#bar,#prgbar{background-color:#f1f1f1;border-radius:10px}#bar{background-color:#3498db;width:0%;height:10px}"
-    "form{background:#fff;max-width:258px;margin:75px auto;padding:30px;border-radius:5px;text-align:center}"
-    ".btn{background:#3498db;color:#fff;cursor:pointer}</style>";
-
-/* Login page */
-String loginIndex =
-    "<form name=loginForm>"
-    "<h1>ESP32 Login</h1>"
-    "<input name=userid placeholder='User ID'> "
-    "<input name=pwd placeholder=Password type=Password> "
-    "<input type=submit onclick=check(this.form) class=btn value=Login></form>"
-    "<script>"
-    "function check(form) {"
-    "if(form.userid.value=='admin' && form.pwd.value=='admin')"
-    "{window.open('/serverIndex')}"
-    "else"
-    "{alert('Error Password or Username')}"
-    "}"
-    "</script>" +
-    style;
-
-/* Server Index Page */
-String serverIndex =
+const char *serverIndex =
     "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
     "<form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>"
-    "<input type='file' name='update' id='file' onchange='sub(this)' style=display:none>"
-    "<label id='file-input' for='file'>   Choose file...</label>"
-    "<input type='submit' class=btn value='Update'>"
-    "<br><br>"
-    "<div id='prg'></div>"
-    "<br><div id='prgbar'><div id='bar'></div></div><br></form>"
+    "<input type='file' name='update'>"
+    "<input type='submit' value='Update'>"
+    "</form>"
+    "<div id='prg'>progress: 0%</div>"
     "<script>"
-    "function sub(obj){"
-    "var fileName = obj.value.split('\\\\');"
-    "document.getElementById('file-input').innerHTML = '   '+ fileName[fileName.length-1];"
-    "};"
     "$('form').submit(function(e){"
     "e.preventDefault();"
     "var form = $('#upload_form')[0];"
     "var data = new FormData(form);"
-    "$.ajax({"
+    " $.ajax({"
     "url: '/update',"
     "type: 'POST',"
     "data: data,"
@@ -125,26 +72,24 @@ String serverIndex =
     "if (evt.lengthComputable) {"
     "var per = evt.loaded / evt.total;"
     "$('#prg').html('progress: ' + Math.round(per*100) + '%');"
-    "$('#bar').css('width',Math.round(per*100) + '%');"
     "}"
     "}, false);"
     "return xhr;"
     "},"
     "success:function(d, s) {"
-    "console.log('success!') "
+    "console.log('success!')"
     "},"
     "error: function (a, b, c) {"
     "}"
     "});"
     "});"
-    "</script>" +
-    style;
+    "</script>";
 
-// CRGBPalette16 currentPalette = HeatColors_p;
-// TBlendType currentBlending;
+CRGBPalette16 currentPalette = HeatColors_p;
+TBlendType currentBlending;
 
-// extern CRGBPalette16 myRedWhiteBluePalette;
-// extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
+extern CRGBPalette16 myRedWhiteBluePalette;
+extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
 
 /*
 Final dipswitch configuration
@@ -156,7 +101,6 @@ Final dipswitch configuration
 6: ON (for GPIO_NUM_14 access)
 7: ON (for aux input detection)
 8: OFF
-
 GPIO_NUM_0  - n/a - Automatic Upload, I2S MCLK (wouldn't be able to use automatic reset, second furthest pin from usb)
 GPIO_NUM_2  - n/a - Automatic Upload, MicroSD D0 (wouldn't be able to use automatic reset, fourth furthest pin from usb)
 RX          - n/a - UART0 RX (wouldn't be able to use any HOST -> ESP32 UART control)
@@ -165,7 +109,6 @@ GPIO_NUM_12 - 5   - JTAG MTDI, MicroSD D2, Aux signal detect
 GPIO_NUM_13 - 4   - JTAG MTCK, MicroSD D3, Audio Vol- (TP)
 GPIO_NUM_14 - 6   - JTAG MTMS, MicroSD CLK
 GPIO_NUM_15 - 3   - JTAG MTDO, MicroSD CMD
-
 Other useful pins:
 GPIO_NUM_22 - green led
 GPIO_NUM_19 - headphone insert detection
@@ -173,9 +116,9 @@ GPIO_NUM_12 - aux insert detection
 GPIO_NUM_21 - PA enable output
 */
 
-// #define NUM_LEDS 800
-// #define DATA_PIN GPIO_NUM_12
-// CRGB leds[NUM_LEDS];
+#define NUM_LEDS 800
+#define DATA_PIN GPIO_NUM_12
+CRGB leds[NUM_LEDS];
 
 #define OTA_TAG "OTA"
 #define ESP_DSP_TAG "DSP"
@@ -883,178 +826,173 @@ static void bt_av_hdl_stack_evt(uint16_t event, void *p_param)
 }
 
 int iHue = 255 / 100;
-void testCylonSpeed(void *pvParameters){
-    // while (1)
-    // {
-    //   fadeToBlackBy(leds, NUM_LEDS, 7);
-    //   static int i = 0;
-    //   if (i > NUM_LEDS - 1)
-    //   {
-    //     i = 0;
-    //   }
-    //   i++;
-    //   leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
+void testCylonSpeed(void *pvParameters)
+{
+  while (1)
+  {
+    fadeToBlackBy(leds, NUM_LEDS, 7);
+    static int i = 0;
+    if (i > NUM_LEDS - 1)
+    {
+      i = 0;
+    }
+    i++;
+    leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
 
-    //   FastLED.show();
-    // }
+    FastLED.show();
+  }
 };
 
 void init_leds()
 {
-  // FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-  // FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
-}
-
-void init_ota_server()
-{
-  // Connect to WiFi network
-  WiFi.begin(ssid, password);
-
-  // Wait for connection
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    ESP_LOGI(OTA_TAG, ".");
-  }
-  ESP_LOGI(OTA_TAG, "Connected!");
-  // ESP_LOGI(OTA_TAG, "IP address %c", WiFi.localIP());
-
-  /* use mdns for host name resolution */
-  if (!MDNS.begin(host))
-  { // http://esp32.local
-    ESP_LOGI(OTA_TAG, "Error setting up MDNS responder!");
-    while (1)
-    {
-      delay(1000);
-    }
-  }
-  ESP_LOGI(OTA_TAG, "mDNS responder started");
-
-  /*return index page which is stored in serverIndex */
-  server.on("/", HTTP_GET, []() {
-    server.sendHeader("Connection", "close");
-    server.send(200, "text/html", loginIndex);
-  });
-  server.on("/serverIndex", HTTP_GET, []() {
-    server.sendHeader("Connection", "close");
-    server.send(200, "text/html", serverIndex);
-  });
-  /*handling uploading firmware file */
-  server.on(
-      "/update", HTTP_POST, []() {
-    server.sendHeader("Connection", "close");
-    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
-    ESP.restart(); }, []() {
-    HTTPUpload& upload = server.upload();
-    if (upload.status == UPLOAD_FILE_START) {
-      ESP_LOGI(OTA_TAG, "Update: %s", upload.filename.c_str());
-      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { //start with max available size
-        // Update.printError(Serial);
-        ESP_LOGE(OTA_TAG, "error 948");
-      }
-    } else if (upload.status == UPLOAD_FILE_WRITE) {
-      /* flashing firmware to ESP*/
-      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
-        // Update.printError(Serial);
-        ESP_LOGE(OTA_TAG, "error 954");
-      }
-    } else if (upload.status == UPLOAD_FILE_END) {
-      if (Update.end(true)) { //true to set the size to the current progress
-        ESP_LOGE(OTA_TAG, "Update Success: %u\nRebooting...", upload.totalSize);
-      } else {
-        // Update.printError(Serial);
-        ESP_LOGE(OTA_TAG, "error 961");
-      }
-    } });
-  server.begin();
+  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
+  xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
 }
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-  void app_main()
+  void app_main(void)
   {
     esp_err_t err = nvs_flash_init();
     if (err == ESP_ERR_NVS_NO_FREE_PAGES)
     {
-      // NVS partition was truncated and needs to be erased
-      // Retry nvs_flash_init
       ESP_ERROR_CHECK(nvs_flash_erase());
       err = nvs_flash_init();
     }
 
-    // pinMode(22, OUTPUT);
-    // digitalWrite(22, HIGH);
+    Serial.begin(115200);
+
+    // Connect to WiFi network
+    WiFi.begin(ssid, password);
+    Serial.println(WiFi.status());
+
+    // Wait for connection
+    while (WiFi.status() != WL_CONNECTED)
+    {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println("");
+    Serial.print("Connected to ");
+    Serial.println(ssid);
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+
+    /* use mdns for host name resolution*/
+    if (!MDNS.begin(host))
+    {
+      // http://esp32.local
+      Serial.println("Error setting up MDNS responder!");
+      while (1)
+      {
+        delay(1000);
+      }
+    }
+    Serial.println("mDNS responder started");
+
+    server.on("/", HTTP_GET, []() {
+      server.sendHeader("Connection", "close");
+      server.send(200, "text/html", serverIndex);
+    });
+
+    /* handling uploading firmware file */
+    server.on(
+        "/update", HTTP_POST, []() {
+    server.sendHeader("Connection", "close");
+    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
+    ESP.restart(); }, []() {
+    HTTPUpload& upload = server.upload();
+    if (upload.status == UPLOAD_FILE_START) {
+      Serial.printf("Update: %s\n", upload.filename.c_str());
+      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
+        Update.printError(Serial);
+      }
+    } else if (upload.status == UPLOAD_FILE_WRITE) {
+      /* flashing firmware to ESP*/
+      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
+        Update.printError(Serial);
+      }
+    } else if (upload.status == UPLOAD_FILE_END) {
+      if (Update.end(true)) { //true to set the size to the current progress
+        Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
+      } else {
+        Update.printError(Serial);
+      }
+    } });
+    server.begin();
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
+    // audio_board_handle_t board_handle = audio_board_init();
+    // audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
+    // audio_hal_set_volume(board_handle->audio_hal, 100);
+
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
+    // i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
+    // i2s_cfg.type = AUDIO_STREAM_WRITER;
+    // audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
+
+    // esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
+    // err = esp_bt_controller_init(&bt_cfg);
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
+    //   return;
+    // }
+
+    // err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
+    //   return;
+    // }
+
+    // err = esp_bluedroid_init();
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
+    //   return;
+    // }
+    // err = esp_bluedroid_enable();
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
+    //   return;
+    // }
+
+    // /* create application task */
+    // bt_app_task_start_up();
+
+    // /* Bluetooth device name, connection mode and profile set up */
+    // bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
+
+    // //gatt server init
+    // ble_gatts_init();
 
     // init_leds();
-    init_fft();
-    init_ota_server();
+    // init_fft();
 
-#if CONFIG_SPIRAM_SUPPORT
-    psramInit();
-#endif
+    int loopCnt = 0;
 
-    ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
-
-    ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
-    audio_board_handle_t board_handle = audio_board_init();
-    audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
-    audio_hal_set_volume(board_handle->audio_hal, 100);
-
-    ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
-    i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
-    i2s_cfg.type = AUDIO_STREAM_WRITER;
-    audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
-
-    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-    err = esp_bt_controller_init(&bt_cfg);
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
-      return;
-    }
-
-    err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
-      return;
-    }
-
-    err = esp_bluedroid_init();
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
-      return;
-    }
-    err = esp_bluedroid_enable();
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
-      return;
-    }
-
-    /* create application task */
-    bt_app_task_start_up();
-
-    /* Bluetooth device name, connection mode and profile set up */
-    bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
-
-    //gatt server init
-    ble_gatts_init();
-
-    // xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
+    pinMode(22, OUTPUT);
+    digitalWrite(22, HIGH);
 
     while (1)
     {
       server.handleClient();
-      // vTaskDelay(10);
-      // main application loop
+      delay(1);
+      if (loopCnt % 30000 == 0)
+      {
+        Serial.println("Running test #63 post-api initialization");
+      }
+      loopCnt++;
     }
-
-    audio_element_deinit(i2s_stream_writer);
-    deinit_fft();
+    // audio_element_deinit(i2s_stream_writer);
+    // deinit_fft();
   }
 #ifdef __cplusplus
 }

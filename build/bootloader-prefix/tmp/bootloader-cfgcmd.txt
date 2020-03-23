@@ -1,0 +1,1 @@
+cmd='/usr/local/Cellar/cmake/3.16.4/bin/cmake;-DSDKCONFIG=/Users/drewandre/esp/palette_firmware_esp32/sdkconfig;-DIDF_PATH=/Users/drewandre/esp/esp-adf/esp-idf;-DSECURE_BOOT_SIGNING_KEY=/Users/drewandre/esp/palette_firmware_esp32;-DEXTRA_COMPONENT_DIRS=/Users/drewandre/esp/esp-adf/esp-idf/components/bootloader;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'

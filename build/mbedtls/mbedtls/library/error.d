@@ -55,7 +55,6 @@ mbedtls/library/error.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ecp.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/gcm.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/hmac_drbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md.h \
@@ -75,9 +74,7 @@ mbedtls/library/error.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/pkcs5.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/rsa.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha256.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl_ciphersuites.h \
@@ -197,8 +194,6 @@ mbedtls/library/error.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/gcm.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/hmac_drbg.h:
@@ -237,11 +232,7 @@ mbedtls/library/error.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha256.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
 

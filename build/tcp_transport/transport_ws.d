@@ -48,8 +48,7 @@ transport_ws.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
 
@@ -148,6 +147,4 @@ transport_ws.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/tcp_transport/./transport_ws.c:

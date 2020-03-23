@@ -6,7 +6,6 @@ extern "C"
 {
 #endif
 
-#include "esp_dsp.h"
 #include <stdint.h>
 
 #define FFT_TAG "FFT"

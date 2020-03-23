@@ -1,6 +1,9 @@
 port/mbedtls_debug.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/mbedtls_debug.c \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/newlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/config.h \
@@ -13,9 +16,9 @@ port/mbedtls_debug.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/_default_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
@@ -25,7 +28,6 @@ port/mbedtls_debug.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/alloca.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/assert.h \
@@ -39,6 +41,9 @@ port/mbedtls_debug.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/time.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/time.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/debug.h \
@@ -61,7 +66,13 @@ port/mbedtls_debug.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_debug.h
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/_ansi.h:
 
@@ -87,11 +98,11 @@ port/mbedtls_debug.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/lock.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h:
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/log/include/esp_log.h:
 
@@ -110,8 +121,6 @@ port/mbedtls_debug.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/assert.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/cdefs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h:
 
@@ -138,6 +147,12 @@ port/mbedtls_debug.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/time.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h:
 

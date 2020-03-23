@@ -104,40 +104,7 @@ bt_app_av.o: /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.c \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/adc_channel.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/semphr.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
- /Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/esp_dsp.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_common.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/include/dsps_math.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/add/include/dsps_add.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/sub/include/dsps_sub.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mul/include/dsps_mul.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/addc/include/dsps_addc.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fir/include/dsps_fir.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/include/dsps_wind.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_corr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_d_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_h_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_tone_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_snr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_sfdr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fft/include/dsps_fft2r.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dct/include/dsps_dct.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/dspm_mult.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_view.h
+ /Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
 
@@ -350,70 +317,4 @@ bt_app_av.o: /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.c \
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
 
 /Users/drewandre/esp/palette_firmware_esp32/main/fft_controller.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/esp_dsp.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_common.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/include/dsps_math.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/add/include/dsps_add.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/sub/include/dsps_sub.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mul/include/dsps_mul.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/addc/include/dsps_addc.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fir/include/dsps_fir.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/include/dsps_wind.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_corr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_d_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_h_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_tone_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_snr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_sfdr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fft/include/dsps_fft2r.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dct/include/dsps_dct.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/dspm_mult.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_view.h:
 /Users/drewandre/esp/palette_firmware_esp32/main/./bt_app_av.c:

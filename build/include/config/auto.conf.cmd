@@ -4,7 +4,6 @@ deps_config := \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/bt/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/driver/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/efuse/Kconfig \
-	/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp_adc_cal/Kconfig \
 	/Users/drewandre/esp/esp-adf/esp-idf/components/esp_event/Kconfig \

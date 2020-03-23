@@ -47,7 +47,6 @@ src/crypto/crypto_mbedtls.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/bignum.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aes.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/aes_alt.h \
@@ -177,8 +176,6 @@ src/crypto/crypto_mbedtls.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h:
 

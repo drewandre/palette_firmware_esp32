@@ -20,26 +20,7 @@ port/esp_sha512.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/stdlib.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/alloca.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/time.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/time.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/hwcrypto/sha.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/sha.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_types.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h:
 
@@ -82,42 +63,4 @@ port/esp_sha512.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/string.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/string.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/time.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/time.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/time.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/types.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/machine/types.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/sched.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdio.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stdio.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/hwcrypto/sha.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/rom/sha.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_types.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/esp_sha512.c:

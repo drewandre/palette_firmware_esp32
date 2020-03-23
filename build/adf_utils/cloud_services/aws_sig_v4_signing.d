@@ -85,7 +85,6 @@ cloud_services/aws_sig_v4_signing.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdlib.h:
@@ -257,8 +256,6 @@ cloud_services/aws_sig_v4_signing.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/md.h:
 /Users/drewandre/esp/esp-adf/components/adf_utils/cloud_services/aws_sig_v4_signing.c:

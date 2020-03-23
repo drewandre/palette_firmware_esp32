@@ -27,11 +27,8 @@ mbedtls/library/md_wrap.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/stdint.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha256.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform_time.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/time.h \
@@ -97,15 +94,9 @@ mbedtls/library/md_wrap.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha1.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha1_alt.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha256.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/platform.h:
 

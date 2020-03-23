@@ -108,7 +108,10 @@ http_stream.o: \
  /Users/drewandre/esp/esp-adf/components/audio_sal/include/audio_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp_http_client/include/esp_http_client.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/port/include/http_parser.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/unistd.h:
 
@@ -326,5 +329,11 @@ http_stream.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/nghttp/port/include/http_parser.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/strings.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/strings_types.h:
 /Users/drewandre/esp/esp-adf/components/audio_stream/./http_stream.c:

@@ -140,7 +140,10 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/select.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/debug.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/arch.h \
@@ -165,7 +168,6 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/oid.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/asn1.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/bignum.h \
@@ -192,7 +194,6 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ssl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/aes.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/aes_alt.h \
@@ -506,7 +507,13 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h:
 
@@ -555,8 +562,6 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/oid.h:
 
@@ -609,8 +614,6 @@ libraries/WiFiClientSecure/src//ssl_client.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/entropy.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/sha512.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha512_alt.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/ctr_drbg.h:
 

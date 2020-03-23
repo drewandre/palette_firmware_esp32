@@ -45,8 +45,7 @@ src/fast_crypto/fast_crypto_internal.o: \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/esp_mem.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/wpa_supplicant/include/crypto/includes.h:
 
@@ -139,6 +138,4 @@ src/fast_crypto/fast_crypto_internal.o: \
 /Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/mbedtls/include/mbedtls/check_config.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/limits.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/mbedtls/port/include/sha256_alt.h:
 /Users/drewandre/esp/esp-adf/esp-idf/components/wpa_supplicant/src/fast_crypto/fast_crypto_internal.c:

@@ -128,25 +128,59 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/HardwareSerial.h \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/Esp.h \
  /Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/cpp_compat.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_config.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/led_sysdefs.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/led_sysdefs_esp32.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_delay.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/bitswap.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/controller.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixeltypes.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/math8.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/random8.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/trig8.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/color.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastpin.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_types.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/dmx.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastled_esp32.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastpin_esp32.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/clockless_rmt_esp32.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/rmt.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_struct.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_progmem.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/hsv2rgb.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorutils.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixelset.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorpalettes.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/noise.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/power_mgt.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_bitbang.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/FastLED/chipsets.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs_flash.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/spi_flash/include/esp_partition.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/spi_flash/include/esp_spi_flash.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/include/esp_bt.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
- /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h \
- /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_avrc_api.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_main.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_common.h \
  /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h \
@@ -157,16 +191,9 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/components/audio_board/lyrat_v4_3/board_def.h \
  /Users/drewandre/esp/esp-adf/components/audio_board/include/board_pins_config.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_struct.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/adc.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/adc_channel.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/spi_common.h \
@@ -181,41 +208,18 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/components/esp_peripherals/include/esp_peripherals.h \
  /Users/drewandre/esp/esp-adf/components/display_service/include/display_service.h \
  /Users/drewandre/esp/esp-adf/components/esp_dispatcher/include/periph_service.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/esp_dsp.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_common.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/include/dsps_math.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/add/include/dsps_add.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/sub/include/dsps_sub.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mul/include/dsps_mul.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/addc/include/dsps_addc.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fir/include/dsps_fir.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/include/dsps_wind.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_corr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_d_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_h_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_tone_gen.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_snr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_sfdr.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fft/include/dsps_fft2r.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dct/include/dsps_dct.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/dspm_mult.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_view.h \
- /Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/mat.h \
  /Users/drewandre/esp/esp-adf/components/audio_stream/include/i2s_stream.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/include/esp_bt.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
+ /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h \
+ /Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_avrc_api.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_main.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_ble_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatts_api.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gatt_defs.h \
@@ -246,11 +250,17 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/stat.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/vfs/include/sys/ioctl.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/select.h \
- /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h \
+ /Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/debug.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/arch.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/arch/cc.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/errno.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/errno.h \
+ /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/errno.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/arch/sys_arch.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/arch/vfs_lwip.h \
  /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/def.h \
@@ -536,6 +546,98 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/palette_firmware_esp32/components/arduino/variants/esp32/pins_arduino.h:
 
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/cpp_compat.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/FastLED.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_config.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/led_sysdefs.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/led_sysdefs_esp32.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_delay.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/bitswap.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/controller.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixeltypes.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/math8.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/scale8.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/random8.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/lib8tion/trig8.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/color.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastpin.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_types.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/dmx.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastled_esp32.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/fastpin_esp32.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/platforms/esp/32/clockless_rmt_esp32.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/cores/esp32/esp32-hal.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/rmt.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/rmt_struct.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastled_progmem.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/hsv2rgb.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorutils.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/pixelset.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/colorpalettes.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/noise.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/power_mgt.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/fastspi_bitbang.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/FastLED/chipsets.h:
+
 /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/nvs_flash/include/nvs_flash.h:
@@ -546,33 +648,9 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/spi_flash/include/esp_spi_flash.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/include/esp_bt.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_avrc_api.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_main.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h:
-
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_element.h:
 
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/audio_event_iface.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/queue.h:
 
 /Users/drewandre/esp/esp-adf/components/audio_pipeline/include/ringbuf.h:
 
@@ -594,25 +672,11 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2c.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h:
-
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/i2s.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_struct.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/i2s_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/periph_ctrl.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/dport_access.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_dport_access.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
-
-/Users/drewandre/esp/esp-adf/esp-idf/components/soc/esp32/include/soc/periph_defs.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/driver/include/driver/adc.h:
 
@@ -642,75 +706,29 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/components/esp_dispatcher/include/periph_service.h:
 
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/esp_dsp.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_common.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err_codes.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dotprod/include/dsps_dotprod.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/common/include/dsp_err.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/include/dsps_math.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/add/include/dsps_add.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/sub/include/dsps_sub.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mul/include/dsps_mul.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/addc/include/dsps_addc.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/math/mulc/include/dsps_mulc.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fir/include/dsps_fir.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/iir/include/dsps_biquad_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/include/dsps_wind.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/hann/include/dsps_wind_hann.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman/include/dsps_wind_blackman.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_harris/include/dsps_wind_blackman_harris.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/blackman_nuttall/include/dsps_wind_blackman_nuttall.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/nuttall/include/dsps_wind_nuttall.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/windows/flat_top/include/dsps_wind_flat_top.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_conv.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/conv/include/dsps_corr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_d_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_h_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_tone_gen.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_snr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_sfdr.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/fft/include/dsps_fft2r.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/dct/include/dsps_dct.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/dspm_mult.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/support/include/dsps_view.h:
-
-/Users/drewandre/esp/palette_firmware_esp32/components/esp-dsp/modules/matrix/include/mat.h:
-
 /Users/drewandre/esp/esp-adf/components/audio_stream/include/i2s_stream.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/include/esp_bt.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/esp32/include/esp_task.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/main/bt_app_core.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/main/bt_app_av.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_a2dp_api.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_defs.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_avrc_api.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_main.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_bt_device.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_bt_api.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/bt/bluedroid/api/include/api/esp_gap_ble_api.h:
 
@@ -772,7 +790,13 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/sys/select.h:
 
-/Users/drewandre/esp/esp-adf/esp-idf/components/lwip/include/apps/sntp/sntp.h:
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/pal/inc/sntp.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/umock_c_prod.h:
+
+/Users/drewandre/esp/palette_firmware_esp32/components/arduino/libraries/AzureIoT/src/az_iot/c-utility/inc/azure_c_shared_utility/macro_utils.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/netif/dhcp_state.h:
 
@@ -781,6 +805,12 @@ main.o: /Users/drewandre/esp/palette_firmware_esp32/main/main.cpp \
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/lwip/src/include/lwip/arch.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/arch/cc.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/platform_include/errno.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/errno.h:
+
+/Users/drewandre/esp/esp-adf/esp-idf/components/newlib/include/sys/errno.h:
 
 /Users/drewandre/esp/esp-adf/esp-idf/components/lwip/port/esp32/include/arch/sys_arch.h:
 
