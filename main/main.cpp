@@ -867,7 +867,6 @@ extern "C"
 
     // Connect to WiFi network
     WiFi.begin(ssid, password);
-    Serial.println(WiFi.status());
 
     // Wait for connection
     while (WiFi.status() != WL_CONNECTED)
@@ -978,13 +977,13 @@ extern "C"
 
     int loopCnt = 0;
 
-    pinMode(22, OUTPUT);
-    digitalWrite(22, HIGH);
+    pinMode(GPIO_NUM_22, OUTPUT);
+    digitalWrite(GPIO_NUM_22, HIGH);
 
     while (1)
     {
       server.handleClient();
-      delay(1);
+      vTaskDelay(10);
       if (loopCnt % 30000 == 0)
       {
         Serial.println("Running test #63 post-api initialization");
