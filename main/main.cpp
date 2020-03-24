@@ -34,87 +34,19 @@
 #include "esp_bt_defs.h"
 #include "esp_gatt_common_api.h"
 
+#include "esp_wifi.h"
+#include "esp_event_loop.h"
+#include "esp_ota_ops.h"
+#include "esp_http_client.h"
+#include "esp_https_ota.h"
+
 #include "fft_controller.h"
-
-#include <WiFi.h>
-#include <WiFiClient.h>
-#include <WebServer.h>
-#include <ESPmDNS.h>
-#include <Update.h>
-
-const char *host = "esp32";
-const char *ssid = "HATFIELD";
-const char *password = "lakehouse";
-
-WebServer server(80);
-
-const char *serverIndex =
-    "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
-    "<form method='POST' action='#' enctype='multipart/form-data' id='upload_form'>"
-    "<input type='file' name='update'>"
-    "<input type='submit' value='Update'>"
-    "</form>"
-    "<div id='prg'>progress: 0%</div>"
-    "<script>"
-    "$('form').submit(function(e){"
-    "e.preventDefault();"
-    "var form = $('#upload_form')[0];"
-    "var data = new FormData(form);"
-    " $.ajax({"
-    "url: '/update',"
-    "type: 'POST',"
-    "data: data,"
-    "contentType: false,"
-    "processData:false,"
-    "xhr: function() {"
-    "var xhr = new window.XMLHttpRequest();"
-    "xhr.upload.addEventListener('progress', function(evt) {"
-    "if (evt.lengthComputable) {"
-    "var per = evt.loaded / evt.total;"
-    "$('#prg').html('progress: ' + Math.round(per*100) + '%');"
-    "}"
-    "}, false);"
-    "return xhr;"
-    "},"
-    "success:function(d, s) {"
-    "console.log('success!')"
-    "},"
-    "error: function (a, b, c) {"
-    "}"
-    "});"
-    "});"
-    "</script>";
 
 CRGBPalette16 currentPalette = HeatColors_p;
 TBlendType currentBlending;
 
 extern CRGBPalette16 myRedWhiteBluePalette;
 extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
-
-/*
-Final dipswitch configuration
-1: OFF
-2: OFF
-3: ON (for GPIO_NUM_15 access)
-4: ON (for GPIO_NUM_13 access)
-5: ON (for GPIO_NUM_12 access)
-6: ON (for GPIO_NUM_14 access)
-7: ON (for aux input detection)
-8: OFF
-GPIO_NUM_0  - n/a - Automatic Upload, I2S MCLK (wouldn't be able to use automatic reset, second furthest pin from usb)
-GPIO_NUM_2  - n/a - Automatic Upload, MicroSD D0 (wouldn't be able to use automatic reset, fourth furthest pin from usb)
-RX          - n/a - UART0 RX (wouldn't be able to use any HOST -> ESP32 UART control)
-TX          - n/a - UART0 TX (can't use USB debugging though...)
-GPIO_NUM_12 - 5   - JTAG MTDI, MicroSD D2, Aux signal detect
-GPIO_NUM_13 - 4   - JTAG MTCK, MicroSD D3, Audio Vol- (TP)
-GPIO_NUM_14 - 6   - JTAG MTMS, MicroSD CLK
-GPIO_NUM_15 - 3   - JTAG MTDO, MicroSD CMD
-Other useful pins:
-GPIO_NUM_22 - green led
-GPIO_NUM_19 - headphone insert detection
-GPIO_NUM_12 - aux insert detection
-GPIO_NUM_21 - PA enable output
-*/
 
 #define NUM_LEDS 800
 #define DATA_PIN GPIO_NUM_12
@@ -144,6 +76,150 @@ CRGB leds[NUM_LEDS];
 #define PROFILE_NUM 2
 #define PROFILE_A_APP_ID 0
 #define PROFILE_B_APP_ID 1
+
+extern const uint8_t server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
+extern const uint8_t server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
+
+/* FreeRTOS event group to signal when we are connected & ready to make a request */
+static EventGroupHandle_t wifi_event_group;
+
+/* The event group allows multiple bits for each event,
+   but we only care about one event - are we connected
+   to the AP with an IP? */
+const int CONNECTED_BIT = BIT0;
+
+#define OTA_URL_SIZE 256
+
+esp_err_t _http_event_handler(esp_http_client_event_t *evt)
+{
+  switch (evt->event_id)
+  {
+  case HTTP_EVENT_ERROR:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ERROR");
+    break;
+  case HTTP_EVENT_ON_CONNECTED:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_CONNECTED");
+    break;
+  case HTTP_EVENT_HEADER_SENT:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_HEADER_SENT");
+    break;
+  case HTTP_EVENT_ON_HEADER:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_HEADER, key=%s, value=%s", evt->header_key, evt->header_value);
+    break;
+  case HTTP_EVENT_ON_DATA:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
+    break;
+  case HTTP_EVENT_ON_FINISH:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_FINISH");
+    break;
+  case HTTP_EVENT_DISCONNECTED:
+    ESP_LOGD(OTA_TAG, "HTTP_EVENT_DISCONNECTED");
+    break;
+  }
+  return ESP_OK;
+}
+
+static esp_err_t event_handler(void *ctx, system_event_t *event)
+{
+  switch (event->event_id)
+  {
+  case SYSTEM_EVENT_STA_START:
+    esp_wifi_connect();
+    break;
+  case SYSTEM_EVENT_STA_GOT_IP:
+    xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
+    break;
+  case SYSTEM_EVENT_STA_DISCONNECTED:
+    /* This is a workaround as ESP32 WiFi libs don't currently
+           auto-reassociate. */
+    esp_wifi_connect();
+    xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
+    break;
+  default:
+    break;
+  }
+  return ESP_OK;
+}
+
+static void init_wifi(void)
+{
+  tcpip_adapter_init();
+  wifi_event_group = xEventGroupCreate();
+  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
+  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+  wifi_config_t wifi_config = {
+      .sta = {
+          {.ssid = CONFIG_WIFI_SSID},
+          {.password = CONFIG_WIFI_PASSWORD},
+      },
+  };
+  ESP_LOGI(OTA_TAG, "Setting WiFi configuration SSID %s", wifi_config.sta.ssid);
+  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+  ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
+  ESP_ERROR_CHECK(esp_wifi_start());
+}
+
+void simple_ota_example_task(void *pvParameter)
+{
+  /* Wait for the callback to set the CONNECTED_BIT in the
+       event group.
+    */
+  xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT,
+                      false, true, portMAX_DELAY);
+  ESP_LOGI(OTA_TAG, "Starting OTA example");
+  ESP_LOGI(OTA_TAG, "Connected to WiFi network! Attempting to connect to server...");
+
+  esp_http_client_config_t config = {
+      .url = CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL,
+      .cert_pem = (char *)server_cert_pem_start,
+      .event_handler = _http_event_handler,
+  };
+
+#ifdef CONFIG_EXAMPLE_SKIP_COMMON_NAME_CHECK
+  config.skip_cert_common_name_check = true;
+#endif
+
+  esp_err_t ret = esp_https_ota(&config);
+  if (ret == ESP_OK)
+  {
+    esp_restart();
+  }
+  else
+  {
+    ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
+  }
+  while (1)
+  {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+
+/*
+Final dipswitch configuration
+1: OFF
+2: OFF
+3: ON (for GPIO_NUM_15 access)
+4: ON (for GPIO_NUM_13 access)
+5: ON (for GPIO_NUM_12 access)
+6: ON (for GPIO_NUM_14 access)
+7: ON (for aux input detection)
+8: OFF
+GPIO_NUM_0  - n/a - Automatic Upload, I2S MCLK (wouldn't be able to use automatic reset, second furthest pin from usb)
+GPIO_NUM_2  - n/a - Automatic Upload, MicroSD D0 (wouldn't be able to use automatic reset, fourth furthest pin from usb)
+RX          - n/a - UART0 RX (wouldn't be able to use any HOST -> ESP32 UART control)
+TX          - n/a - UART0 TX (can't use USB debugging though...)
+GPIO_NUM_12 - 5   - JTAG MTDI, MicroSD D2, Aux signal detect
+GPIO_NUM_13 - 4   - JTAG MTCK, MicroSD D3, Audio Vol- (TP)
+GPIO_NUM_14 - 6   - JTAG MTMS, MicroSD CLK
+GPIO_NUM_15 - 3   - JTAG MTDO, MicroSD CMD
+Other useful pins:
+GPIO_NUM_22 - green led
+GPIO_NUM_19 - headphone insert detection
+GPIO_NUM_12 - aux insert detection
+GPIO_NUM_21 - PA enable output
+*/
 
 typedef struct
 {
@@ -865,64 +941,6 @@ extern "C"
 
     Serial.begin(115200);
 
-    // Connect to WiFi network
-    WiFi.begin(ssid, password);
-
-    // Wait for connection
-    while (WiFi.status() != WL_CONNECTED)
-    {
-      delay(500);
-      Serial.print(".");
-    }
-    Serial.println("");
-    Serial.print("Connected to ");
-    Serial.println(ssid);
-    Serial.print("IP address: ");
-    Serial.println(WiFi.localIP());
-
-    /* use mdns for host name resolution*/
-    if (!MDNS.begin(host))
-    {
-      // http://esp32.local
-      Serial.println("Error setting up MDNS responder!");
-      while (1)
-      {
-        delay(1000);
-      }
-    }
-    Serial.println("mDNS responder started");
-
-    server.on("/", HTTP_GET, []() {
-      server.sendHeader("Connection", "close");
-      server.send(200, "text/html", serverIndex);
-    });
-
-    /* handling uploading firmware file */
-    server.on(
-        "/update", HTTP_POST, []() {
-    server.sendHeader("Connection", "close");
-    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
-    ESP.restart(); }, []() {
-    HTTPUpload& upload = server.upload();
-    if (upload.status == UPLOAD_FILE_START) {
-      Serial.printf("Update: %s\n", upload.filename.c_str());
-      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
-        Update.printError(Serial);
-      }
-    } else if (upload.status == UPLOAD_FILE_WRITE) {
-      /* flashing firmware to ESP*/
-      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
-        Update.printError(Serial);
-      }
-    } else if (upload.status == UPLOAD_FILE_END) {
-      if (Update.end(true)) { //true to set the size to the current progress
-        Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
-      } else {
-        Update.printError(Serial);
-      }
-    } });
-    server.begin();
-
     ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
 
     ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
@@ -975,6 +993,8 @@ extern "C"
     init_leds();
     // init_fft();
 
+    init_wifi();
+
     int loopCnt = 0;
 
     pinMode(GPIO_NUM_22, OUTPUT);
@@ -982,7 +1002,6 @@ extern "C"
 
     while (1)
     {
-      server.handleClient();
       vTaskDelay(10);
       if (loopCnt % 30000 == 0)
       {

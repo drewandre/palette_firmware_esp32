@@ -1,0 +1,47 @@
+diff --git a/components/esp32/esp_timer_esp32.c b/components/esp32/esp_timer_esp32.c
+index 72c1d4bf0c9526f02fc40d206a2f3c284d3b77c0..d441072379b977b90633fb9b3bf0dc3188aa1de0 100644
+--- a/components/esp32/esp_timer_esp32.c
++++ b/components/esp32/esp_timer_esp32.c
+@@ -222,6 +222,12 @@ void IRAM_ATTR esp_timer_impl_set_alarm(uint64_t timestamp)
+         if (timer_overflow_happened()) {
+             timer_count_reload();
+             s_time_base_us += s_timer_us_per_overflow;
++        } else {
++            if ((REG_READ(FRC_TIMER_COUNT_REG(1)) > ALARM_OVERFLOW_VAL) &&
++                ((REG_READ(FRC_TIMER_CTRL_REG(1)) & FRC_TIMER_INT_STATUS) == 0)) {
++                timer_count_reload();
++                s_time_base_us += s_timer_us_per_overflow;
++            }
+         }
+         s_mask_overflow = false;
+         int64_t cur_count = REG_READ(FRC_TIMER_COUNT_REG(1));
+@@ -254,6 +260,11 @@ static void IRAM_ATTR timer_alarm_isr(void *arg)
+     // Set alarm to the next overflow moment. Later, upper layer function may
+     // call esp_timer_impl_set_alarm to change this to an earlier value.
+     REG_WRITE(FRC_TIMER_ALARM_REG(1), ALARM_OVERFLOW_VAL);
++    if ((REG_READ(FRC_TIMER_COUNT_REG(1)) > ALARM_OVERFLOW_VAL) &&
++        ((REG_READ(FRC_TIMER_CTRL_REG(1)) & FRC_TIMER_INT_STATUS) == 0)) {
++        timer_count_reload();
++        s_time_base_us += s_timer_us_per_overflow;
++    }
+     portEXIT_CRITICAL_ISR(&s_time_update_lock);
+     // Call the upper layer handler
+     (*s_alarm_handler)(arg);
+diff --git a/components/esp32/test/test_esp_timer.c b/components/esp32/test/test_esp_timer.c
+index 979c3dd35cc313832d4931ce9c286ec7996e29a7..c9aef999e0bb8958ef7637c8e64782ca0df4eef6 100644
+--- a/components/esp32/test/test_esp_timer.c
++++ b/components/esp32/test/test_esp_timer.c
+@@ -798,3 +798,13 @@ TEST_CASE("Test case when esp_timer_impl_set_alarm needs set timer < now_time",
+     printf("alarm_reg = 0x%x, count_reg 0x%x\n", alarm_reg, count_reg);
+     TEST_ASSERT(alarm_reg <= (count_reg + offset));
+ }
++
++TEST_CASE("Test esp_timer_impl_set_alarm when the counter is near an overflow value", "[esp_timer]")
++{
++    for (int i = 0; i < 1024; ++i) {
++        uint32_t count_reg = 0xeffffe00 + i;
++        REG_WRITE(FRC_TIMER_LOAD_REG(1), count_reg);
++        printf("%d) count_reg = 0x%x\n", i, count_reg);
++        esp_timer_impl_set_alarm(1); // timestamp is expired
++    }
++}
