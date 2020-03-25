@@ -34,11 +34,8 @@
 #include "esp_bt_defs.h"
 #include "esp_gatt_common_api.h"
 
-#include "esp_wifi.h"
-#include "esp_event_loop.h"
-#include "esp_ota_ops.h"
-#include "esp_http_client.h"
-#include "esp_https_ota.h"
+#include "OTAServer.h"
+#include "MyWiFi.h"
 
 #include "fft_controller.h"
 
@@ -47,154 +44,6 @@ TBlendType currentBlending;
 
 extern CRGBPalette16 myRedWhiteBluePalette;
 extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
-
-#define NUM_LEDS 800
-#define DATA_PIN GPIO_NUM_12
-CRGB leds[NUM_LEDS];
-
-#define OTA_TAG "OTA"
-#define ESP_DSP_TAG "DSP"
-#define LED_TAG "FASTLED"
-#define AUDIO_CODEC_TAG "CODEC"
-#define BT_BLE_COEX_TAG "BT_BLE_COEX"
-
-#define BT_DEVICE_NAME "Palette BLE"
-#define BLE_ADV_NAME "Palette BLE"
-
-#define GATTS_SERVICE_UUID_A 0x00FF
-#define GATTS_CHAR_UUID_A 0xFF01
-#define GATTS_DESCR_UUID_A 0x3333
-#define GATTS_NUM_HANDLE_A 4
-
-#define GATTS_SERVICE_UUID_B 0x00EE
-#define GATTS_CHAR_UUID_B 0xEE01
-#define GATTS_DESCR_UUID_B 0x2222
-#define GATTS_NUM_HANDLE_B 4
-
-#define GATTS_DEMO_CHAR_VAL_LEN_MAX 0x40
-#define PREPARE_BUF_MAX_SIZE 1024
-#define PROFILE_NUM 2
-#define PROFILE_A_APP_ID 0
-#define PROFILE_B_APP_ID 1
-
-extern const uint8_t server_cert_pem_start[] asm("_binary_ca_cert_pem_start");
-extern const uint8_t server_cert_pem_end[] asm("_binary_ca_cert_pem_end");
-
-/* FreeRTOS event group to signal when we are connected & ready to make a request */
-static EventGroupHandle_t wifi_event_group;
-
-/* The event group allows multiple bits for each event,
-   but we only care about one event - are we connected
-   to the AP with an IP? */
-const int CONNECTED_BIT = BIT0;
-
-#define OTA_URL_SIZE 256
-
-esp_err_t _http_event_handler(esp_http_client_event_t *evt)
-{
-  switch (evt->event_id)
-  {
-  case HTTP_EVENT_ERROR:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ERROR");
-    break;
-  case HTTP_EVENT_ON_CONNECTED:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_CONNECTED");
-    break;
-  case HTTP_EVENT_HEADER_SENT:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_HEADER_SENT");
-    break;
-  case HTTP_EVENT_ON_HEADER:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_HEADER, key=%s, value=%s", evt->header_key, evt->header_value);
-    break;
-  case HTTP_EVENT_ON_DATA:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
-    break;
-  case HTTP_EVENT_ON_FINISH:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_ON_FINISH");
-    break;
-  case HTTP_EVENT_DISCONNECTED:
-    ESP_LOGD(OTA_TAG, "HTTP_EVENT_DISCONNECTED");
-    break;
-  }
-  return ESP_OK;
-}
-
-static esp_err_t event_handler(void *ctx, system_event_t *event)
-{
-  switch (event->event_id)
-  {
-  case SYSTEM_EVENT_STA_START:
-    esp_wifi_connect();
-    break;
-  case SYSTEM_EVENT_STA_GOT_IP:
-    xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
-    break;
-  case SYSTEM_EVENT_STA_DISCONNECTED:
-    /* This is a workaround as ESP32 WiFi libs don't currently
-           auto-reassociate. */
-    esp_wifi_connect();
-    xEventGroupClearBits(wifi_event_group, CONNECTED_BIT);
-    break;
-  default:
-    break;
-  }
-  return ESP_OK;
-}
-
-static void init_wifi(void)
-{
-  tcpip_adapter_init();
-  wifi_event_group = xEventGroupCreate();
-  ESP_ERROR_CHECK(esp_event_loop_init(event_handler, NULL));
-  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
-  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
-  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
-  wifi_config_t wifi_config = {
-      .sta = {
-          {.ssid = CONFIG_WIFI_SSID},
-          {.password = CONFIG_WIFI_PASSWORD},
-      },
-  };
-  ESP_LOGI(OTA_TAG, "Setting WiFi configuration SSID %s", wifi_config.sta.ssid);
-  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-  ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
-  ESP_ERROR_CHECK(esp_wifi_start());
-}
-
-void simple_ota_example_task(void *pvParameter)
-{
-  /* Wait for the callback to set the CONNECTED_BIT in the
-       event group.
-    */
-  xEventGroupWaitBits(wifi_event_group, CONNECTED_BIT,
-                      false, true, portMAX_DELAY);
-  ESP_LOGI(OTA_TAG, "Starting OTA example");
-  ESP_LOGI(OTA_TAG, "Connected to WiFi network! Attempting to connect to server...");
-
-  esp_http_client_config_t config = {
-      .url = CONFIG_EXAMPLE_FIRMWARE_UPGRADE_URL,
-      .cert_pem = (char *)server_cert_pem_start,
-      .event_handler = _http_event_handler,
-  };
-
-#ifdef CONFIG_EXAMPLE_SKIP_COMMON_NAME_CHECK
-  config.skip_cert_common_name_check = true;
-#endif
-
-  esp_err_t ret = esp_https_ota(&config);
-  if (ret == ESP_OK)
-  {
-    esp_restart();
-  }
-  else
-  {
-    ESP_LOGE(OTA_TAG, "Firmware upgrade failed");
-  }
-  while (1)
-  {
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-}
 
 /*
 Final dipswitch configuration
@@ -220,6 +69,36 @@ GPIO_NUM_19 - headphone insert detection
 GPIO_NUM_12 - aux insert detection
 GPIO_NUM_21 - PA enable output
 */
+
+#define NUM_LEDS 800
+#define DATA_PIN GPIO_NUM_12
+CRGB leds[NUM_LEDS];
+
+#define MAIN_APP_TAG "MAIN_APP"
+#define OTA_TAG "OTA"
+#define ESP_DSP_TAG "DSP"
+#define LED_TAG "FASTLED"
+#define AUDIO_CODEC_TAG "CODEC"
+#define BT_BLE_COEX_TAG "BT_BLE_COEX"
+
+#define BT_DEVICE_NAME "Palette BLE"
+#define BLE_ADV_NAME "Palette BLE"
+
+#define GATTS_SERVICE_UUID_A 0x00FF
+#define GATTS_CHAR_UUID_A 0xFF01
+#define GATTS_DESCR_UUID_A 0x3333
+#define GATTS_NUM_HANDLE_A 4
+
+#define GATTS_SERVICE_UUID_B 0x00EE
+#define GATTS_CHAR_UUID_B 0xEE01
+#define GATTS_DESCR_UUID_B 0x2222
+#define GATTS_NUM_HANDLE_B 4
+
+#define GATTS_DEMO_CHAR_VAL_LEN_MAX 0x40
+#define PREPARE_BUF_MAX_SIZE 1024
+#define PROFILE_NUM 2
+#define PROFILE_A_APP_ID 0
+#define PROFILE_B_APP_ID 1
 
 typedef struct
 {
@@ -939,61 +818,61 @@ extern "C"
       err = nvs_flash_init();
     }
 
-    Serial.begin(115200);
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
 
-    ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
+    // audio_board_handle_t board_handle = audio_board_init();
+    // audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
+    // audio_hal_set_volume(board_handle->audio_hal, 100);
 
-    ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
-    audio_board_handle_t board_handle = audio_board_init();
-    audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
-    audio_hal_set_volume(board_handle->audio_hal, 100);
+    // ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
+    // i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
+    // i2s_cfg.type = AUDIO_STREAM_WRITER;
+    // audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
 
-    ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
-    i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
-    i2s_cfg.type = AUDIO_STREAM_WRITER;
-    audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
+    // esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
+    // bt_cfg.controller_task_stack_size = 8192;
 
-    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-    err = esp_bt_controller_init(&bt_cfg);
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
-      return;
-    }
+    // err = esp_bt_controller_init(&bt_cfg);
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
+    //   return;
+    // }
 
-    err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
-      return;
-    }
+    // err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
+    //   return;
+    // }
 
-    err = esp_bluedroid_init();
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
-      return;
-    }
-    err = esp_bluedroid_enable();
-    if (err)
-    {
-      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
-      return;
-    }
+    // err = esp_bluedroid_init();
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
+    //   return;
+    // }
+    // err = esp_bluedroid_enable();
+    // if (err)
+    // {
+    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
+    //   return;
+    // }
 
-    /* create application task */
-    bt_app_task_start_up();
+    // /* create application task */
+    // bt_app_task_start_up();
 
-    /* Bluetooth device name, connection mode and profile set up */
-    bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
+    // /* Bluetooth device name, connection mode and profile set up */
+    // bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
 
-    //gatt server init
-    ble_gatts_init();
+    // //gatt server init
+    // ble_gatts_init();
 
-    init_leds();
+    // init_leds();
     // init_fft();
 
-    init_wifi();
+    init_wifi_station(&OTA_server);
 
     int loopCnt = 0;
 
@@ -1003,13 +882,13 @@ extern "C"
     while (1)
     {
       vTaskDelay(10);
-      if (loopCnt % 30000 == 0)
+      if (loopCnt % 3000 == 0)
       {
-        Serial.println("Running test #64 post-api initialization");
+        ESP_LOGI(MAIN_APP_TAG, "Running test #65");
       }
       loopCnt++;
     }
-    audio_element_deinit(i2s_stream_writer);
+    // audio_element_deinit(i2s_stream_writer);
     // deinit_fft();
   }
 #ifdef __cplusplus

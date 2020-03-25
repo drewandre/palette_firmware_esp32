@@ -1,9 +1,18 @@
 # ESP-IDF Partition Table
 # Name,   Type, SubType, Offset,   Size, Flags
-nvs,      data, nvs,     0x9000,   0x4000,
-otadata,  data, ota,     0xd000,   0x2000,
-phy_init, data, phy,     0xf000,   0x1000,
-factory,  0,    0,       0x10000,  3M,
-ota_0,    0,    ota_0,   0x310000, 3M,
-ota_1,    0,    ota_1,   0x610000, 3M,
-spiffs,   data, spiffs,  0x910000, 3M,
+# nvs,      data, nvs,     0x9000,   0x4000,
+# otadata,  data, ota,     0xd000,   0x2000,
+# phy_init, data, phy,     0xf000,   0x1000,
+# factory,  0,    0,       0x10000,  3M,
+# ota_0,    0,    ota_0,   0x310000, 3M,
+# ota_1,    0,    ota_1,   0x610000, 3M,
+# spiffs,   data, spiffs,  0x910000, 3M,
+
+# Espressif ESP32 Partition Table
+# Name,   Type, SubType, Offset,  Size
+nvs,      data, nvs,     0x9000,  0x4000,
+otadata,  data, ota,     0xd000,  0x2000,
+phy_init, data, phy,     0xf000,  0x1000,
+ota_0,    0,    ota_0,   ,        0x300000,
+ota_1,    0,    ota_1,   ,        0x300000,
+spiffs,   data, spiffs,  ,        0x300000,
