@@ -865,6 +865,8 @@ extern "C"
 
     Serial.begin(115200);
 
+    WiFi.persistent(false);
+
     // Connect to WiFi network
     WiFi.begin(ssid, password);
 
@@ -923,56 +925,57 @@ extern "C"
     } });
     server.begin();
 
-    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
 
-    // ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
-    // audio_board_handle_t board_handle = audio_board_init();
-    // audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
-    // audio_hal_set_volume(board_handle->audio_hal, 100);
+    ESP_LOGI(AUDIO_CODEC_TAG, "[ 2 ] Start codec chip");
+    audio_board_handle_t board_handle = audio_board_init();
+    audio_hal_ctrl_codec(board_handle->audio_hal, AUDIO_HAL_CODEC_MODE_DECODE, AUDIO_HAL_CTRL_START);
+    audio_hal_set_volume(board_handle->audio_hal, 100);
 
-    // ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
-    // i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
-    // i2s_cfg.type = AUDIO_STREAM_WRITER;
-    // audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
+    ESP_LOGI(AUDIO_CODEC_TAG, "[3.1] Create i2s stream to write data to codec chip");
+    i2s_stream_cfg_t i2s_cfg = I2S_STREAM_CFG_DEFAULT();
+    i2s_cfg.type = AUDIO_STREAM_WRITER;
+    audio_element_handle_t i2s_stream_writer = i2s_stream_init(&i2s_cfg);
 
-    // esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
-    // err = esp_bt_controller_init(&bt_cfg);
-    // if (err)
-    // {
-    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
-    //   return;
-    // }
+    esp_bt_controller_config_t bt_cfg = BT_CONTROLLER_INIT_CONFIG_DEFAULT();
+    err = esp_bt_controller_init(&bt_cfg);
+    if (err)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s initialize controller failed", __func__);
+      return;
+    }
 
-    // err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
-    // if (err)
-    // {
-    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
-    //   return;
-    // }
+    err = esp_bt_controller_enable(ESP_BT_MODE_BTDM);
+    if (err)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable controller failed", __func__);
+      return;
+    }
 
-    // err = esp_bluedroid_init();
-    // if (err)
-    // {
-    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
-    //   return;
-    // }
-    // err = esp_bluedroid_enable();
-    // if (err)
-    // {
-    //   ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
-    //   return;
-    // }
+    err = esp_bluedroid_init();
+    if (err)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s init bluetooth failed", __func__);
+      return;
+    }
+    err = esp_bluedroid_enable();
+    if (err)
+    {
+      ESP_LOGE(BT_BLE_COEX_TAG, "%s enable bluetooth failed", __func__);
+      return;
+    }
 
-    // /* create application task */
-    // bt_app_task_start_up();
+    /* create application task */
+    bt_app_task_start_up();
 
-    // /* Bluetooth device name, connection mode and profile set up */
-    // bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
+    /* Bluetooth device name, connection mode and profile set up */
+    bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
 
-    // //gatt server init
-    // ble_gatts_init();
+    //gatt server init
+    ble_gatts_init();
 
-    init_leds();
+    // init_leds();
+
     // init_fft();
 
     int loopCnt = 0;
@@ -986,11 +989,11 @@ extern "C"
       vTaskDelay(10);
       if (loopCnt % 30000 == 0)
       {
-        Serial.println("Running test #63 post-api initialization");
+        Serial.println("Running test #68");
       }
       loopCnt++;
     }
-    // audio_element_deinit(i2s_stream_writer);
+    audio_element_deinit(i2s_stream_writer);
     // deinit_fft();
   }
 #ifdef __cplusplus
