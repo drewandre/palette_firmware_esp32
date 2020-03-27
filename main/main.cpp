@@ -1,5 +1,5 @@
-// #include <Arduino.h>
-// #include "FastLED.h"
+#include <Arduino.h>
+#include "FastLED.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,15 +38,15 @@
 
 // #include <WiFi.h>
 // #include <WiFiClient.h>
-// #include <WebServer.h>
-// #include <ESPmDNS.h>
-// #include <Update.h>
+#include <WebServer.h>
+#include <ESPmDNS.h>
+#include <Update.h>
 
 const char *host = "esp32";
 const char *ssid = "HATFIELD";
 const char *password = "lakehouse";
 
-// WebServer server(80);
+WebServer server(80);
 
 const char *serverIndex =
     "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>"
@@ -116,8 +116,8 @@ GPIO_NUM_12 - aux insert detection
 GPIO_NUM_21 - PA enable output
 */
 
-#define NUM_LEDS 800
-#define DATA_PIN GPIO_NUM_12
+// #define NUM_LEDS 800
+// #define DATA_PIN GPIO_NUM_12
 // CRGB leds[NUM_LEDS];
 
 #define OTA_TAG "OTA"
@@ -864,67 +864,67 @@ extern "C"
       err = nvs_flash_init();
     }
 
-    // Serial.begin(115200);
+    Serial.begin(115200);
 
-    // WiFi.persistent(false);
+    WiFi.persistent(false);
 
-    // // Connect to WiFi network
-    // WiFi.begin(ssid, password);
+    // Connect to WiFi network
+    WiFi.begin(ssid, password);
 
-    // // Wait for connection
-    // while (WiFi.status() != WL_CONNECTED)
-    // {
-    //   delay(500);
-    //   Serial.print(".");
-    // }
-    // Serial.println("");
-    // Serial.print("Connected to ");
-    // Serial.println(ssid);
-    // Serial.print("IP address: ");
-    // Serial.println(WiFi.localIP());
+    // Wait for connection
+    while (WiFi.status() != WL_CONNECTED)
+    {
+      delay(500);
+      Serial.print(".");
+    }
+    Serial.println("");
+    Serial.print("Connected to ");
+    Serial.println(ssid);
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
 
-    // /* use mdns for host name resolution*/
-    // if (!MDNS.begin(host))
-    // {
-    //   // http://esp32.local
-    //   Serial.println("Error setting up MDNS responder!");
-    //   while (1)
-    //   {
-    //     delay(1000);
-    //   }
-    // }
-    // Serial.println("mDNS responder started");
+    /* use mdns for host name resolution*/
+    if (!MDNS.begin(host))
+    {
+      // http://esp32.local
+      Serial.println("Error setting up MDNS responder!");
+      while (1)
+      {
+        delay(1000);
+      }
+    }
+    Serial.println("mDNS responder started");
 
-    // server.on("/", HTTP_GET, []() {
-    //   server.sendHeader("Connection", "close");
-    //   server.send(200, "text/html", serverIndex);
-    // });
+    server.on("/", HTTP_GET, []() {
+      server.sendHeader("Connection", "close");
+      server.send(200, "text/html", serverIndex);
+    });
 
-    // /* handling uploading firmware file */
-    // server.on(
-    //     "/update", HTTP_POST, []() {
-    // server.sendHeader("Connection", "close");
-    // server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
-    // ESP.restart(); }, []() {
-    // HTTPUpload& upload = server.upload();
-    // if (upload.status == UPLOAD_FILE_START) {
-    //   Serial.printf("Update: %s\n", upload.filename.c_str());
-    //   if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
-    //     Update.printError(Serial);
-    //   }
-    // } else if (upload.status == UPLOAD_FILE_WRITE) {
-    //   /* flashing firmware to ESP*/
-    //   if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
-    //     Update.printError(Serial);
-    //   }
-    // } else if (upload.status == UPLOAD_FILE_END) {
-    //   if (Update.end(true)) { //true to set the size to the current progress
-    //     Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
-    //   } else {
-    //     Update.printError(Serial);
-    //   }
-    // } });
-    // server.begin();
+    /* handling uploading firmware file */
+    server.on(
+        "/update", HTTP_POST, []() {
+    server.sendHeader("Connection", "close");
+    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
+    ESP.restart(); }, []() {
+    HTTPUpload& upload = server.upload();
+    if (upload.status == UPLOAD_FILE_START) {
+      Serial.printf("Update: %s\n", upload.filename.c_str());
+      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
+        Update.printError(Serial);
+      }
+    } else if (upload.status == UPLOAD_FILE_WRITE) {
+      /* flashing firmware to ESP*/
+      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
+        Update.printError(Serial);
+      }
+    } else if (upload.status == UPLOAD_FILE_END) {
+      if (Update.end(true)) { //true to set the size to the current progress
+        Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
+      } else {
+        Update.printError(Serial);
+      }
+    } });
+    server.begin();
 
     ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
 
@@ -973,26 +973,30 @@ extern "C"
     bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
 
     // gatt server init
-    ble_gatts_init();
+    // ble_gatts_init();
 
     init_leds();
 
-    // init_fft();
+    init_fft();
 
     int loopCnt = 0;
 
-    // pinMode(GPIO_NUM_22, OUTPUT);
-    // digitalWrite(GPIO_NUM_22, HIGH);
+    pinMode(GPIO_NUM_22, OUTPUT);
+    digitalWrite(GPIO_NUM_22, HIGH);
 
     while (1)
     {
-      // server.handleClient();
+      server.handleClient();
       vTaskDelay(10);
-      if (loopCnt % 30000 == 0)
+      // if (loopCnt % 5000 == 0)
+      // {
+      EVERY_N_SECONDS(5)
       {
+        calculate_fft();
         ESP_LOGI(MAIN_APP_TAG, "Running test #79");
       }
-      loopCnt++;
+      // }
+      // loopCnt++;
     }
     audio_element_deinit(i2s_stream_writer);
     // deinit_fft();
