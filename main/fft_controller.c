@@ -9,98 +9,130 @@ extern "C"
 #include <stdlib.h>
 #include <string.h>
 #include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
-#include "esp_dsp.h"
 #include "fft_controller.h"
+#include "esp_dsp.h"
 
-  float map(float x, float in_min, float in_max, float out_min, float out_max)
+#define FFT_BUF_TYPE float
+
+#define SCL_INDEX 0x00
+#define SCL_TIME 0x01
+#define SCL_FREQUENCY 0x02
+#define SCL_PLOT 0x03
+
+#define N_SAMPLES 2048
+  uint8_t fft_buffer[N_SAMPLES * 2];
+
+  int N = N_SAMPLES;
+  // Input test array
+  float *x1;
+  // Window coefficients
+  float *wind;
+  // working complex array
+  float *y_cf;
+  // Pointers to result arrays
+  float *y1_cf;
+
+  uint8_t fft_initialized = 0;
+  int fft_size = 0;
+
+  bool fft_running = false;
+
+  FFT_BUF_TYPE map(FFT_BUF_TYPE x, FFT_BUF_TYPE in_min, FFT_BUF_TYPE in_max, FFT_BUF_TYPE out_min, FFT_BUF_TYPE out_max)
   {
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
   }
 
-#define BUF_SIZE 4096
-#define USE_WINDOW false
-
-  uint8_t fft_buffer[BUF_SIZE * 2];
-  // int pcm_wptr = 0;
-
-  // https://esp32.com/viewtopic.php?t=8363
-  // static int alignedLength = (BUF_SIZE >> 2) << 2; // 2*2 align
-
-  bool fft_running = false;
-  // static float x1[BUF_SIZE];
-  static float y_cf[BUF_SIZE * 2];
-  static float *y1_cf = &y_cf[0];
-
   void deinit_fft()
   {
+    free(x1);
+    free(wind);
+    free(y_cf);
+    fft_initialized = 0;
   }
 
   void init_fft()
   {
-    esp_err_t err = dsps_fft2r_init_fc32(NULL, BUF_SIZE);
-    if (err != ESP_OK)
+    if (fft_initialized)
     {
-      ESP_LOGE(FFT_TAG, "Not possible to initialize FFT. Error = %i", err);
+      ESP_LOGW(FFT_TAG, "FFT has already been initialized. Skipping init_fft();");
       return;
     }
-    // dsps_tone_gen_f32(x1, BUF_SIZE, 1.0, 0.16, 0);
-  }
 
-  void calculate_fft()
-  {
-    fft_running = true;
-    // int wlen = alignedLength;
-    // uint8_t *pcm2 = (uint8_t *)fft_buffer;
-
-    // while (wlen > 0)
-    // {
-    //   fft_buffer[pcm_wptr] = (fft_buffer[0] >> 1) + (fft_buffer[1] >> 1); // Mix L & R
-    //   pcm2 += 2;
-    //   wlen -= 4;
-    //   pcm_wptr++;
-    //   // if (pcm_wptr >= BUF_SIZE)
-    //   // {
-    //   //   // fft_128_s16(pcm_fft, image, real);
-    //   //   // pcm_wptr = 0;
-    //   // }
-    // }
-
-    for (int i = 0; i < BUF_SIZE; i += 2)
+    esp_err_t ret = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
+    if (ret != ESP_OK)
     {
-      // fft_buffer[pcm_wptr] = (fft_buffer[0] >> 1) + (fft_buffer[1] >> 1); // Mix L & R
-      uint8_t monoVal = (fft_buffer[i] >> 1) + (fft_buffer[i + 1] >> 1);
-      float f1 = (float)(monoVal) / 255.0;
-      f1 = map(f1, 0, 1, -1, 1);
-      // #if USE_WINDOW
-      //       y_cf[i * 2 + 0] = f1 * wind[i];
-      //       y_cf[i * 2 + 1] = x1[i] * wind[i];
-      // #else
-      y_cf[i * 2 + 0] = f1;
-      y_cf[i * 2 + 1] = 0;
-      // #endif
+      ESP_LOGE(FFT_TAG, "Not possible to initialize FFT. Error = %i", ret);
+      return;
     }
 
-    dsps_fft2r_fc32(y_cf, BUF_SIZE);
-    dsps_bit_rev_fc32(y_cf, BUF_SIZE);
-    dsps_cplx2reC_fc32(y_cf, BUF_SIZE);
+    x1 = (float *)calloc(N, sizeof(float));
+    wind = (float *)calloc(N, sizeof(float));
+    y_cf = (float *)calloc(N * 2, sizeof(float));
+    y1_cf = &y_cf[0];
 
-    for (int i = 0; i < BUF_SIZE / 2; i++)
-    {
-      y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / BUF_SIZE);
-    }
+    dsps_wind_hann_f32(wind, N);
+    dsps_tone_gen_f32(x1, N, 1.0, 0.16, 0);
 
-    // ESP_LOGW(FFT_TAG, "Signal y1_cf");
-    dsps_view(y_cf, BUF_SIZE / 2, 64, 10, -60, 40, '|');
-    fft_running = false;
+    ESP_LOGI(FFT_TAG, "FFT Initialized");
+    fft_initialized = 1;
   }
 
-  void copy_a2dp_buffer_for_fft(const uint8_t *data, uint32_t len)
+  void calculate_fft(void *pvParameters)
   {
-    // len = 4096
+    while (1)
+    {
+      if (!fft_initialized)
+      {
+        ESP_LOGE(FFT_TAG, "FFT has not yet been allocated. Please call init_fft() before calculate_fft(). Exiting calculate_fft().");
+        return; // FFT memory has not yet been allocated
+      }
+
+      fft_running = true;
+
+      ESP_LOGI(FFT_TAG, "\nRunning FFT");
+
+      for (int i = 0; i < N; i++)
+      {
+        x1[i] = map(((FFT_BUF_TYPE)fft_buffer[i * 2]) / 255.0, 0.0, 1.0, -1.0, 1.0);
+      }
+
+      // Convert two input vectors to one complex vector
+      for (int i = 0; i < N; i++)
+      {
+        y_cf[i * 2 + 0] = x1[i] * wind[i];
+        y_cf[i * 2 + 1] = 0;
+      }
+
+      unsigned int start_b = xthal_get_ccount();
+      dsps_fft2r_fc32(y_cf, N);
+      unsigned int end_b = xthal_get_ccount();
+      // Bit reverse
+      dsps_bit_rev_fc32(y_cf, N);
+      // Convert one complex vector to two complex vectors
+      dsps_cplx2reC_fc32(y_cf, N);
+
+      for (int i = 0; i < N / 2; i++)
+      {
+        y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
+      }
+
+      dsps_view(y1_cf, N / 2, 128, 20, -60, 40, '|');
+      ESP_LOGI(FFT_TAG, "FFT for %i complex points take %i cycles", N, end_b - start_b);
+
+      vTaskDelay(15000 / portTICK_PERIOD_MS);
+
+      fft_running = false;
+    }
+  }
+
+  void copy_a2dp_buffer_to_fft_buffer(const uint8_t *data, uint32_t len)
+  {
     if (!fft_running)
     {
-      memcpy(fft_buffer, data, BUF_SIZE);
+      memcpy(fft_buffer, data, len);
     }
   }
 

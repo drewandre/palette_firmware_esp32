@@ -63,8 +63,8 @@ extern "C"
   void bt_app_a2d_data_cb(const uint8_t *data, uint32_t len)
   {
     size_t bytes_written;
-    copy_a2dp_buffer_for_fft(data, len);
     i2s_write(I2S_NUM_0, data, len, &bytes_written, portMAX_DELAY);
+    copy_a2dp_buffer_to_fft_buffer(data, len);
   }
 
   void bt_app_alloc_meta_buffer(esp_avrc_ct_cb_param_t *param)

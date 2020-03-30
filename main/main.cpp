@@ -85,11 +85,11 @@ const char *serverIndex =
     "});"
     "</script>";
 
-// CRGBPalette16 currentPalette = HeatColors_p;
-// TBlendType currentBlending;
+CRGBPalette16 currentPalette = HeatColors_p;
+TBlendType currentBlending;
 
-// extern CRGBPalette16 myRedWhiteBluePalette;
-// extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
+extern CRGBPalette16 myRedWhiteBluePalette;
+extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
 
 /*
 Final dipswitch configuration
@@ -116,9 +116,18 @@ GPIO_NUM_12 - aux insert detection
 GPIO_NUM_21 - PA enable output
 */
 
-// #define NUM_LEDS 800
-// #define DATA_PIN GPIO_NUM_12
-// CRGB leds[NUM_LEDS];
+/*
+ Core configuration
+ 1: ARDUINO
+ 1: FFT
+ 0: BTDM
+ 0: BLUEDROID
+ 0: WIFI
+*/
+
+#define NUM_LEDS 800
+#define DATA_PIN GPIO_NUM_12
+CRGB leds[NUM_LEDS];
 
 #define OTA_TAG "OTA"
 #define ESP_DSP_TAG "DSP"
@@ -127,8 +136,8 @@ GPIO_NUM_21 - PA enable output
 #define AUDIO_CODEC_TAG "CODEC"
 #define BT_BLE_COEX_TAG "BT_BLE_COEX"
 
-#define BT_DEVICE_NAME "Palette BLE"
-#define BLE_ADV_NAME "Palette BLE"
+#define BT_DEVICE_NAME "Palette"
+#define BLE_ADV_NAME "Palette"
 
 #define GATTS_SERVICE_UUID_A 0x00FF
 #define GATTS_CHAR_UUID_A 0xFF01
@@ -831,24 +840,24 @@ void testCylonSpeed(void *pvParameters)
 {
   while (1)
   {
-    // fadeToBlackBy(leds, NUM_LEDS, 7);
-    // static int i = 0;
-    // if (i > NUM_LEDS - 1)
-    // {
-    //   i = 0;
-    // }
-    // i++;
-    // leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
+    fadeToBlackBy(leds, NUM_LEDS, 7);
+    static int i = 0;
+    if (i > NUM_LEDS - 1)
+    {
+      i = 0;
+    }
+    i++;
+    leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
 
-    // FastLED.show();
+    FastLED.show();
   }
 };
 
 void init_leds()
 {
-  // FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-  // FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
-  // xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 4000, NULL, 5, NULL, 1);
+  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
+  FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
+  // xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 2000, NULL, 5, NULL, 1);
 }
 
 #ifdef __cplusplus
@@ -864,67 +873,67 @@ extern "C"
       err = nvs_flash_init();
     }
 
-    Serial.begin(115200);
+    // Serial.begin(115200);
 
-    WiFi.persistent(false);
+    // WiFi.persistent(false);
 
-    // Connect to WiFi network
-    WiFi.begin(ssid, password);
+    // // Connect to WiFi network
+    // WiFi.begin(ssid, password);
 
-    // Wait for connection
-    while (WiFi.status() != WL_CONNECTED)
-    {
-      delay(500);
-      Serial.print(".");
-    }
-    Serial.println("");
-    Serial.print("Connected to ");
-    Serial.println(ssid);
-    Serial.print("IP address: ");
-    Serial.println(WiFi.localIP());
+    // // Wait for connection
+    // while (WiFi.status() != WL_CONNECTED)
+    // {
+    //   delay(500);
+    //   Serial.print(".");
+    // }
+    // Serial.println("");
+    // Serial.print("Connected to ");
+    // Serial.println(ssid);
+    // Serial.print("IP address: ");
+    // Serial.println(WiFi.localIP());
 
-    /* use mdns for host name resolution*/
-    if (!MDNS.begin(host))
-    {
-      // http://esp32.local
-      Serial.println("Error setting up MDNS responder!");
-      while (1)
-      {
-        delay(1000);
-      }
-    }
-    Serial.println("mDNS responder started");
+    // /* use mdns for host name resolution*/
+    // if (!MDNS.begin(host))
+    // {
+    //   // http://esp32.local
+    //   Serial.println("Error setting up MDNS responder!");
+    //   while (1)
+    //   {
+    //     delay(1000);
+    //   }
+    // }
+    // Serial.println("mDNS responder started");
 
-    server.on("/", HTTP_GET, []() {
-      server.sendHeader("Connection", "close");
-      server.send(200, "text/html", serverIndex);
-    });
+    // server.on("/", HTTP_GET, []() {
+    //   server.sendHeader("Connection", "close");
+    //   server.send(200, "text/html", serverIndex);
+    // });
 
-    /* handling uploading firmware file */
-    server.on(
-        "/update", HTTP_POST, []() {
-    server.sendHeader("Connection", "close");
-    server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
-    ESP.restart(); }, []() {
-    HTTPUpload& upload = server.upload();
-    if (upload.status == UPLOAD_FILE_START) {
-      Serial.printf("Update: %s\n", upload.filename.c_str());
-      if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
-        Update.printError(Serial);
-      }
-    } else if (upload.status == UPLOAD_FILE_WRITE) {
-      /* flashing firmware to ESP*/
-      if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
-        Update.printError(Serial);
-      }
-    } else if (upload.status == UPLOAD_FILE_END) {
-      if (Update.end(true)) { //true to set the size to the current progress
-        Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
-      } else {
-        Update.printError(Serial);
-      }
-    } });
-    server.begin();
+    // /* handling uploading firmware file */
+    // server.on(
+    //     "/update", HTTP_POST, []() {
+    // server.sendHeader("Connection", "close");
+    // server.send(200, "text/plain", (Update.hasError()) ? "FAIL" : "OK");
+    // ESP.restart(); }, []() {
+    // HTTPUpload& upload = server.upload();
+    // if (upload.status == UPLOAD_FILE_START) {
+    //   Serial.printf("Update: %s\n", upload.filename.c_str());
+    //   if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { // start with max available size
+    //     Update.printError(Serial);
+    //   }
+    // } else if (upload.status == UPLOAD_FILE_WRITE) {
+    //   /* flashing firmware to ESP*/
+    //   if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
+    //     Update.printError(Serial);
+    //   }
+    // } else if (upload.status == UPLOAD_FILE_END) {
+    //   if (Update.end(true)) { //true to set the size to the current progress
+    //     Serial.printf("Update Success: %u\nRebooting...\n", upload.totalSize);
+    //   } else {
+    //     Update.printError(Serial);
+    //   }
+    // } });
+    // server.begin();
 
     ESP_LOGI(AUDIO_CODEC_TAG, "[ 1 ] Create Bluetooth service");
 
@@ -973,33 +982,24 @@ extern "C"
     bt_app_work_dispatch(bt_av_hdl_stack_evt, BT_APP_EVT_STACK_UP, NULL, 0, NULL);
 
     // gatt server init
-    // ble_gatts_init();
+    ble_gatts_init();
 
     init_leds();
 
     init_fft();
 
-    int loopCnt = 0;
+    xTaskCreatePinnedToCore(&calculate_fft, "calculate_fft", 4000, NULL, 5, NULL, 1);
 
     pinMode(GPIO_NUM_22, OUTPUT);
     digitalWrite(GPIO_NUM_22, HIGH);
 
     while (1)
     {
-      server.handleClient();
+      // server.handleClient();
       vTaskDelay(10);
-      // if (loopCnt % 5000 == 0)
-      // {
-      EVERY_N_SECONDS(5)
-      {
-        calculate_fft();
-        ESP_LOGI(MAIN_APP_TAG, "Running test #79");
-      }
-      // }
-      // loopCnt++;
     }
     audio_element_deinit(i2s_stream_writer);
-    // deinit_fft();
+    deinit_fft();
   }
 #ifdef __cplusplus
 }

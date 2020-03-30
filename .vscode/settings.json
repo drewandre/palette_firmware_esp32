@@ -39,6 +39,12 @@
     "stdbool.h": "c",
     "esp_dsp.h": "c",
     "__functional_03": "cpp",
-    "cstdlib": "cpp"
+    "cstdlib": "cpp",
+    "arduinofft.h": "c",
+    "regex": "cpp",
+    "sstream": "cpp",
+    "vector": "c",
+    "iosfwd": "c",
+    "iterator": "c"
   }
 }
