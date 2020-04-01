@@ -12,8 +12,10 @@ extern "C"
 
   void init_fft();
   void deinit_fft();
-
-  void calculate_fft(void *pvParameters);
+  float get_fft_bins();
+  float find_e(int bands, int bins);
+  float read_fft(int16_t binFirst, int16_t binLast);
+  void calculate_fft();
   void copy_a2dp_buffer_to_fft_buffer(const uint8_t *data, uint32_t len);
   void PrintVector(double *vData, uint16_t bufferSize, uint8_t scaleType);
 

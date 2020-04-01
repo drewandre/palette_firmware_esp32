@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include "FastLED.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,6 +34,7 @@
 #include "esp_gatt_common_api.h"
 
 #include "fft_controller.h"
+#include "led_controller.h"
 
 // #include <WiFi.h>
 // #include <WiFiClient.h>
@@ -85,12 +85,6 @@ const char *serverIndex =
     "});"
     "</script>";
 
-CRGBPalette16 currentPalette = HeatColors_p;
-TBlendType currentBlending;
-
-extern CRGBPalette16 myRedWhiteBluePalette;
-extern const TProgmemPalette16 IRAM_ATTR myRedWhiteBluePalette_p;
-
 /*
 Final dipswitch configuration
 1: OFF
@@ -125,13 +119,8 @@ GPIO_NUM_21 - PA enable output
  0: WIFI
 */
 
-#define NUM_LEDS 800
-#define DATA_PIN GPIO_NUM_12
-CRGB leds[NUM_LEDS];
-
 #define OTA_TAG "OTA"
 #define ESP_DSP_TAG "DSP"
-#define LED_TAG "FASTLED"
 #define MAIN_APP_TAG "MAIN_APP"
 #define AUDIO_CODEC_TAG "CODEC"
 #define BT_BLE_COEX_TAG "BT_BLE_COEX"
@@ -835,35 +824,11 @@ static void bt_av_hdl_stack_evt(uint16_t event, void *p_param)
   }
 }
 
-int iHue = 255 / 100;
-void testCylonSpeed(void *pvParameters)
-{
-  while (1)
-  {
-    fadeToBlackBy(leds, NUM_LEDS, 7);
-    static int i = 0;
-    if (i > NUM_LEDS - 1)
-    {
-      i = 0;
-    }
-    i++;
-    leds[i] = ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
-
-    FastLED.show();
-  }
-};
-
-void init_leds()
-{
-  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS);
-  FastLED.setMaxPowerInVoltsAndMilliamps(5, 30000);
-  // xTaskCreatePinnedToCore(&testCylonSpeed, "testCylonSpeed", 2000, NULL, 5, NULL, 1);
-}
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
   void app_main(void)
   {
     esp_err_t err = nvs_flash_init();
@@ -872,8 +837,6 @@ extern "C"
       ESP_ERROR_CHECK(nvs_flash_erase());
       err = nvs_flash_init();
     }
-
-    // Serial.begin(115200);
 
     // WiFi.persistent(false);
 
@@ -988,19 +951,20 @@ extern "C"
 
     init_fft();
 
-    xTaskCreatePinnedToCore(&calculate_fft, "calculate_fft", 4000, NULL, 5, NULL, 1);
-
     pinMode(GPIO_NUM_22, OUTPUT);
     digitalWrite(GPIO_NUM_22, HIGH);
 
     while (1)
     {
       // server.handleClient();
-      vTaskDelay(10);
+      // vTaskDelay(10);
+      // run_animation_task();
+      calculate_fft();
     }
     audio_element_deinit(i2s_stream_writer);
     deinit_fft();
   }
+
 #ifdef __cplusplus
 }
 #endif
