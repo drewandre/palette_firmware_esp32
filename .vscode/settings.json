@@ -1,0 +1,51 @@
+{
+  "C_Cpp.clang_format_style": "Visual Studio",
+  "editor.formatOnSave": false,
+  "[cpp]": {
+    "editor.quickSuggestions": true
+  },
+  "[c]": {
+    "editor.quickSuggestions": true
+  },
+  "C_Cpp.intelliSenseEngineFallback": "Enabled",
+  "cSpell.words": [
+    "add",
+    "ap",
+    "cylon",
+    "enabled",
+    "esp",
+    "event",
+    "firmware",
+    "leds",
+    "logi",
+    "logw",
+    "mdns",
+    "nyquist",
+    "ota",
+    "probereqrecved",
+    "rehydrated",
+    "speed",
+    "ssid",
+    "staipassigned",
+    "system",
+    "test",
+    "test cylon speed",
+    "update",
+    "wifi"
+  ],
+  "files.associations": {
+    "complex": "cpp",
+    "random": "cpp",
+    "queue": "cpp",
+    "stack": "cpp",
+    "*.ipp": "cpp",
+    "bitset": "cpp",
+    "string_view": "cpp",
+    "regex": "cpp",
+    "string.h": "c",
+    "sgtl5000.h": "c",
+    "audiobit.h": "c",
+    "rtc.h": "c",
+    "cmath": "cpp"
+  }
+}

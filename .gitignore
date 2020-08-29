@@ -1,0 +1,4 @@
+build
+.DS_Store
+.vscode/browse.vc.db
+components/arduino
