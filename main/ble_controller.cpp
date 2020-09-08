@@ -7,6 +7,8 @@ BLECharacteristic *animationNumberCharacteristic = NULL;
 BLECharacteristic *colorPaletteCharacteristic = NULL;
 BLECharacteristic *masterBrightnessCharacteristic = NULL;
 BLECharacteristic *otaFileWriteCharacteristic = NULL;
+BLECharacteristic *otaFileSizeCharacteristic = NULL;
+BLECharacteristic *firmwareVersionCharacteristic = NULL;
 
 BLEUUID uuid("0b6cc699-edba-4d0f-b907-8f3e07c1bf94");
 
@@ -17,6 +19,7 @@ bool updateFlag = false;
 bool readyFlag = false;
 int bytesReceived = 0;
 int timesWritten = 0;
+int file_size = 0;
 
 esp_ota_handle_t otaHandler = 0;
 
@@ -24,20 +27,35 @@ const char *BLE_TAG = "BLE_CTRL";
 const char *BLE_ADV_NAME = "Palette";
 
 void abort_ota() {
-  if (updateFlag) {
-    ESP_LOGW(BLE_TAG, "OTA aborted");
-    updateFlag = false;
-  }
+  // esp_err_t ret = esp_ota_abort(otaHandler);
+  // if (ret == ESP_OK) {
+  ESP_LOGW(BLE_TAG, "OTA aborted");
+  // } else {
+  //   ESP_LOGE(BLE_TAG, "Error in abort_ota's esp_ota_end (error = %s)\n", esp_err_to_name(ret));
+  // }
+  resume_led_animations();
+  updateFlag = false;
 }
 
-class OTACallbacks: public BLECharacteristicCallbacks {
+class OTAFileSizeCallbacks: public BLECharacteristicCallbacks {
+  void onWrite(BLECharacteristic *pCharacteristic)
+  {
+    std::string rxData = pCharacteristic->getValue();
+    file_size = std::stoi(rxData);
+    printf("File size: %i\n", file_size);
+  }
+};
+
+class OTAFileWriteCallbacks: public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pCharacteristic)
   {
     esp_err_t ret;
     std::string rxData = pCharacteristic->getValue();
 
-    if (!updateFlag) { // If it's the first packet of OTA since bootup, begin OTA
-      ESP_LOGI(BLE_TAG, "Begin OTA\n");
+    if (!updateFlag) {
+      // If it's the first packet of OTA since bootup, begin OTA
+      ESP_LOGI(BLE_TAG, "Begin OTA");
+      suspend_led_animations();
       const esp_partition_t* next_partition = esp_ota_get_next_update_partition(NULL);
       ret = esp_ota_begin(next_partition, OTA_SIZE_UNKNOWN, &otaHandler);
       if (ret != ESP_OK) {
@@ -45,6 +63,9 @@ class OTACallbacks: public BLECharacteristicCallbacks {
       }
       updateFlag = true;
     }
+
+    bytesReceived += rxData.length();
+    float progress = (float)bytesReceived/(float)file_size;
     
     if (rxData.length() > 0)
     {
@@ -54,6 +75,9 @@ class OTACallbacks: public BLECharacteristicCallbacks {
         abort_ota();
       }
 
+      printf("OTA progress: %-3.3f%%\n", progress * 100);
+      // show_led_ota_percentage(progress);
+
       if (rxData.length() != FULL_PACKET)
       {
         ret = esp_ota_end(otaHandler);
@@ -61,6 +85,7 @@ class OTACallbacks: public BLECharacteristicCallbacks {
           ESP_LOGI(BLE_TAG, "EndOTA\n");
         } else {
           ESP_LOGE(BLE_TAG, "Error in esp_ota_end (error = %s)\n", esp_err_to_name(ret));
+          updateFlag = false;
           abort_ota();
         }
         ret = esp_ota_set_boot_partition(esp_ota_get_next_update_partition(NULL));
@@ -74,8 +99,8 @@ class OTACallbacks: public BLECharacteristicCallbacks {
       }
     }
 
-    uint8_t txData[5] = {1, 2, 3, 4, 5};
-    pCharacteristic->setValue((uint8_t*)txData, 5);
+    uint8_t txData[2] = {'o', 'k'};
+    pCharacteristic->setValue((uint8_t*)txData, 2);
     pCharacteristic->notify();
   }
 };
@@ -108,7 +133,7 @@ class AnimationCallbacks : public BLECharacteristicCallbacks
   }
 };
 
-class ProjectVersionCallbacks : public BLECharacteristicCallbacks
+class FirmwareVersionCallbacks : public BLECharacteristicCallbacks
 {
   void onRead(BLECharacteristic *pCharacteristic)
   {
@@ -142,7 +167,7 @@ class ColorPaletteCallbacks : public BLECharacteristicCallbacks
     std::string rxValue = pCharacteristic->getValue();
     int length = rxValue.length();
     int halfLength = length * 0.5;
-    byte x[halfLength];
+    uint8_t x[halfLength];
     int c = 0;
     for (int i = 0; i < length; i += 2)
     {
@@ -202,6 +227,8 @@ if (initialized)
   }
 
   ESP_LOGI(BLE_TAG, "Initializing BLE controller");
+
+  const esp_app_desc_t *app_description = esp_ota_get_app_description();
   
   BLEDevice::init(BLE_ADV_NAME);
 
@@ -213,6 +240,11 @@ if (initialized)
   otaFileWriteCharacteristic = pService->createCharacteristic(
       OTA_FILE_WRITE_CHARACTERISTIC,
       BLECharacteristic::PROPERTY_NOTIFY | BLECharacteristic::PROPERTY_WRITE
+  );
+
+  otaFileSizeCharacteristic = pService->createCharacteristic(
+      OTA_FILE_SIZE_CHARACTERISTIC,
+      BLECharacteristic::PROPERTY_WRITE_NR
   );
 
   animationNumberCharacteristic = pService->createCharacteristic(
@@ -227,12 +259,20 @@ if (initialized)
       MASTER_BRIGHTNESS_CHARACTERISTIC,
       BLECharacteristic::PROPERTY_WRITE_NR);
 
+  firmwareVersionCharacteristic = pService->createCharacteristic(
+      FIRMWARE_VERSION_CHARACTERISTIC,
+      BLECharacteristic::PROPERTY_READ);
+
   animationNumberCharacteristic->setCallbacks(new AnimationCallbacks());
   colorPaletteCharacteristic->setCallbacks(new ColorPaletteCallbacks());
   masterBrightnessCharacteristic->setCallbacks(new AnimationSettingsCallbacks());
-  otaFileWriteCharacteristic->setCallbacks(new OTACallbacks());
+  firmwareVersionCharacteristic->setCallbacks(new FirmwareVersionCallbacks());
+  otaFileWriteCharacteristic->setCallbacks(new OTAFileWriteCallbacks());
+  otaFileSizeCharacteristic->setCallbacks(new OTAFileSizeCallbacks());
 
   otaFileWriteCharacteristic->addDescriptor(new BLE2902());
+
+  firmwareVersionCharacteristic->setValue(app_description->version);
 
   pService->start();
 

@@ -67,7 +67,7 @@ void fastled_show_task(void *pvParameters)
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
     // -- Do the show (synchronously)
-    FastLED.setBrightness(animationVal4);
+    // FastLED.setBrightness(animationVal4);
     FastLED.show();
     // -- Notify the calling task
     xTaskNotifyGive(userTaskHandle);
@@ -131,7 +131,7 @@ void blend_animation_value_toward_value(uint8_t *cVal, uint8_t *tVal, int maxCha
   }
 }
 
-void add_palette(byte *payload, int length)
+void add_palette(uint8_t *payload, int length)
 {
   targetPalette = payload;
   set_palette(length, payload);
@@ -142,15 +142,29 @@ long map(long x, long in_min, long in_max, long out_min, long out_max)
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-void run_animation_task(void *pvParameters)
-{
+void blackout() {
   fill_solid(leds, NUM_LEDS, CRGB::Black);
   fastled_show_esp32();
+  FastLED.show();
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  fastled_show_esp32();
+  FastLED.show();
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  fastled_show_esp32();
+  FastLED.show();
+  fill_solid(leds, NUM_LEDS, CRGB::Black);
+  fastled_show_esp32();
+  FastLED.show();
+}
+
+void run_animation_task(void *pvParameters)
+{
+  // blackout();
   int number_of_audio_analysis_bands = get_averages_size();
   float segment_length = (float)NUM_LEDS / number_of_audio_analysis_bands;
   float color_multiplier = 255.0 / (float)number_of_audio_analysis_bands;
   float filter_values[number_of_audio_analysis_bands];
-
+  int myVar = 0;
   for (;;)
   {
     blend_animation_value_toward_value(&animationVal1, &systemState.animation.animation_settings.val1, MAX_ANIMATION_VALUE_CHANGES);
@@ -163,7 +177,8 @@ void run_animation_task(void *pvParameters)
       nblendPaletteTowardPalette(currentPalette, targetPalette, 24);
     }
 
-    switch (systemState.animation.animation_number)
+    // switch (systemState.animation.animation_number)
+    switch (myVar)
     {
     case 0:
       memcpy(filter_values, get_audio_analysis_results(), number_of_audio_analysis_bands * sizeof(float));
@@ -174,8 +189,8 @@ void run_animation_task(void *pvParameters)
       #ifdef DEBUG_AUDIO_ANALYSIS
         printf("%f\t", filter_values[i] /* * 5100.0 */);
       #endif
-        int current_brightness = filter_values[i] * 255.0f;
-        int next_brightness = i == number_of_audio_analysis_bands - 1 ? current_brightness : filter_values[i + 1] * 255.0f;
+        int current_brightness = filter_values[i] * 300.0f;
+        int next_brightness = i == number_of_audio_analysis_bands - 1 ? current_brightness : filter_values[i + 1] * 300.0f;
         int current_hue = i * color_multiplier;
         if (current_hue > 255) {
           current_hue = 255;
@@ -262,7 +277,7 @@ void map_palette()
   }
 }
 
-void addGlitter( fract8 chanceOfGlitter) 
+void addGlitter(fract8 chanceOfGlitter) 
 {
   if (random8() < chanceOfGlitter) {
     leds[random16(NUM_LEDS)] += CRGB::White;
@@ -271,10 +286,17 @@ void addGlitter( fract8 chanceOfGlitter)
 
 void rainbow()
 {
+  // static int initial_hue = 0;
+  // initial_hue-=(animationVal2*0.1);
+  // fill_rainbow(leds, NUM_LEDS, initial_hue, float(animationVal1)*0.05);
+  // // map_temp_leds_to_leds();
   static int initial_hue = 0;
-  initial_hue-=(animationVal2*0.1);
-  fill_rainbow(leds, NUM_LEDS, initial_hue, float(animationVal1)*0.05);
+  initial_hue++;
+  // initial_hue -= (animationVal2 * 0.1);
+  // fill_rainbow(leds, NUM_LEDS, initial_hue, float(animationVal1) * 0.05);
+  fill_rainbow(leds, NUM_LEDS, initial_hue, 1);
   // map_temp_leds_to_leds();
+
 }
 
 void noise_2d()
@@ -412,6 +434,13 @@ void test_cylon_speed()
   leds[i] += ColorFromPalette(currentPalette, i * iHue, 255, currentBlending);
 };
 
+void show_led_ota_percentage(float percentage) {
+  int amount = NUM_LEDS * percentage;
+  printf("Received progress %i\n", amount);
+  fill_solid(leds, amount, CRGB::White);
+  fastled_show_esp32();
+}
+
 void init_led_controller()
 {
   if (initialized)
@@ -423,8 +452,7 @@ void init_led_controller()
 
   targetPalette = systemState.palette.palette_data;
 
-  FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
-  // FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(leds, 0 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
+  FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(leds, 0 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_1, COLOR_ORDER>(leds, 1 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_2, COLOR_ORDER>(leds, 2 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_3, COLOR_ORDER>(leds, 3 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
@@ -437,10 +465,32 @@ void init_led_controller()
   
   xTaskCreatePinnedToCore(fastled_show_task, "FastLEDshowTask", FASTLED_SHOW_TASK_STACK_SIZE, NULL, FASTLED_SHOW_TASK_PRIORITY, &FastLEDshowTaskHandle, FASTLED_SHOW_TASK_CORE_ID);
   xTaskCreatePinnedToCore(run_animation_task, "RunAnimationTask", RUN_ANIMATION_TASK_STACK_SIZE, NULL, RUN_ANIMATION_TASK_PRIORITY, &RunAnimationTaskHandle, RUN_ANIMATION_TASK_CORE_ID);
-  // xTaskCreatePinnedToCore(run_led_palette_task, "RunColorPaletteTask", RUN_LED_PALETTE_TASK_STACK_SIZE, NULL, RUN_LED_PALETTE_TASK_PRIORITY, &RunLEDPaletteTaskHandle, RUN_LED_PALETTE_TASK_CORE_ID);
 
   initialized = true;
   ESP_LOGI(LED_TAG, "LED controller initialized");
+}
+
+void resume_led_animations() {
+  if (initialized) {
+    vTaskResume(FastLEDshowTaskHandle);
+    vTaskResume(RunAnimationTaskHandle);
+    // xTaskCreatePinnedToCore(run_animation_task, "RunAnimationTask", RUN_ANIMATION_TASK_STACK_SIZE, NULL, RUN_ANIMATION_TASK_PRIORITY, &RunAnimationTaskHandle, RUN_ANIMATION_TASK_CORE_ID);
+    // xTaskCreatePinnedToCore(run_led_palette_task, "RunColorPaletteTask", RUN_LED_PALETTE_TASK_STACK_SIZE, NULL, RUN_LED_PALETTE_TASK_PRIORITY, &RunLEDPaletteTaskHandle, RUN_LED_PALETTE_TASK_CORE_ID);
+    ESP_LOGI(LED_TAG, "Led animations started");
+  } else {
+    ESP_LOGW(LED_TAG, "Attempted to begin led animations without initializing led controller first");
+  }
+}
+
+void suspend_led_animations() {
+  if (initialized) {
+    // blackout();
+    vTaskSuspend(RunAnimationTaskHandle);
+    vTaskSuspend(FastLEDshowTaskHandle);
+    ESP_LOGI(LED_TAG, "Led animations suspended");
+  } else {
+    ESP_LOGW(LED_TAG, "Attempted to suspend led animations without initializing led controller first");
+  }
 }
 
 void deinit_led_controller()

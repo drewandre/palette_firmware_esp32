@@ -25,7 +25,7 @@ struct Animation
 struct Palette
 {
   uint16_t palette_length;
-  byte palette_data[MAX_PALETTE_LENGTH];
+  uint8_t palette_data[MAX_PALETTE_LENGTH];
 };
 
 struct SystemSettings
@@ -54,7 +54,7 @@ void rehydrate_state_from_eeprom();
 
 void set_animation_number(int animation_number);
 
-void set_palette(int length, byte *data);
+void set_palette(int length, uint8_t *data);
 
 void set_animation_settings(int *payload);
 

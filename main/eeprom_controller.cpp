@@ -79,7 +79,7 @@ void set_animation_number(int animation_number)
   ESP_LOGI(EEPROM_TAG, "Animation changed (%i)", animation_number);
 }
 
-void set_palette(int length, byte *data)
+void set_palette(int length, uint8_t *data)
 {
   systemState.palette.palette_length = length;
   memcpy(systemState.palette.palette_data, data, length);

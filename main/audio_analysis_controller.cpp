@@ -180,109 +180,109 @@ Filter one_thousand_hz = {
   }
 };
 
-// Filter one_thousand_two_hundred_fifty_hz = {
-//   .hz = 1250,
-//   .amp_adjustment = 1,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.014548131651512725,
-//     0,
-//     -0.014548131651512725,
-//     -1.9397299332189117,
-//     0.9709037366969746,
-//   }
-// };
+Filter one_thousand_two_hundred_fifty_hz = {
+  .hz = 1250,
+  .amp_adjustment = 1,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.014548131651512725,
+    0,
+    -0.014548131651512725,
+    -1.9397299332189117,
+    0.9709037366969746,
+  }
+};
 
-// Filter one_thousand_six_hundred_hz = {
-//   .hz = 1600,
-//   .amp_adjustment = 1,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.018484561850751473,
-//     0,
-//     -0.018484561850751473,
-//     -1.9122455652599208,
-//     0.9630308762984973,
-//   }
-// };
+Filter one_thousand_six_hundred_hz = {
+  .hz = 1600,
+  .amp_adjustment = 1,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.018484561850751473,
+    0,
+    -0.018484561850751473,
+    -1.9122455652599208,
+    0.9630308762984973,
+  }
+};
 
-// Filter two_thousand_hz = {
-//   .hz = 2000,
-//   .amp_adjustment = 1,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.022889713376707196,
-//     0,
-//     -0.022889713376707196,
-//     -1.8754170728941222,
-//     0.9542205732465857,
-//   }
-// };
+Filter two_thousand_hz = {
+  .hz = 2000,
+  .amp_adjustment = 1,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.022889713376707196,
+    0,
+    -0.022889713376707196,
+    -1.8754170728941222,
+    0.9542205732465857,
+  }
+};
 
-// Filter two_thousand_five_hundred_hz = {
-//   .hz = 2500,
-//   .amp_adjustment = 1.3000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.14846713280622098,
-//     0,
-//     -0.14846713280622098,
-//     -1.5961682440350178,
-//     0.7030657343875581,
-//   }
-// };
+Filter two_thousand_five_hundred_hz = {
+  .hz = 2500,
+  .amp_adjustment = 1.3000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.14846713280622098,
+    0,
+    -0.14846713280622098,
+    -1.5961682440350178,
+    0.7030657343875581,
+  }
+};
 
-// Filter three_thousand_one_hundred_fifty_hz = {
-//   .hz = 3150,
-//   .amp_adjustment = 1.3000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.0348952707151781,
-//     0,
-//     -0.0348952707151781,
-//     -1.7390586307020333,
-//     0.9302094585696438,
-//   }
-// };
+Filter three_thousand_one_hundred_fifty_hz = {
+  .hz = 3150,
+  .amp_adjustment = 1.3000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.0348952707151781,
+    0,
+    -0.0348952707151781,
+    -1.7390586307020333,
+    0.9302094585696438,
+  }
+};
 
-// Filter four_thousand_hz = {
-//   .hz = 4000,
-//   .amp_adjustment = 1.3000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.04302791656865104,
-//     0,
-//     -0.04302791656865104,
-//     -1.611451193746246,
-//     0.913944166862698,
-//   }
-// };
+Filter four_thousand_hz = {
+  .hz = 4000,
+  .amp_adjustment = 1.3000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.04302791656865104,
+    0,
+    -0.04302791656865104,
+    -1.611451193746246,
+    0.913944166862698,
+  }
+};
 
-// Filter five_thousand_hz = {
-//   .hz = 5000,
-//   .amp_adjustment = 1.3000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.05165600383969903,
-//     0,
-//     -0.05165600383969903,
-//     -1.4354302233774527,
-//     0.8966879923206019,
-//   }
-// };
+Filter five_thousand_hz = {
+  .hz = 5000,
+  .amp_adjustment = 1.3000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.05165600383969903,
+    0,
+    -0.05165600383969903,
+    -1.4354302233774527,
+    0.8966879923206019,
+  }
+};
 
-// Filter six_thousand_three_hundred_hz = {
-//   .hz = 6300,
-//   .amp_adjustment = 1.3000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.06116740652858825,
-//     0,
-//     -0.06116740652858825,
-//     -1.170705095364023,
-//     0.8776651869428236,
-//   }
-// };
+Filter six_thousand_three_hundred_hz = {
+  .hz = 6300,
+  .amp_adjustment = 1.3000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.06116740652858825,
+    0,
+    -0.06116740652858825,
+    -1.170705095364023,
+    0.8776651869428236,
+  }
+};
 
 // Filter six_thousand_two_hundred_fifty_hz = {
 //   .hz = 6250,
@@ -297,32 +297,32 @@ Filter one_thousand_hz = {
 //   }
 // };
 
-// Filter eight_thousand_hz = {
-//   .hz = 8000,
-//   .amp_adjustment = 2.200,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.07038378636879018,
-//     0,
-//     -0.07038378636879018,
-//     -0.7767315145056187,
-//     0.8592324272624198,
-//   }
-// };
+Filter eight_thousand_hz = {
+  .hz = 8000,
+  .amp_adjustment = 2.200,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.07038378636879018,
+    0,
+    -0.07038378636879018,
+    -0.7767315145056187,
+    0.8592324272624198,
+  }
+};
 
 // hpf
-// Filter ten_thousand_hz = {
-//   .hz = 10000,
-//   .amp_adjustment = 4.0000,
-//   .delay_line = {0, 0},
-//   .coefficients = {
-//     0.3831994032538892,
-//     -0.7663988065077784,
-//     0.3831994032538892,
-//     -0.1947165117031973,
-//     0.33808110131235947,
-//   }
-// };
+Filter ten_thousand_hz = {
+  .hz = 10000,
+  .amp_adjustment = 4.0000,
+  .delay_line = {0, 0},
+  .coefficients = {
+    0.3831994032538892,
+    -0.7663988065077784,
+    0.3831994032538892,
+    -0.1947165117031973,
+    0.33808110131235947,
+  }
+};
 
 // bpf
 // Filter ten_thousand_hz = {
@@ -383,17 +383,17 @@ FilterBank bank = {
     six_hundred_thirty_hz,
     eight_hundred_hz,
     one_thousand_hz,
-    // one_thousand_two_hundred_fifty_hz,
-    // one_thousand_six_hundred_hz,
-    // two_thousand_hz,
-    // two_thousand_five_hundred_hz,
-    // three_thousand_one_hundred_fifty_hz,
-    // four_thousand_hz,
-    // five_thousand_hz,
-    // six_thousand_three_hundred_hz,
-    // // six_thousand_two_hundred_fifty_hz,
-    // eight_thousand_hz,
-    // ten_thousand_hz,
+    one_thousand_two_hundred_fifty_hz,
+    one_thousand_six_hundred_hz,
+    two_thousand_hz,
+    two_thousand_five_hundred_hz,
+    three_thousand_one_hundred_fifty_hz,
+    four_thousand_hz,
+    five_thousand_hz,
+    six_thousand_three_hundred_hz,
+    // six_thousand_two_hundred_fifty_hz,
+    eight_thousand_hz,
+    ten_thousand_hz,
     // twelve_thousand_five_hundred_hz,
     // sixteen_thousand_hz,
   }

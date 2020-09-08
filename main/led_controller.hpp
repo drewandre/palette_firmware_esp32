@@ -9,7 +9,7 @@
 #include "free_rtos_controller.hpp"
 #include "application_task_controller.hpp"
 
-#define NUM_STRIPS 8
+#define NUM_STRIPS 1
 #define NUM_LEDS_PER_STRIP 100
 const int numLeds = NUM_STRIPS * NUM_LEDS_PER_STRIP;
 #define NUM_LEDS numLeds
@@ -43,13 +43,21 @@ void noise_1d();
 
 void noise_2d();
 
+void blackout();
+
 void show_leds();
+
+void suspend_led_animations();
+
+void resume_led_animations();
 
 void test_cylon_speed();
 
 void log_led_performance();
 
-void add_palette(byte *payload, int length);
+void show_led_ota_percentage(float percentage);
+
+void add_palette(uint8_t *payload, int length);
 
 void blend_animation_value_toward_value(uint8_t *cVal, uint8_t *tVal, int maxChanges);
 
