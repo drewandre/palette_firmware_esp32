@@ -1,3 +1,4 @@
+#include "Arduino.h"
 #include "SGTL5000_controller.hpp"
 #include "led_controller.hpp"
 #include "ble_controller.hpp"

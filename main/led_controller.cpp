@@ -165,6 +165,8 @@ void run_animation_task(void *pvParameters)
   float color_multiplier = 255.0 / (float)number_of_audio_analysis_bands;
   float filter_values[number_of_audio_analysis_bands];
   int myVar = 0;
+  int i = 0;
+
   for (;;)
   {
     blend_animation_value_toward_value(&animationVal1, &systemState.animation.animation_settings.val1, MAX_ANIMATION_VALUE_CHANGES);
@@ -181,6 +183,10 @@ void run_animation_task(void *pvParameters)
     switch (myVar)
     {
     case 0:
+      // fill_solid(leds, NUM_LEDS, CHSV(i, 255, 255));
+      // i++;
+      // fastled_show_esp32();
+      // break;
       memcpy(filter_values, get_audio_analysis_results(), number_of_audio_analysis_bands * sizeof(float));
       #ifdef DEBUG_AUDIO_ANALYSIS
         printf("\033[2J\033[1;1H");
@@ -452,7 +458,7 @@ void init_led_controller()
 
   targetPalette = systemState.palette.palette_data;
 
-  FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(leds, 0 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
+  FastLED.addLeds<LED_TYPE, GPIO_NUM_32, COLOR_ORDER>(leds, 0 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_1, COLOR_ORDER>(leds, 1 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_2, COLOR_ORDER>(leds, 2 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
   // FastLED.addLeds<LED_TYPE, LED_PIN_3, COLOR_ORDER>(leds, 3 * NUM_LEDS_PER_STRIP, NUM_LEDS_PER_STRIP).setCorrection(TypicalLEDStrip);
