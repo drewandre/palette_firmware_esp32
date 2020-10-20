@@ -10,6 +10,7 @@
 #include "eeprom_controller.hpp"
 #include "aux_detect.hpp"
 #include "free_rtos_controller.hpp"
+#include "application_task_controller.hpp"
 
 // #define ENABLE_PERFORMANCE_MONITOR
 typedef enum

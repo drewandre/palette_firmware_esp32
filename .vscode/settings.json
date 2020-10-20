@@ -46,6 +46,15 @@
     "sgtl5000.h": "c",
     "audiobit.h": "c",
     "rtc.h": "c",
-    "cmath": "cpp"
+    "cmath": "cpp",
+    "*.tcc": "cpp",
+    "ratio": "cpp",
+    "system_error": "cpp",
+    "array": "cpp",
+    "functional": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp",
+    "string": "cpp"
   }
 }

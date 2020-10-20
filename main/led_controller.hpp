@@ -4,10 +4,10 @@
 #include "FastLED.h"
 #include <string>
 #include "esp_log.h"
-#include "audio_analysis_controller.hpp"
 #include "eeprom_controller.hpp"
 #include "free_rtos_controller.hpp"
 #include "application_task_controller.hpp"
+#include "audio_analysis_controller.hpp"
 
 #define NUM_STRIPS 1
 #define NUM_LEDS_PER_STRIP 100

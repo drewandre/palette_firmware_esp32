@@ -1,9 +1,9 @@
 #include "application_task_controller.hpp"
 
 const char *APPLICATION_TASK_TAG = "APP_TASK_SWITCHER";
+static bool initialized = false;
 
 application_task mode;
-static bool initialized = false;
 
 const char *kModeStrings[] = {
     [OTA_FIRMWARE_UPDATE_INIT] = "OTA_FIRMWARE_UPDATE_INIT",

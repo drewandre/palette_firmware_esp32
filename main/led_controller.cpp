@@ -2,6 +2,7 @@
 #include "pin_def.h"
 
 const char *LED_TAG = "FASTLED";
+static bool initialized = false;
 
 TaskHandle_t FastLEDshowTaskHandle = 0;
 TaskHandle_t RunAnimationTaskHandle = 0;
@@ -26,8 +27,6 @@ uint8_t animationVal4;
 uint8_t noise[MAX_DIMENSION][MAX_DIMENSION];
 
 float iHue = 255 / (float)NUM_LEDS;
-
-static bool initialized = false;
 
 uint16_t x;
 uint16_t y;
@@ -182,6 +181,7 @@ void run_animation_task(void *pvParameters)
     // switch (systemState.animation.animation_number)
     switch (myVar)
     {
+    // FOR IIR FILTER
     case 0:
       // fill_solid(leds, NUM_LEDS, CHSV(i, 255, 255));
       // i++;
@@ -224,6 +224,50 @@ void run_animation_task(void *pvParameters)
       fastled_show_esp32();
       fadeToBlackBy(leds, NUM_LEDS, 50);
       break;
+
+    // case 0:
+    //   // fill_solid(leds, NUM_LEDS, CHSV(i, 255, 255));
+    //   // i++;
+    //   // fastled_show_esp32();
+    //   // break;
+    //   memcpy(filter_values, get_audio_analysis_results(), number_of_audio_analysis_bands * sizeof(float));
+    //   #ifdef DEBUG_AUDIO_ANALYSIS
+    //     printf("\033[2J\033[1;1H");
+    //   #endif
+    //   for (int i = 0; i < number_of_audio_analysis_bands; i++) {
+    //     int current_brightness = 255 * filter_values[i];
+
+    //   #ifdef DEBUG_AUDIO_ANALYSIS
+    //     printf("%i\t", current_brightness);
+    //   #endif
+    //     int current_hue = i * color_multiplier;
+    //     if (current_hue > 255) {
+    //       current_hue = 255;
+    //     }
+    //     // int next_brightness = i == number_of_audio_analysis_bands - 1 ? current_brightness : filter_values[i + 1] * 255;
+    //     // int next_hue = i == number_of_audio_analysis_bands - 1 ? current_hue : (i + 1) * color_multiplier;
+    //     // if (next_hue > 255) {
+    //     //   next_hue = 255;
+    //     // }
+    //     for (int l = i * segment_length; l < (i + 1) * segment_length; l++) {
+    //       leds[l] = CHSV(current_hue, 255, current_brightness);
+    //       // fill_gradient(
+    //       //   tempLeds,
+    //       //   i * segment_length,
+    //       //   CHSV(current_hue, 255, current_brightness),
+    //       //   ((i + 1) * segment_length),
+    //       //   CHSV(next_hue, 255, next_brightness),
+    //       //   SHORTEST_HUES
+    //       // );
+    //     }
+    //   }
+    //   #ifdef DEBUG_AUDIO_ANALYSIS
+    //     printf("\n");
+    //   #endif
+    //   // map_temp_leds_to_leds();
+    //   fastled_show_esp32();
+    //   fadeToBlackBy(leds, NUM_LEDS, 50);
+    //   break;
     case 1:
       map_palette();
       fastled_show_esp32();

@@ -1,5 +1,9 @@
 #include "ble_controller.hpp"
 
+const char *BLE_TAG = "BLE_CTRL";
+const char *BLE_ADV_NAME = "Palette";
+static bool initialized = false;
+
 BLEServer *pServer = NULL;
 BLEAdvertising *pAdvertising = NULL;
 BLEService *pService = NULL;
@@ -12,7 +16,6 @@ BLECharacteristic *firmwareVersionCharacteristic = NULL;
 
 BLEUUID uuid("0b6cc699-edba-4d0f-b907-8f3e07c1bf94");
 
-static bool initialized = false;
 bool device_is_connected = false;
 
 bool updateFlag = false;
@@ -23,8 +26,6 @@ int file_size = 0;
 
 esp_ota_handle_t otaHandler = 0;
 
-const char *BLE_TAG = "BLE_CTRL";
-const char *BLE_ADV_NAME = "Palette";
 
 void abort_ota() {
   // esp_err_t ret = esp_ota_abort(otaHandler);

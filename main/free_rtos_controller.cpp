@@ -1,10 +1,9 @@
 #include "free_rtos_controller.hpp"
 
 const char *FREE_RTOS_TAG = "FREE_RTOS";
+static bool initialized = false;
 
 TaskHandle_t PrintRTOSStatusHandler = 0;
-
-static bool initialized = false;
 
 UBaseType_t GetTaskHighWaterMark(TaskHandle_t task_handle)
 {

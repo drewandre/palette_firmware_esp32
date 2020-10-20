@@ -36,8 +36,9 @@
 #define HP_DELAY_TIME_MS 500
 
 const char *AUX_DETECT_TAG = "AUX_DETECT";
-static xTimerHandle timer_aux;
 static bool initialized = false;
+
+static xTimerHandle timer_aux;
 
 static void aux_timer_cb(TimerHandle_t xTimer)
 {
