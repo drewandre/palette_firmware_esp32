@@ -1,0 +1,12 @@
+[submodule "components/arduino"]
+	path = components/arduino
+	url = https://github.com/espressif/arduino-esp32
+[submodule "components/esp-dsp"]
+	path = components/esp-dsp
+	url = https://github.com/espressif/esp-dsp
+[submodule "components/esp-idf"]
+	path = components/esp-idf
+	url = https://github.com/espressif/esp-idf
+[submodule "components/FastLED"]
+	path = components/FastLED
+	url = https://github.com/FastLED/FastLED
