@@ -14,6 +14,7 @@ static float *y1_cf;
 float wind[N_SAMPLES_HALF];
 float y_cf[N_SAMPLES * 2];
 float *y1_cf = &y_cf[0];
+float fft_buffer[CONFIG_DSP_MAX_FFT_SIZE];
 #endif
 
 float *fft_averages;
@@ -25,15 +26,17 @@ void init_fft_controller()
     ESP_LOGW(FFT_TAG, "FFT controller has already been initialized. Skipping %s", __func__);
     return;
   }
-  ESP_LOGI(FFT_TAG, "Initializing FFT controller (using FFT)");
+  ESP_LOGI(FFT_TAG, "Initializing FFT controller");
 
 #ifdef ALLOCATE_AUDIO_ANALYSIS_BUFFERS_DYNAMICALLY
   wind = (float *)calloc(N_SAMPLES_HALF, sizeof(float));
   y_cf = (float *)calloc(N_SAMPLES * 2, sizeof(float));
   y1_cf = &y_cf[0];
+  esp_err_t result = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
+#else
+  esp_err_t result = dsps_fft2r_init_fc32(fft_buffer, CONFIG_DSP_MAX_FFT_SIZE);
 #endif
 
-  esp_err_t result = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
   if (result != ESP_OK)
   {
     ESP_LOGE(FFT_TAG, "Not possible to initialize FFT. Error = %i", result);
@@ -122,7 +125,7 @@ void calculate_fft() {
   //   y1_cf[i] = (y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N_SAMPLES;
   // }
   
-  average_into_octave_bands();
+  // average_into_octave_bands();
 }
 
 void average_into_octave_bands() {

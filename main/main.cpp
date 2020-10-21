@@ -18,11 +18,17 @@ extern "C"
 
     // init_status_led_controller();
     init_eeprom_controller();
-    init_audio_analysis_controller(); // should be called before init_led_controller
     // init_aux_detect();
     init_sgtl5000_controller();
+    init_audio_analysis_controller(); // should be called before led, ble, and a2dp controllers
+
+    /**
+     * A2DP and BLE controller must be initialized together,
+     * and BLE initialized after A2DP.
+     */
     init_a2dp_controller();
     init_ble_controller();
+
     init_led_controller();
 
     // Serial.println("CPU0 reset reason:");

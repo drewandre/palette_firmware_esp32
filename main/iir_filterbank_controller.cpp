@@ -404,7 +404,7 @@ void init_iir_filterbank_controller()
     ESP_LOGW(IIR_TAG, "IIR filterbank controller has already been initialized. Skipping %s", __func__);
     return;
   }
-  ESP_LOGI(IIR_TAG, "Initializing IIR filterbank controller (using IIR filter bank)");
+  ESP_LOGI(IIR_TAG, "Initializing IIR filterbank controller");
 
 #ifdef ALLOCATE_AUDIO_ANALYSIS_BUFFERS_DYNAMICALLY
   filter_output = (float *)calloc(N_SAMPLES, sizeof(float));
