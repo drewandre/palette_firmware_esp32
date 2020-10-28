@@ -14,7 +14,7 @@
 
 #include "bt_app_core.hpp"
 #include "audiobit.h"
-#include "audio_analysis_controller.hpp"
+#include "iir_filterbank_controller.hpp"
 
 /**
  * @brief     callback function for A2DP sink

@@ -5,7 +5,7 @@
 #include "status_led_controller.hpp"
 #include "SGTL5000_controller.hpp"
 #include "ble_controller.hpp"
-#include "audio_analysis_controller.hpp"
+#include "iir_filterbank_controller.hpp"
 #include "a2dp_controller.hpp"
 #include "eeprom_controller.hpp"
 #include "aux_detect.hpp"

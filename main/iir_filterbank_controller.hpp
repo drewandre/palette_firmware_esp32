@@ -1,41 +1,50 @@
-#ifndef __IIR_FILTERBANK_CONTROLLER_H__
-#define __IIR_FILTERBANK_CONTROLLER_H__
+#ifndef __IIR_CONTROLLER_H__
+#define __IIR_CONTROLLER_H__
 
+#define LED_UPDATE_PERIOD (1) // ms
+#define THRESHOLD_HIGH (0.1f)
+#define THRESHOLD_LOW (0.00001f)
+#define SLOW_SPEED (2)
+
+#include "stdint.h"
 #include <math.h>
 #include <string.h>
 #include "esp_dsp.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "freertos/task.h"
-#include "free_rtos_controller.hpp"
-#include "audio_analysis_controller.hpp"
+#include "iir_filterbank_controller.hpp"
+#include "led_controller.hpp"
+#include "filter.hpp"
 
-struct Filter
-{
-  int hz;
-  float amp_adjustment;
-  float delay_line[5];
-  float coefficients[5];
-};
+// #define DEBUG_AUDIO_ANALYSIS
+#define ALLOCATE_AUDIO_ANALYSIS_BUFFERS_DYNAMICALLY
 
-struct FilterBank
-{
-  int number_of_filters;
-  float averages[NUM_AUDIO_ANALYSIS_BANDS];
-  float smoothing_factor;
-  Filter filters[NUM_AUDIO_ANALYSIS_BANDS];
-};
+#define SAMPLING_RATE (44100)
+#define HALF_SAMPLING_RATE (22050)
+#define A2DP_BUFFER_LENGTH (4096)
+#define N_SAMPLES (2048) // 1024
+#define N_SAMPLES_HALF (1024) // 512
+#define SMOOTHING_FACTOR (0.6000)
+#define NUM_FFT_OCTAVES_PER_BAND (3)
 
-extern FilterBank filterBank[NUM_AUDIO_ANALYSIS_BANDS];
+const float freq_resolution = (float)SAMPLING_RATE / N_SAMPLES;
+const float half_freq_resolution = freq_resolution * 0.5;
+#define FREQ_RESOLUTION freq_resolution
+#define HALF_FREQ_RESOLUTION half_freq_resolution
 
-void calculate_iir_filter_bank();
+void init_iir_controller();
 
-void init_iir_filterbank_controller();
+void calculate_iir(void *pvParams);
 
-void deinit_iir_filterbank_controller();
+int get_num_iir_filters();
 
-float *get_iir_results();
+int checkHaveCharRepeat(const uint8_t *buffer, int len);
 
-int get_iir_num_filters();
+float *get_buffer();
 
-#endif /* __IIR_FILTERBANK_CONTROLLER_H__*/
+void copy_a2dp_buffer_to_audio_analysis_buffer(const uint8_t *data, uint32_t len);
+
+void deinit_iir_controller();
+
+#endif

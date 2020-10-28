@@ -56,7 +56,7 @@ application_task run_app_mode_switcher_task()
   #endif
     // init_status_led_controller();
     init_eeprom_controller();
-    init_audio_analysis_controller(); // should be called before init_led_controller
+    init_iir_controller(); // should be called before init_led_controller
     init_aux_detect();
     init_sgtl5000_controller();
     init_a2dp_controller();
@@ -75,7 +75,7 @@ application_task run_app_mode_switcher_task()
     deinit_sgtl5000_controller();
     deinit_eeprom_controller();
     deinit_led_controller();
-    deinit_audio_analysis_controller(); // should be called after deinit_led_controller
+    deinit_iir_controller(); // should be called after deinit_led_controller
     deinit_a2dp_controller();
     deinit_aux_detect();
     return set_application_task(OTA_FIRMWARE_UPDATE_INIT);
@@ -129,7 +129,7 @@ application_task run_app_mode_switcher_task()
     deinit_sgtl5000_controller();
     deinit_eeprom_controller();
     deinit_led_controller();
-    deinit_audio_analysis_controller(); // should be called after deinit_led_controller
+    deinit_iir_controller(); // should be called after deinit_led_controller
     deinit_a2dp_controller();
     deinit_aux_detect();
     ESP_LOGW(APPLICATION_TASK_TAG, "Shutting down...");

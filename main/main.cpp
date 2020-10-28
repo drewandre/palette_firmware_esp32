@@ -4,7 +4,7 @@
 #include "ble_controller.hpp"
 #include "a2dp_controller.hpp"
 #include "aux_detect.hpp"
-#include "audio_analysis_controller.hpp"
+#include "iir_filterbank_controller.hpp"
 #include "eeprom_controller.hpp"
 #include "status_led_controller.hpp"
 
@@ -20,7 +20,7 @@ extern "C"
     init_eeprom_controller();
     // init_aux_detect();
     init_sgtl5000_controller();
-    init_audio_analysis_controller(); // should be called before led, ble, and a2dp controllers
+    init_iir_controller(); // should be called before led, ble, and a2dp controllers
 
     /**
      * A2DP and BLE controller must be initialized together,

@@ -7,7 +7,7 @@
 #include "eeprom_controller.hpp"
 #include "free_rtos_controller.hpp"
 #include "application_task_controller.hpp"
-#include "audio_analysis_controller.hpp"
+#include "iir_filterbank_controller.hpp"
 
 #define NUM_STRIPS 1
 #define NUM_LEDS_PER_STRIP 100
@@ -68,5 +68,7 @@ void map_palette();
 void rainbow();
 
 void addGlitter( fract8 chanceOfGlitter);
+
+void run_led_audio_animation(float *buffer, int len);
 
 #endif /* __LED_CONTROLLER_H__*/
