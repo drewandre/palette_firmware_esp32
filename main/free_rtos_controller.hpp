@@ -29,13 +29,13 @@ extern TaskHandle_t FastLEDshowTaskHandle;
 extern TaskHandle_t RunAnimationTaskHandle;
 #define RUN_ANIMATION_TASK_STACK_SIZE (3072)
 #define RUN_ANIMATION_TASK_PRIORITY (10)
-#define RUN_ANIMATION_TASK_DELAY (5)
+#define RUN_ANIMATION_TASK_DELAY (10)
 #define RUN_ANIMATION_TASK_CORE_ID FASTLED_DEFAULT_CORE_ID
 
 extern TaskHandle_t RunLEDPaletteTaskHandle;
 #define RUN_LED_PALETTE_TASK_STACK_SIZE (1024)
 #define RUN_LED_PALETTE_TASK_PRIORITY (5)
-#define RUN_LED_PALETTE_TASK_DELAY (0)
+#define RUN_LED_PALETTE_TASK_DELAY (10)
 #define RUN_LED_PALETTE_TASK_CORE_ID FASTLED_DEFAULT_CORE_ID
 
 // Audio analysis controller tasks

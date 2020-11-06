@@ -23,9 +23,10 @@ bool readyFlag = false;
 int bytesReceived = 0;
 int timesWritten = 0;
 int file_size = 0;
+float progress;
+int flooredValue;
 
 esp_ota_handle_t otaHandler = 0;
-
 
 void abort_ota() {
   // esp_err_t ret = esp_ota_abort(otaHandler);
@@ -50,6 +51,7 @@ class OTAFileSizeCallbacks: public BLECharacteristicCallbacks {
 class OTAFileWriteCallbacks: public BLECharacteristicCallbacks {
   void onWrite(BLECharacteristic *pCharacteristic)
   {
+    static int lastFlooredValue = 0;
     esp_err_t ret;
     std::string rxData = pCharacteristic->getValue();
 
@@ -65,8 +67,6 @@ class OTAFileWriteCallbacks: public BLECharacteristicCallbacks {
       updateFlag = true;
     }
 
-    bytesReceived += rxData.length();
-    float progress = (float)bytesReceived/(float)file_size;
     
     if (rxData.length() > 0)
     {
@@ -76,13 +76,30 @@ class OTAFileWriteCallbacks: public BLECharacteristicCallbacks {
         abort_ota();
       }
 
-      printf("OTA progress: %-3.3f%%\n", progress * 100);
+      bytesReceived += rxData.length();
+      progress = (float)bytesReceived/(float)file_size;
+      flooredValue = floor(progress * 100);
+      if (lastFlooredValue != flooredValue) {
+        lastFlooredValue = flooredValue;
+        // printf("OTA progress: %-3.3f%%\n", progress * 100);
+        printf("OTA progress: %i%%\n", flooredValue);
+      }
+
       // show_led_ota_percentage(progress);
 
       if (rxData.length() != FULL_PACKET)
       {
         ret = esp_ota_end(otaHandler);
         if (ret == ESP_OK) {
+          bytesReceived += rxData.length();
+          progress = (float)bytesReceived/(float)file_size;
+          flooredValue = floor(progress * 100);
+          if (lastFlooredValue != flooredValue) {
+            lastFlooredValue = flooredValue;
+            // printf("OTA progress: %-3.3f%%\n", progress * 100);
+            printf("OTA progress: %i%%\n", flooredValue);
+          }
+
           ESP_LOGI(BLE_TAG, "EndOTA\n");
         } else {
           ESP_LOGE(BLE_TAG, "Error in esp_ota_end (error = %s)\n", esp_err_to_name(ret));

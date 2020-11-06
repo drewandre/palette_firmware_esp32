@@ -5,16 +5,16 @@
 #include "esp_dsp.h"
 #include "iir_filterbank_controller.hpp"
 
-#define NUMBER_OF_FILTERS 6
+#define NUMBER_OF_FILTERS 7
 #define DEFAULT_IIR_SMOOTHING 0.3f
-#define DEFAULT_IIR_Q_FACTOR 7
+#define DEFAULT_IIR_Q_FACTOR 1
 #define IIR_BASE_GAIN 4.0f
 
 typedef enum
 {
   LOW_PASS_FILTER,
   HIGH_PASS_FILTER,
-  BANDPASS_FILTER,
+  BAND_PASS_FILTER,
 } filter_type;
 
 struct Filter

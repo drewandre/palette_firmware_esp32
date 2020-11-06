@@ -8,6 +8,7 @@
 #include "free_rtos_controller.hpp"
 #include "application_task_controller.hpp"
 #include "iir_filterbank_controller.hpp"
+#include "animations.hpp"
 
 #define NUM_STRIPS 1
 #define NUM_LEDS_PER_STRIP 100
@@ -23,11 +24,32 @@ const int numLeds = NUM_STRIPS * NUM_LEDS_PER_STRIP;
 // #define LOG_FASTLED_PERFORMANCE
 
 #define NUM_CALLS_TO_N_BLEND_PALETTE_TOWARDS_PALETTE 3
-#define MAX_ANIMATION_VALUE_CHANGES 3
+#define MAX_ANIMATION_VALUE_CHANGES 1
+
+extern float hue_multiplier;
+
+extern CRGB leds[NUM_LEDS];
+
+extern CRGBPalette16 currentPalette;
+extern CRGBPalette16 targetPalette;
+
+extern TBlendType currentBlending;
+
+extern uint8_t animationVal1;
+extern uint8_t animationVal2;
+extern uint8_t animationVal3;
+extern uint8_t animationVal4;
+
+// extern const uint8_t kMatrixWidth;
+// extern const uint8_t kMatrixHeight;
+// extern const bool kMatrixSerpentineLayout;
+// extern uint8_t noise[NUM_LEDS];
 
 void init_led_controller();
 
 void run_led_palette_task(void *pvParameters);
+
+void fastled_show_esp32();
 
 void map_temp_leds_to_leds();
 

@@ -8,4 +8,4 @@ VERSION := $(shell cat $(PWD)/version.txt)
 PROJECT_NAME := $(NAME)_$(VERSION)
 $(info Set binary name to $(PROJECT_NAME))
 
-include ./components/esp-idf/make/project.mk
+include $(IDF_PATH)/make/project.mk

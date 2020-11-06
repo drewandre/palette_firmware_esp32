@@ -101,8 +101,8 @@ void copy_a2dp_buffer_to_audio_analysis_buffer(const uint8_t *data, uint32_t len
 
         sample_l_int = (int16_t)((*(data + i + 1) << 8) | *(data + i));
         sample_r_int = (int16_t)((*(data + i + 3) << 8) | *(data + i + 2));
-        sample_l_float = (float)sample_l_int / 0x8000;
-        sample_r_float = (float)sample_r_int / 0x8000;
+        sample_l_float = (float)sample_l_int / 0x8000; // 32767
+        sample_r_float = (float)sample_r_int / 0x8000; // 32767
         in = (sample_l_float + sample_r_float) / 2.0f;
         buffer[t] = in;
         t++;
@@ -148,23 +148,25 @@ void calculate_iir(void *pvParams)
           if (avg > 1)
           {
             avg = 1;
-          } else if (avg < 0.01) {
-            avg = 0;
           }
+          // else if (avg < 0.05) {
+          // avg -= 0.05;
+          // }
           filter_bank->filters[bank].average = filter_bank->filters[bank].average + (avg - filter_bank->filters[bank].average) * (float)filter_bank->filters[bank].smoothing;
+          // filter_bank->filters[bank].average = avg;
           // printf("%f ", filter_bank->filters[bank].average);
         }
         // printf("\n");
 
         AnalysisHasUpdatedData = 0;
-        updateLedPeriodCount++;
+        // updateLedPeriodCount++;
         xSemaphoreGive(xSemaphore);
       }
       else
       {
         // if (updateLedPeriodCount > LED_UPDATE_PERIOD)
         // {
-        updateLedPeriodCount = 0;
+        // updateLedPeriodCount = 0;
         // run_led_audio_animation(averages, 7);
         // }
       }

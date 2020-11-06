@@ -4,29 +4,29 @@ const char *FILTER_TAG = "FILTER GEN";
 
 Filter band1 = {
   .hz = 63,
-  .type = LOW_PASS_FILTER,
+  .type = BAND_PASS_FILTER,
   .smoothing = DEFAULT_IIR_SMOOTHING,
-  .q_factor = 2,
+  .q_factor = DEFAULT_IIR_Q_FACTOR,
   .average = 0,
-  .gain = IIR_BASE_GAIN,
+  .gain = IIR_BASE_GAIN - 2.0f,
   .delay_line = {0, 0},
   .coeffs = {}
 };
 
 Filter band2 = {
   .hz = 180,
-  .type = BANDPASS_FILTER,
+  .type = BAND_PASS_FILTER,
   .smoothing = DEFAULT_IIR_SMOOTHING,
   .q_factor = DEFAULT_IIR_Q_FACTOR,
   .average = 0,
-  .gain = IIR_BASE_GAIN,
+  .gain = IIR_BASE_GAIN - 1.0f,
   .delay_line = {0, 0},
   .coeffs = {}
 };
 
 Filter band3 = {
   .hz = 400,
-  .type = BANDPASS_FILTER,
+  .type = BAND_PASS_FILTER,
   .smoothing = DEFAULT_IIR_SMOOTHING,
   .q_factor = DEFAULT_IIR_Q_FACTOR,
   .average = 0,
@@ -37,7 +37,7 @@ Filter band3 = {
 
 Filter band4 = {
   .hz = 1000,
-  .type = BANDPASS_FILTER,
+  .type = BAND_PASS_FILTER,
   .smoothing = DEFAULT_IIR_SMOOTHING,
   .q_factor = DEFAULT_IIR_Q_FACTOR,
   .average = 0,
@@ -47,8 +47,8 @@ Filter band4 = {
 };
 
 Filter band5 = {
-  .hz = 2000,
-  .type = BANDPASS_FILTER,
+  .hz = 2500,
+  .type = BAND_PASS_FILTER,
   .smoothing = DEFAULT_IIR_SMOOTHING,
   .q_factor = DEFAULT_IIR_Q_FACTOR,
   .average = 0,
@@ -57,24 +57,24 @@ Filter band5 = {
   .coeffs = {}
 };
 
-// Filter band6 = {
-//   .hz = 5000,
-//   .type = BANDPASS_FILTER,
-//   .smoothing = 0.5f,
-//   .q_factor = DEFAULT_IIR_Q_FACTOR,
-//   .average = 0,
-//   .gain = IIR_BASE_GAIN + 4.5f,
-//   .delay_line = {0, 0},
-//   .coeffs = {}
-// };
+Filter band6 = {
+  .hz = 6250,
+  .type = BAND_PASS_FILTER,
+  .smoothing = 0.5f,
+  .q_factor = DEFAULT_IIR_Q_FACTOR,
+  .average = 0,
+  .gain = IIR_BASE_GAIN + 5.0f,
+  .delay_line = {0, 0},
+  .coeffs = {}
+};
 
 Filter band7 = {
-  .hz = 5000,
+  .hz = 8000,
   .type = HIGH_PASS_FILTER,
   .smoothing = 0.6f,
   .q_factor = 1,
   .average = 0,
-  .gain = IIR_BASE_GAIN + 5.0f,
+  .gain = IIR_BASE_GAIN + 5.5f,
   .delay_line = {0, 0},
   .coeffs = {}
 };
@@ -86,7 +86,7 @@ FilterBank bank = {
     band3,
     band4,
     band5,
-    // band6,
+    band6,
     band7,
   }
 };
@@ -105,6 +105,7 @@ int get_number_of_filters() {
 }
 
 void generate_filterbank() {
+  ESP_LOGI(FILTER_TAG, "Generating IIR filter bank coefficients");
   for (int i = 0; i < get_number_of_filters(); i++) {
     float freq = mapFloat(bank.filters[i].hz, 0.0f, (float)HALF_SAMPLING_RATE, 0.0f, 0.5f);
     filter_type type = bank.filters[i].type;
@@ -119,11 +120,12 @@ void generate_filterbank() {
       {
         ESP_LOGE(FILTER_TAG, "Unable to initialize hpf");
       }
-    } else if (type == BANDPASS_FILTER) {
+    } else if (type == BAND_PASS_FILTER) {
       if (dsps_biquad_gen_bpf_f32(bank.filters[i].coeffs, freq, bank.filters[i].q_factor) != ESP_OK)
       {
         ESP_LOGE(FILTER_TAG, "Unable to initialize bpf");
       }
     }
   }
+  ESP_LOGI(FILTER_TAG, "IIR filter bank coefficients generated");
 }
