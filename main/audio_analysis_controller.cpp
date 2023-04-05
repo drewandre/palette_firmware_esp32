@@ -499,24 +499,63 @@ void run_audio_analysis_task(void *pvParameters) {
 
 void copy_a2dp_buffer_to_audio_analysis_buffer(const uint8_t *data, uint32_t len)
 {
+  // if this audio analysis controller is initialized AND our semaphore is available
   if (initialized && xSemaphore) {
+    // if the previously calculated audio analysis buffer has NOT yet been utilized
+    // (by the LED animation controller), AND we were able to successfully acquire the semaphore
     if (AnalysisHasUpdatedData == 0 && (pdTRUE == xSemaphoreTake(xSemaphore, 0))) {
+      // t represents the current index of the A2DP buffer
       int t = 0;
+
+      // holds 10-bit values for left/right amplitudes of current frame
       int16_t sample_l_int = 0;
       int16_t sample_r_int = 0;
+
+      // holds floating-point values for left/right amplitudes of current frame
       float sample_l_float = 0.0f;
       float sample_r_float = 0.0f;
+
+      // holds an stereo-averaged value of the current frame
       float in = 0.0f;
 
+      /**
+        the bluetooth audio stream uses interleaved audio (in order to protect from packet loss),
+        which is a representation of the digital audio stream with alternating data for the stereo channels.
+
+        the packets of this stream look like:
+        [left,right,left,right]
+        where "left" and "right" are 8-bit values
+      */
+
       for (uint32_t i = 0; i < A2DP_BUFFER_LENGTH; i += 4) {
+        /**
+          the logic below behaves as follows:
+          1.  *(data + i) retrieves the byte at index i from the audio buffer
+          2.  *(data + i + 1) retrieves the byte at index i + 1 from the audio buffer
+          3.  (*(data + i + 1) << 8) shifts the previously retrieved byte to the left by 8 bits,
+                making it the most significant byte of the resulting 16-bit integer
+          4.  (*(data + i + 1) << 8) | *(data + i) combines the most significant byte from step 3
+                with the least significant byte from step 1 using the OR operator,
+                which constructs a 16-bit integer value
+          5.  (int16_t) casts the resulting value to a signed 16-bit integer
+        */
+        
         sample_l_int = (int16_t)((*(data + i + 1) << 8) | *(data + i));
         sample_r_int = (int16_t)((*(data + i + 3) << 8) | *(data + i + 2));
+
+        // scale the 10-bit values (0 to 1023) down to floating point value with a normalized range (-1 to 1)
         sample_l_float = (float)sample_l_int / 0x8000;
         sample_r_float = (float)sample_r_int / 0x8000;
+
+        // average into a stereo value, add to A2DP buffer,
+        // and increment current buffer index (t)
         in = (sample_l_float + sample_r_float) * 0.5;
         buffer[t] = in;
         t++;
       }
+
+      // set a flag to indicate to the LED animation controller that
+      // there is updated audio analysis data, AND release the semaphore
       AnalysisHasUpdatedData = 1;
       xSemaphoreGive(xSemaphore);
     }
@@ -584,22 +623,36 @@ float calcAvg(float lowFreq, float hiFreq) {
 void calculate_fft() {
   if (!initialized)
   {
+    // FFT memory has not yet been allocated
     ESP_LOGE(AUDIO_ANALYSIS_TAG, "Audio analysis controller has not yet been allocated. Please call init_audio_analysis_controller() before calculate_fft(). Exiting calculate_fft().");
-    return; // FFT memory has not yet been allocated
+    return;
   }
 
   for (int i = 0; i < N_SAMPLES; i++) {
+    // fill working analysis buffer with a complex array containing audio analysis data
+    // [Re[0], Im[0], ... Re[N-1], Im[N-1]]
+    // while simultaneously applying windowing adjustments
+    // https://www.egr.msu.edu/classes/me451/me451_labs/Fall_2013/Understanding_FFT_Windows.pdf
     y_cf[i * 2 + 0] = buffer[i] * wind[i];
     y_cf[i * 2 + 1] = 0;
   }
 
+  // calculate fft
+  // https://espressif-docs.readthedocs-hosted.com/projects/esp-dsp/en/latest/esp-dsp-apis.html#fft
   dsps_fft2r_fc32(y_cf, N_SAMPLES);
+
+  // bit reversal ensures that the data is arranged in a "butterfly" pattern,
+  // which allows the FFT algorithm to perform the necessary computations efficiently
   dsps_bit_rev_fc32(y_cf, N_SAMPLES);
 
+  // create a working analysis buffer that contains the relevant 0hz to (SAMPLING_RATE/2)hz FFT data
   for (int i = 0; i < N_SAMPLES_HALF; i++) {
     y1_cf[i] = (y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N_SAMPLES;
   }
   
+  // further reduce the analysis buffer into a smaller buffer that contains
+  // an octave-band representation of the y1_cf buffer
+  // https://en.wikipedia.org/wiki/Octave_band
   average_into_octave_bands();
 }
 
